@@ -20,10 +20,7 @@ public class MainApp {
 
                 soutClasses();
                 String classChoice = scanner.next();
-                if(classChoice.equals("quit")){
-                    repeat = false;
-                    continue;
-                }
+
                 switch(classChoice){
                     case "exercise":
                         break;
@@ -32,6 +29,9 @@ public class MainApp {
                     case "user_group":
                         break;
                     case "users":
+                        break;
+                    case "quit":
+                        repeat = false;
                         break;
                     default:
                         System.out.println("Nie znane wyrazenie");
@@ -61,7 +61,7 @@ public class MainApp {
                 "[quit - zakonczenie programu]\n"
                 , add, edit, delete);
     }
-    static void  options(String add, String view){
+    static void  soutoptions(String add, String view){
         System.out.printf(
                 "[add - %s]\n" +
                 "[view - %s]\n" +
