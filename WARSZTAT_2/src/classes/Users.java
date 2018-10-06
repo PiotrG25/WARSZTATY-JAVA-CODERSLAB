@@ -16,6 +16,7 @@ public class Users {
         this.setPassword(password);
         this.user_group_id = user_group_id;
     }
+
     public Users(){}
 
     public Object saveToDB(Connection conn) throws SQLException {
@@ -23,41 +24,46 @@ public class Users {
             System.err.println("Brakuje kilku argumentów");
             return null;
         }
-        //Blok kodu walidujacy dane
-        {
-            Statement stm = conn.createStatement();
-            //check user_group_id existance
-            String check = "SELECT id FROM user_group;";
-            ResultSet rs = stm.executeQuery(check);
-            boolean yes = false;
-            while(rs.next()){
-                if(rs.getInt("id") == user_group_id){
-                    yes = true;
-                    break;
-            }}
-            rs.close();
-            if(!yes){
-                System.err.println("Nie ma grupy o takim id");
-                return null;
+        Statement stm = conn.createStatement();
+
+        //check if user_group_id existance
+        String check = "SELECT id FROM user_group;";
+        ResultSet rs = stm.executeQuery(check);
+
+        boolean existsGroupId = false;
+        while(rs.next()){
+            if(rs.getInt("id") == user_group_id){
+                existsGroupId = true;
+                break;
+        }}
+        rs.close();
+
+        if(existsGroupId == false){
+            System.err.println("Nie ma grupy o takim id");
+            return null;
+        }
+
+        //check email Uniquness
+        check = "SELECT email, id FROM users;";
+        rs = stm.executeQuery(check);
+
+        boolean isUnique = true;
+        while(rs.next()){
+            if(rs.getString("email").equals(email)){
+                isUnique = false;
+                if(rs.getInt("id") == id){
+                    isUnique = true;
+                }
+                break;
             }
-            //check email Uniquness
-            check = "SELECT email, id FROM users;";
-            rs = stm.executeQuery(check);
-            yes = true;
-            while(rs.next()){
-                if(rs.getString("email").equals(email)){
-                    yes = false;
-                    if(rs.getInt("id") == id){
-                        yes = true;
-                    }
-                    break;
-            }}
-            rs.close();
-            if(!yes){
-                System.err.println("Taki email już istnieje");
-                return null;
-            }
-        }//Koniec bloku walidujacego dane
+        }
+        rs.close();
+
+        if(isUnique == false){
+            System.err.println("Taki email już istnieje");
+            return null;
+        }
+//        Koniec walidacji
 
         if(id == 0){
             String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
@@ -69,7 +75,7 @@ public class Users {
             pstm.setInt(4, user_group_id);
 
             pstm.executeUpdate();
-            ResultSet rs = pstm.getGeneratedKeys();
+            rs = pstm.getGeneratedKeys();
             this.id = rs.getInt("id");
 
             rs.close();
@@ -86,6 +92,7 @@ public class Users {
         }
         return 0;
     }
+
 //        todo: test: czy metoda nie zwrocila nulla
 //        todo: czy obiekt ma szystkie dane takie same jak w recordzie
 //        todo:
@@ -110,26 +117,7 @@ public class Users {
         System.err.println("Brak urzytkownika o takim id");
         return null;
     }
-    public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
-        String selectByEmail = "SELECT * FROM users WHERE email = ?";
-        PreparedStatement pstm = conn.prepareStatement(selectByEmail);
-        pstm.setString(1, email);
-        ResultSet rs = pstm.executeQuery();
 
-        if(rs.next()){
-            String name = rs.getString("username");
-            String password = rs.getString("password");
-            int user_group_id = rs.getInt("user_gorup_id");
-
-            Users u = new Users(name, email, password, user_group_id);
-            u.id = rs.getInt("id");
-            rs.close();
-            return u;
-        }
-        rs.close();
-        System.err.println("Brak urzytkownika o takim emailu");
-        return null;
-    }
 //        todo: test: czy ne zwraca nulla
 //        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
 //        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
@@ -153,15 +141,39 @@ public class Users {
             return u;
         }
     }
+
     public void delete(Connection conn) throws SQLException{
 //        todo: usunac obiekt ktory jest w bazie danych(id != 0)
 //        todo: jezeli go tam nie ma nic nie robid
 //        todo: gdy usuniemy obiekt zmieniamy jego id na 0
 //        todo:
     }
+
     public static Users[] loadAllByGroupId(Connection conn, int id) throws SQLException {
 //        todo: pobranie wszystkich uzytkownikow z grupy
 //        todo:
+        return null;
+    }
+
+//    To sie na nic nie przyda XD
+    public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
+        String selectByEmail = "SELECT * FROM users WHERE email = ?";
+        PreparedStatement pstm = conn.prepareStatement(selectByEmail);
+        pstm.setString(1, email);
+        ResultSet rs = pstm.executeQuery();
+
+        if(rs.next()){
+            String name = rs.getString("username");
+            String password = rs.getString("password");
+            int user_group_id = rs.getInt("user_gorup_id");
+
+            Users u = new Users(name, email, password, user_group_id);
+            u.id = rs.getInt("id");
+            rs.close();
+            return u;
+        }
+        rs.close();
+        System.err.println("Brak urzytkownika o takim emailu");
         return null;
     }
 
@@ -175,7 +187,7 @@ public class Users {
     }
     public Users setPassword(String password){
         String hashed;
-        hashed = classes.BCrypt.hashpw(password, classes.BCrypt.gensalt());
+        hashed = BCrypt.hashpw(password, classes.BCrypt.gensalt());
         this.password = hashed;
         return this;
     }
