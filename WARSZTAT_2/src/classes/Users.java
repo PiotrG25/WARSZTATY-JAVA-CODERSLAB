@@ -19,10 +19,10 @@ public class Users {
 
     public Users(){}
 
-    public Object saveToDB(Connection conn) throws SQLException {
+    public String saveToDB(Connection conn) throws SQLException {
         if(!this.isAllSet()){
             System.err.println("Brakuje kilku argumentów");
-            return null;
+            return "args";
         }
         Statement stm = conn.createStatement();
 
@@ -40,7 +40,7 @@ public class Users {
 
         if(existsGroupId == false){
             System.err.println("Nie ma grupy o takim id");
-            return null;
+            return "group";
         }
 
         //check email Uniquness
@@ -61,7 +61,7 @@ public class Users {
 
         if(isUnique == false){
             System.err.println("Taki email już istnieje");
-            return null;
+            return "email";
         }
 //        Koniec walidacji
 
@@ -90,7 +90,7 @@ public class Users {
 
             pstm2.executeUpdate();
         }
-        return 0;
+        return "0";
     }
 
 //        todo: test: czy metoda nie zwrocila nulla
@@ -155,7 +155,6 @@ public class Users {
         return null;
     }
 
-//    To sie na nic nie przyda XD
     public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
         String selectByEmail = "SELECT * FROM users WHERE email = ?";
         PreparedStatement pstm = conn.prepareStatement(selectByEmail);
