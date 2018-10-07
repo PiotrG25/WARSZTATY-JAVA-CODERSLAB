@@ -11,6 +11,7 @@ public class Users {
     private int user_group_id;
 
     public Users(String username, String email, String password, int user_group_id){
+        this.id = 0;
         this.username = username;
         this.email = email;
         this.setPassword(password);
@@ -143,10 +144,13 @@ public class Users {
     }
 
     public void delete(Connection conn) throws SQLException{
-//        todo: usunac obiekt ktory jest w bazie danych(id != 0)
-//        todo: jezeli go tam nie ma nic nie robid
-//        todo: gdy usuniemy obiekt zmieniamy jego id na 0
-//        todo:
+        if(this.id != 0){
+            String delete = "DELETE FROM users WHERE id = ?";
+            PreparedStatement pstm = conn.prepareStatement(delete);
+            pstm.setInt(1, this.id);
+            pstm.executeUpdate();
+            this.id = 0;
+        }
     }
 
     public static Users[] loadAllByGroupId(Connection conn, int id) throws SQLException {

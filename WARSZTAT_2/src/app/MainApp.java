@@ -1,5 +1,7 @@
 package app;
 
+import classes.User_group;
+
 import java.sql.*;
 import java.util.Scanner;
 
@@ -17,7 +19,7 @@ public class MainApp {
 
         do{
             Scanner scanner = new Scanner(System.in);
-            Sout.soutClasses();
+            Print.printClasses();
             String classChoice = scanner.next();
 
             switch(classChoice){
@@ -28,12 +30,34 @@ public class MainApp {
                 case "user_group":
                     break;
                 case "users":
+                    Print.ptintUsersOptions();
+                    String userAction = scanner.next();
+                    switch (userAction){
+                        case "quit":
+                            break;
+                        case "add":
+                            UsersHandling.addUser(conn);
+                            break;
+                        case "edit":
+                            UsersHandling.editUser(conn);
+                            break;
+                        case "delete":
+                            UsersHandling.deleteUser(conn);
+                            break;
+                        case "print":
+                            UsersHandling.printUser(conn);
+                            break;
+                        case "printAll":
+                            UsersHandling.printAllUsers(conn);
+                            break;
+                    }
+
                     break;
                 case "quit":
                     repeat = false;
                     break;
                 default:
-                    System.out.println("Nie znane wyrazenie");
+                    System.out.println("Nie obslugiwane wyrazenie");
                     break;
             }
 
