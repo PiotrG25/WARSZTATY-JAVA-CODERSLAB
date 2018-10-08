@@ -68,7 +68,7 @@ public class Users {
 
         if(id == 0){
             String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
-            PreparedStatement pstm = conn.prepareStatement(insert);
+            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
 
             pstm.setString(1, username);
             pstm.setString(2, email);
@@ -77,7 +77,9 @@ public class Users {
 
             pstm.executeUpdate();
 
-            this.id = loadUserByEmail(conn, email).getId();
+            rs = pstm.getGeneratedKeys();
+
+            this.id = rs.getInt(1);
 
             rs.close();
         }else{
@@ -99,7 +101,7 @@ public class Users {
 //        todo: czy obiekt ma szystkie dane takie same jak w recordzie
 //        todo:
     public static Users loadUserById(Connection conn, int id) throws SQLException {
-        String selectById = "SELECT * FROM users WHERE id = ?";
+        String selectById = "SELECT * FROM users WHERE id = ?;";
         PreparedStatement pstm = conn.prepareStatement(selectById);
         pstm.setInt(1, id);
         ResultSet rs = pstm.executeQuery();
@@ -121,7 +123,7 @@ public class Users {
     }
 
     public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
-        String selectByEmail = "SELECT * FROM users WHERE email = ?";
+        String selectByEmail = "SELECT * FROM users WHERE email = ?;";
         PreparedStatement pstm = conn.prepareStatement(selectByEmail);
         pstm.setString(1, email);
         ResultSet rs = pstm.executeQuery();
@@ -146,7 +148,7 @@ public class Users {
 //        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
 //        todo:
     public static Users[] loadAllUsers(Connection conn) throws SQLException {
-        String selectIds = "SELECT id FROM users";
+        String selectIds = "SELECT id FROM users;";
         ResultSet rs = (conn.createStatement()).executeQuery(selectIds);
         Users[] u = new Users[1];
 
@@ -167,7 +169,7 @@ public class Users {
 
     public void delete(Connection conn) throws SQLException{
         if(this.id != 0){
-            String delete = "DELETE FROM users WHERE id = ?";
+            String delete = "DELETE FROM users WHERE id = ?;";
             PreparedStatement pstm = conn.prepareStatement(delete);
             pstm.setInt(1, this.id);
             pstm.executeUpdate();

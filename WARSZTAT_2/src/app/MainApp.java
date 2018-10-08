@@ -34,6 +34,7 @@ public class MainApp {
                     Print.ptintUsersOptions();
                     String userAction = scanner.next();
                     switch (userAction){
+                        //todo czy dziala w nietypowych sytuacjach
                         case "quit":
                             break;
                         case "add":
@@ -53,6 +54,7 @@ public class MainApp {
                             UsersHandling.printUser(conn);
                             break;
                         case "printAll":
+                            //dziala
                             UsersHandling.printAllUsers(conn);
                             break;
                     }

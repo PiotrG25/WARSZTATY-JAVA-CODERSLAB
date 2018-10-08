@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 public class User_group {
     private int id;
     private String name;
@@ -14,15 +16,28 @@ public class User_group {
         this.name = name;
     }
 
-    public void saveToDB(Connection conn) throws SQLException {
-        //todo: czy id == 0
-        //todo: czy gdy id != 0 chcesz zmienic zawartosc
-        //todo: czy wszystkie atrybuty sa wypelnione
-        //todo: czy nie ma obiektu juz w taleli
-        //todo: ewentualnie zmienic istniejacy obiekt
-        //todo: czy prepare statement zwraca jakies wyjatki
-        //todo: pobrac id z bazy i przypisac do obiektu
-        //todo:
+    public String saveToDB(Connection conn) throws SQLException {
+
+        if(this.name == null){
+            System.err.println("Brakuje kilku argumentów");
+            return "name";
+        }
+        if(id == 0){
+            String insert = "INSERT INTO user_group (name) VALUES (?)";
+            PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
+
+            pstm.setString(1, name);
+
+            pstm.executeUpdate();
+
+            ResultSet rs = pstm.getGeneratedKeys();
+            rs.next();
+            id = rs.getInt(1);
+
+            rs.close();
+        }
+        //todo: gdy id != 0 zmienic zawartosc
+        return "0";
     }
     public static User_group loadUser_groupById(Connection conn, int id) throws SQLException {
         String selectById = "SELECT * FROM user_group WHERE id = ?";

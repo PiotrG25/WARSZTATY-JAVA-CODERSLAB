@@ -196,7 +196,7 @@ public class UsersHandling {
                     break;
                 default:
                     repeatChoice = true;
-                    System.out.println("Wybiez z ponizszych");
+                    System.out.println("Wybiez z powyzszych");
                     break;
             }
         }while (repeatChoice);
