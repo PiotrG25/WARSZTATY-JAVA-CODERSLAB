@@ -4,7 +4,6 @@ import classes.Users;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class UsersHandling {
     public static void addUser(Connection conn)throws SQLException{

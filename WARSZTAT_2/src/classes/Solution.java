@@ -1,9 +1,6 @@
 package classes;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -80,41 +77,50 @@ public class Solution {
             return "group";
         }
 
-//        todo all of this
-//        if(id == 0){
-//            String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
-//            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
-//
-//            pstm.setString(1, username);
-//            pstm.setString(2, email);
-//            pstm.setString(3, password);
-//            pstm.setInt(4, user_group_id);
-//
-//            pstm.executeUpdate();
-//
-//            rs = pstm.getGeneratedKeys();
-//
-//            this.id = rs.getInt(1);
-//
-//            rs.close();
-//        }else{
-////            todo podzielic edycje na osobne metody do kazdej zmiennej
-//            String update = "UPDATE users SET username = ?, email = ?, password = ?, user_group_id = ?;";
-//            PreparedStatement pstm2 = conn.prepareStatement(update);
-//
-//            pstm2.setString(1, username);
-//            pstm2.setString(2, email);
-//            pstm2.setString(3, password);
-//            pstm2.setInt(4, user_group_id);
-//
-//            pstm2.executeUpdate();
-//        }
+        if(id == 0){
+            String insert = "INSERT INTO solution (created, updated, description, exercise_id, users_id) VALUES (?, ?, ?, ?, ?);";
+            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+
+            pstm.setString(1, created);
+            pstm.setString(2, updated);
+            pstm.setString(3, description);
+            pstm.setInt(4, exercise_id);
+            pstm.setInt(5, users_id);
+
+            pstm.executeUpdate();
+
+            rs = pstm.getGeneratedKeys();
+
+            this.id = rs.getInt(1);
+
+            rs.close();
+        }else{
+//            todo podzielic edycje na osobne metody do kazdej zmiennej
+            ;
+        }
         return "0";
     }
     public static Solution loadSolutionById(Connection conn, int id) throws SQLException {
-//        todo: test: czy metoda nie zwrocila nulla
-//        todo: czy obiekt ma szystkie dane takie same jak w recordzie
-//        todo:
+        String select = "SELECT * FROM solutions WHERE id=?;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+        pstm.setInt(1, id);
+        ResultSet rs = pstm.executeQuery();
+
+        if(rs.next()){
+//            todo ogarnac DATETIME
+//            String created =
+//            String updated =
+            String description = rs.getString("description");
+            int exercise_id = rs.getInt("exercise_id");
+            int users_id = rs.getInt("users_id");
+
+//            Solution solution = new Solution(created, updated, description, exercise_id, users_id);
+
+            rs.close();
+//            return solution;
+        }
+        rs.close();
+        System.err.println("Brak rozwiazania o takim id");
         return null;
     }
     public static Solution[] loadAllSolutions(Connection conn) throws SQLException {
