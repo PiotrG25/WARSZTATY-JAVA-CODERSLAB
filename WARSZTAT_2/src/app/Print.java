@@ -5,7 +5,7 @@ public class Print {
         System.out.println(
                 "Wybierz klase na ktorej chcesz operowac\n" +
                         "[quit - zakonczenie programu]" +
-                        "[exercise][solution][user_group][users]\n"
+                        "[exercise][solution][user_group][users]"
         );
     }
 

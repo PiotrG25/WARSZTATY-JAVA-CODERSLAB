@@ -43,7 +43,7 @@ public class User_group {
         System.err.println("Brak grupy o takim id");
         return null;
     }
-    
+
     public static User_group[] loadAllUser_groups(Connection conn) throws SQLException {
         String selectIds = "SELECT id FROM user_group";
         ResultSet rs = (conn.createStatement()).executeQuery(selectIds);

@@ -76,11 +76,12 @@ public class Users {
             pstm.setInt(4, user_group_id);
 
             pstm.executeUpdate();
-            rs = pstm.getGeneratedKeys();
-            this.id = rs.getInt("id");
+
+            this.id = loadUserByEmail(conn, email).getId();
 
             rs.close();
         }else{
+//            todo podzielic edycje na osobne metody do kazdej zmiennej
             String update = "UPDATE users SET username = ?, email = ?, password = ?, user_group_id = ?;";
             PreparedStatement pstm2 = conn.prepareStatement(update);
 
@@ -107,7 +108,7 @@ public class Users {
             String name = rs.getString("username");
             String email = rs.getString("email");
             String password = rs.getString("password");
-            int user_group_id = rs.getInt("user_gorup_id");
+            int user_group_id = rs.getInt("user_group_id");
 
             Users u = new Users(name, email, password, user_group_id);
             u.id = id;
@@ -116,6 +117,27 @@ public class Users {
         }
         rs.close();
         System.err.println("Brak urzytkownika o takim id");
+        return null;
+    }
+
+    public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
+        String selectByEmail = "SELECT * FROM users WHERE email = ?";
+        PreparedStatement pstm = conn.prepareStatement(selectByEmail);
+        pstm.setString(1, email);
+        ResultSet rs = pstm.executeQuery();
+
+        if(rs.next()){
+            String name = rs.getString("username");
+            String password = rs.getString("password");
+            int user_group_id = rs.getInt("user_group_id");
+
+            Users u = new Users(name, email, password, user_group_id);
+            u.id = rs.getInt("id");
+            rs.close();
+            return u;
+        }
+        rs.close();
+        System.err.println("Brak urzytkownika o takim emailu");
         return null;
     }
 
@@ -156,27 +178,6 @@ public class Users {
     public static Users[] loadAllByGroupId(Connection conn, int id) throws SQLException {
 //        todo: pobranie wszystkich uzytkownikow z grupy
 //        todo:
-        return null;
-    }
-
-    public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
-        String selectByEmail = "SELECT * FROM users WHERE email = ?";
-        PreparedStatement pstm = conn.prepareStatement(selectByEmail);
-        pstm.setString(1, email);
-        ResultSet rs = pstm.executeQuery();
-
-        if(rs.next()){
-            String name = rs.getString("username");
-            String password = rs.getString("password");
-            int user_group_id = rs.getInt("user_gorup_id");
-
-            Users u = new Users(name, email, password, user_group_id);
-            u.id = rs.getInt("id");
-            rs.close();
-            return u;
-        }
-        rs.close();
-        System.err.println("Brak urzytkownika o takim emailu");
         return null;
     }
 

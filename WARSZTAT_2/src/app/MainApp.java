@@ -6,6 +6,8 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class MainApp {
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
     try(
         Connection conn = DriverManager.getConnection(
@@ -18,7 +20,6 @@ public class MainApp {
         System.out.println("Witam w programie");
 
         do{
-            Scanner scanner = new Scanner(System.in);
             Print.printClasses();
             String classChoice = scanner.next();
 
@@ -36,15 +37,19 @@ public class MainApp {
                         case "quit":
                             break;
                         case "add":
+                            //dziala
                             UsersHandling.addUser(conn);
                             break;
                         case "edit":
+                            //todo osobne metody
                             UsersHandling.editUser(conn);
                             break;
                         case "delete":
+                            //dziala
                             UsersHandling.deleteUser(conn);
                             break;
                         case "print":
+                            //dziala
                             UsersHandling.printUser(conn);
                             break;
                         case "printAll":
@@ -61,8 +66,8 @@ public class MainApp {
                     break;
             }
 
-            scanner.close();
         }while(repeat);
+        scanner.close();
 
         System.out.println("Koniec");
 
