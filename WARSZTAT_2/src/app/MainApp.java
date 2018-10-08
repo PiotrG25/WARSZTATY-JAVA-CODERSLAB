@@ -29,6 +29,29 @@ public class MainApp {
                 case "solution":
                     break;
                 case "user_group":
+                    Print.printUser_groupOptions();
+                    String user_groupAction = scanner.next();
+                    switch (user_groupAction){
+                        case "quit":
+
+                            break;
+                        case "add":
+
+                            break;
+                        case "edit":
+
+                            break;
+                        case "delete":
+
+                            break;
+                        case "print":
+
+                            break;
+                        case "printAll":
+
+                            break;
+                    }
+
                     break;
                 case "users":
                     Print.ptintUsersOptions();

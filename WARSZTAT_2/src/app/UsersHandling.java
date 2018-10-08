@@ -24,6 +24,7 @@ public class UsersHandling {
         while(!MainApp.scanner.hasNextInt()){
             System.out.println("Podaj wartosc calkowita");
             System.out.println("Podaj do ktorej grupy nalezy(user_group_id)");
+            MainApp.scanner.next();
         }
         user_group_id = MainApp.scanner.nextInt();
 
