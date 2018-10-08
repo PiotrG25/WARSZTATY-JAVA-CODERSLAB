@@ -9,8 +9,24 @@ public class Print {
         );
     }
 
-    public static void printSolution(){
+    public static void printExerciseOptions(){
+        printOptions(
+                "dodaj zadanie",
+                "edytuj zadanie",
+                "usun zadanie",
+                "wyswietl zadanie",
+                "wyswietl wszystkie zadania"
+        );
+    }
 
+    public static void printSolutionOptions(){
+        printOptions(
+                "dodaj rozwiazanie",
+                "edytuj rozwiazanie",
+                "usun rozwiazanie",
+                "wyswietl rozwiazanie",
+                "wyswietl wszystkie rozwiazania"
+        );
     }
 
     public static void printUser_groupOptions(){

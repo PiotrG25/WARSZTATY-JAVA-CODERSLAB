@@ -15,18 +15,7 @@ public class User_groupHandling {
 
         User_group user_group = new User_group(name);
 
-        boolean added = false;
-
-        do{
-            String adding = user_group.saveToDB(conn);
-
-            if(adding.equals("name")){
-                System.out.println("Brakuje nazwy grupy");
-                name = MainApp.scanner.next();
-            }else{
-                added = true;
-            }
-        }while(added == false);
+        user_group.saveToDB(conn);
 
         System.out.println("----------");
     }

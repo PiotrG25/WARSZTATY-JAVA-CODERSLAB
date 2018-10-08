@@ -24,8 +24,11 @@ public class MainApp {
             String classChoice = scanner.next();
 
             switch(classChoice){
+                case "quit":
+                    repeat = false;
+                    break;
                 case "exercise":
-                    Print.printSolution();
+                    Print.printExerciseOptions();
                     String exerciseAction = scanner.next();
                     switch (exerciseAction){
                         //todo all
@@ -35,18 +38,22 @@ public class MainApp {
                             ExerciseHandling.addExercise(conn);
                             break;
                         case "edit":
+                            ExerciseHandling.editExercise(conn);
                             break;
                         case "delete":
+                            ExerciseHandling.deleteExercise(conn);
                             break;
                         case "print":
+                            ExerciseHandling.printExercise(conn);
                             break;
                         case "printAll":
+                            ExerciseHandling.printAllExercise(conn);
                             break;
                     }
 
                     break;
                 case "solution":
-                    Print.printSolution();
+                    Print.printSolutionOptions();
                     String solutionAction = scanner.next();
                     switch (solutionAction){
                         //todo all
@@ -124,9 +131,6 @@ public class MainApp {
                             break;
                     }
 
-                    break;
-                case "quit":
-                    repeat = false;
                     break;
                 default:
                     System.out.println("Nie obslugiwane wyrazenie");

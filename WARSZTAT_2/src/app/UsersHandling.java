@@ -30,31 +30,7 @@ public class UsersHandling {
 
         Users user = new Users(username,email,password,user_group_id);
 
-        boolean added = false;
-
-        do{
-            String adding = user.saveToDB(conn);
-
-            switch (adding){
-                case "group":
-                    System.out.println("Podana grupa(user_group_id) nie istnieje");
-                    while(!MainApp.scanner.hasNextInt()){
-                        System.out.println("Podaj wartosc calkowita");
-                        MainApp.scanner.next();
-                    }
-                    user_group_id = MainApp.scanner.nextInt();
-                    user.setUser_group_id(user_group_id);
-                    break;
-                case "email":
-                    System.out.println("Podany email juz istnieje");
-                    email = MainApp.scanner.next();
-                    user.setEmail(email);
-                    break;
-                default:
-                    added = true;
-                    break;
-            }
-        }while(added == false);
+        user.saveToDB(conn);
 
         System.out.println("----------");
     }
@@ -82,19 +58,22 @@ public class UsersHandling {
             user = Users.loadUserById(conn, id);
         }
 
-        boolean repeatchoice;
+        boolean repeatchoice = true;
 
         do{
             System.out.println("Podaj wartosc jaka chcesz edytowac");
+            System.out.println("[quit] - nic");
             System.out.println("[username] - nazwa uzytkownika");
             System.out.println("[email] - email uzytkownika");
             System.out.println("[group] - grupa uzytkownika");
             System.out.println("[password] - haslo uzytkownika");
 
             String toEdit = MainApp.scanner.next();
-            repeatchoice = false;
 
             switch (toEdit){
+                case "quit":
+                    repeatchoice = false;
+                    break;
                 case "username":
                     System.out.println("Podaj nowa nazwe uzytkownika");
                     user.setUserName(MainApp.scanner.next());
@@ -117,35 +96,12 @@ public class UsersHandling {
                     user.setPassword(MainApp.scanner.next());
                     break;
                 default:
-                    repeatchoice = true;
-                    System.out.println("Wybierz z pocizszych");
+                    System.out.println("Nie obslugiwane wyrazenie");
                     break;
             }
         }while(repeatchoice);
 
-        boolean added = false;
-
-        do{
-            String adding = user.saveToDB(conn);
-
-            switch (adding){
-                case "group":
-                    System.out.println("Podana grupa(user_group_id) nie istnieje");
-                    while(!MainApp.scanner.hasNextInt()){
-                        System.out.println("Podaj wartosc calkowita");
-                        MainApp.scanner.next();
-                    }
-                    user.setUser_group_id(MainApp.scanner.nextInt());
-                    break;
-                case "email":
-                    System.out.println("Podany email juz istnieje");
-                    user.setEmail(MainApp.scanner.next());
-                    break;
-                default:
-                    added = true;
-                    break;
-            }
-        }while(added == false);
+        user.saveToDB(conn);
 
         System.out.println("----------");
     }

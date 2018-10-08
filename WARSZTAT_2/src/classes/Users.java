@@ -143,10 +143,6 @@ public class Users {
         return null;
     }
 
-//        todo: test: czy ne zwraca nulla
-//        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
-//        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
-//        todo:
     public static Users[] loadAllUsers(Connection conn) throws SQLException {
         String selectIds = "SELECT id FROM users;";
         ResultSet rs = (conn.createStatement()).executeQuery(selectIds);
@@ -168,12 +164,12 @@ public class Users {
     }
 
     public void delete(Connection conn) throws SQLException{
-        if(this.id != 0){
+        if(id != 0){
             String delete = "DELETE FROM users WHERE id = ?;";
             PreparedStatement pstm = conn.prepareStatement(delete);
             pstm.setInt(1, this.id);
             pstm.executeUpdate();
-            this.id = 0;
+            id = 0;
         }
     }
 

@@ -1,6 +1,7 @@
 package classes;
 
 import java.sql.*;
+import java.util.Arrays;
 
 public class Exercise {
     private int id;
@@ -44,19 +45,53 @@ public class Exercise {
         return "0";
     }
     public static Exercise loadExerciseById(Connection conn, int id) throws SQLException {
-//        todo: test: czy metoda nie zwrocila nulla
-//        todo: czy obiekt ma szystkie dane takie same jak w recordzie
-//        todo:
+        String select = "SELECT * FROM exercise WHERE id=?;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+        pstm.setInt(1, id);
+        ResultSet rs = pstm.executeQuery();
+
+        if(rs.next()){
+            String title = rs.getString("title");
+            String description = rs.getString("description");
+
+            Exercise exercise = new Exercise(title, description);
+            exercise.id = id;
+
+            rs.close();
+            return exercise;
+        }
+        rs.close();
+        System.out.println("Nie ma zadania o takim id");
         return null;
     }
     public static Exercise[] loadAllExercises(Connection conn) throws SQLException {
-//        todo: test: czy ne zwraca nulla
-//        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
-//        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
-//        todo:
-        return null;
+        String selectIds = "SELECT id FROM exercise;";
+        ResultSet rs = (conn.createStatement()).executeQuery(selectIds);
+        Exercise[] exercises = new Exercise[1];
+
+        while(rs.next()){
+            exercises[exercises.length - 1] = loadExerciseById(conn, rs.getInt("id"));
+            exercises = Arrays.copyOf(exercises, exercises.length + 1);
+        }
+        rs.close();
+        exercises = Arrays.copyOf(exercises, exercises.length - 1);
+
+        if(exercises.length == 0){
+            System.out.println("Brak zadan");
+            return null;
+        }else{
+            return exercises;
+        }
     }
+
     public void delete(Connection conn) throws SQLException {
+        if(id != 0){
+            String delete = "DELETE FROM exercise WHERE id=?";
+            PreparedStatement pstm = conn.prepareStatement(delete);
+            pstm.setInt(1, id);
+            pstm.executeUpdate();
+            id = 0;
+        }
 //        todo: usunac obiekt ktory jest w bazie danych(id != 0)
 //        todo: jezeli go tam nie ma nic nie robid
 //        todo: gdy usuniemy obiekt zmieniamy jego id na 0
