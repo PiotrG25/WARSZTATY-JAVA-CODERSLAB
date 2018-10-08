@@ -31,22 +31,27 @@ public class MainApp {
                     Print.printExerciseOptions();
                     String exerciseAction = scanner.next();
                     switch (exerciseAction){
-                        //todo all
+                        //todo czy dziala w szegulnych przypadkach
                         case "quit":
                             break;
                         case "add":
+                            //dziala
                             ExerciseHandling.addExercise(conn);
                             break;
                         case "edit":
+                            //todo zrobic metody do edycji atrybutow
                             ExerciseHandling.editExercise(conn);
                             break;
                         case "delete":
+                            //dziala
                             ExerciseHandling.deleteExercise(conn);
                             break;
                         case "print":
+                            //dziala
                             ExerciseHandling.printExercise(conn);
                             break;
                         case "printAll":
+                            //dziala
                             ExerciseHandling.printAllExercise(conn);
                             break;
                     }

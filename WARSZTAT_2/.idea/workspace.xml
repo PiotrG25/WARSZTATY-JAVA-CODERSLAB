@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="813c283e-59f1-4af8-83e4-2ba35131b5dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_2/app/Print.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_2/app/UsersHandling.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/ExerciseHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ExerciseHandling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Print.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Print.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/User_groupHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/User_groupHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/UsersHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/UsersHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Users.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,12 +33,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="12117" />
+          <entry key="java" value="12240" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12117" />
+          <entry key="JAVA" value="12240" />
         </counts>
       </usages-collector>
     </session>
@@ -105,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="273">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/UsersHandling.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+            <state relative-caret-position="255">
+              <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,11 +174,11 @@
         <option value="$PROJECT_DIR$/src/classes/User_group.java" />
         <option value="$PROJECT_DIR$/src/classes/Users.java" />
         <option value="$PROJECT_DIR$/src/classes/Exercise.java" />
-        <option value="$PROJECT_DIR$/src/app/MainApp.java" />
         <option value="$PROJECT_DIR$/src/app/Print.java" />
         <option value="$PROJECT_DIR$/src/app/ExerciseHandling.java" />
         <option value="$PROJECT_DIR$/src/app/User_groupHandling.java" />
         <option value="$PROJECT_DIR$/src/app/UsersHandling.java" />
+        <option value="$PROJECT_DIR$/src/app/MainApp.java" />
       </list>
     </option>
   </component>
@@ -256,7 +247,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539025286895" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539026912680" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Tydzień3/Homework_02" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -307,12 +298,12 @@
       <option name="presentableId" value="Default" />
       <updated>1538851922449</updated>
       <workItem from="1538851924369" duration="14700000" />
-      <workItem from="1538933884547" duration="26713000" />
+      <workItem from="1538933884547" duration="27332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41413000" />
+    <option name="totallyTimeSpent" value="42032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -387,16 +378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/MainApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/User_groupHandling.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -423,16 +404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/ExerciseHandling.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1582">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/Users.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -452,8 +423,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/UsersHandling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="255">
+          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/ExerciseHandling.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1582">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
