@@ -19,8 +19,9 @@ public class User_groupHandling {
 
         do{
             String adding = user_group.saveToDB(conn);
+
             if(adding.equals("name")){
-                System.out.println("Brakuje zanwy grupy");
+                System.out.println("Brakuje nazwy grupy");
                 name = MainApp.scanner.next();
             }else{
                 added = true;

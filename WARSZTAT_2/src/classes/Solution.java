@@ -55,7 +55,7 @@ public class Solution {
 //        todo:
         return null;
     }
-    public static Solution[] loadAllByExercise(Connection conn, int id) throws SQLException {
+    public static Solution[] loadAllByExerciseId(Connection conn, int id) throws SQLException {
 //        todo: pobranie wszystkich rozwiazan danego zadania
 //        todo:
         return null;
@@ -117,6 +117,22 @@ public class Solution {
         return users_id;
     }
 
+    public static boolean isDateTime(String date) {
+//        'YYYY-MM-DD hh:mm:ss'
+//        Metoda sprawdza poprawnosc formatu a nie daty
+//        todo: czy dziala?
+
+        Pattern pattern = Pattern.compile(
+                "[0-9]{4}-[0-9]{2}-[0-9]{2}\\s[0-9]{2}\\:[0-9]{2}:[0-9]{2}");
+
+        Matcher matcher = pattern.matcher(date);
+
+        if (matcher.matches()) {
+            return true;
+        }
+        return false;
+    }
+
     public static String toDateTime(int YY, int MM, int DD, int hh, int mm, int ss){
 //        todo: czy dziala?
         String date = "";
@@ -153,45 +169,5 @@ public class Solution {
         date += ss;
 
         return date;
-    }
-    public static boolean isDateTime(String date){
-//        'YYYY-MM-DD hh:mm:ss'
-//        Metoda sprawdza poprawnosc formatu a nie daty
-//        todo: czy dziala?
-
-        Pattern pattern = Pattern.compile(
-        "[0-9]{4}-[0-9]{2}-[0-9]{2}\\s[0-9]{2}\\:[0-9]{2}:[0-9]{2}");
-
-        Matcher matcher = pattern.matcher(date);
-
-        if(matcher.matches()){
-            return true;
-        }
-        return false;
-/*        boolean yes = true;
-
-        int[] digitIndex = {0,1,2,3,5,6,8,9,11,12,14,15,17,18};
-        int[] minusIndex = {4,7};
-        int[] pointsIndex = {13,16};
-        int spaceIndex = 10;
-
-        if(date.length() > 19) yes = false;
-
-        for(int i : digitIndex){
-            if(!Character.isDigit(date.charAt(i)))
-                yes = false;
-        }
-
-        for(int i : minusIndex){
-            if(date.charAt(i) != '-') yes = false;
-        }
-
-        for(int i : pointsIndex){
-            if(date.charAt(i) != ':') yes = false;
-        }
-
-        if(date.charAt(spaceIndex) != ' ') yes = false;
-
-        return yes;*/
     }
 }

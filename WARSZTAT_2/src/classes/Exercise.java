@@ -1,7 +1,6 @@
 package classes;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Exercise {
     private int id;
@@ -13,15 +12,36 @@ public class Exercise {
         this.description = description;
     }
 
-    public void saveToDB(Connection conn) throws SQLException {
-        //todo: czy id == 0
-        //todo: czy gdy id != 0 chcesz zmienic zawartosc
-        //todo: czy wszystkie atrybuty sa wypelnione
-        //todo: czy nie ma obiektu juz w taleli
-        //todo: ewentualnie zmienic istniejacy obiekt
-        //todo: czy prepare statement zwraca jakies wyjatki
-        //todo: pobrac id z bazy i przypisac do obiektu
-        //todo:
+    public String saveToDB(Connection conn) throws SQLException {
+
+        if(title == null){
+            System.err.println("brakuje tytulu");
+            return "title";
+        }
+        if(description == null){
+            System.err.println("brakuje opisu");
+            return "description";
+        }
+
+        if(id == 0){
+            String insert = "INSERT INTO exercise (title, description) VALUES (?, ?);";
+            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+
+            pstm.setString(1, title);
+            pstm.setString(2, description);
+
+            pstm.executeUpdate();
+
+            ResultSet rs = pstm.getGeneratedKeys();
+            rs.next();
+            id = rs.getInt(1);
+
+            rs.close();
+        }else{
+            //todo metoda zmiany rekordu w tabeli
+            ;
+        }
+        return "0";
     }
     public static Exercise loadExerciseById(Connection conn, int id) throws SQLException {
 //        todo: test: czy metoda nie zwrocila nulla

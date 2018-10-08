@@ -25,8 +25,45 @@ public class MainApp {
 
             switch(classChoice){
                 case "exercise":
+                    Print.printSolution();
+                    String exerciseAction = scanner.next();
+                    switch (exerciseAction){
+                        //todo all
+                        case "quit":
+                            break;
+                        case "add":
+                            ExerciseHandling.addExercise(conn);
+                            break;
+                        case "edit":
+                            break;
+                        case "delete":
+                            break;
+                        case "print":
+                            break;
+                        case "printAll":
+                            break;
+                    }
+
                     break;
                 case "solution":
+                    Print.printSolution();
+                    String solutionAction = scanner.next();
+                    switch (solutionAction){
+                        //todo all
+                        case "quit":
+                            break;
+                        case "add":
+                            break;
+                        case "edit":
+                            break;
+                        case "delete":
+                            break;
+                        case "print":
+                            break;
+                        case "printAll":
+                            break;
+                    }
+
                     break;
                 case "user_group":
                     Print.printUser_groupOptions();

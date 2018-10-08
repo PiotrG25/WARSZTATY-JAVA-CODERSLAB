@@ -9,16 +9,17 @@ public class Print {
         );
     }
 
-    private static void printOptions(String add, String edit, String delete, String print, String printAll){
-        System.out.printf(
-                "Wpisz jaka akcje chcesz wykonac\n" +
-                        "[quit] - zakonczenie programu\n" +
-                        "[add] - %s\n" +
-                        "[edit] - %s\n" +
-                        "[delete] - %s\n" +
-                        "[print] - %s\n" +
-                        "[printAll] - %s\n"
-                , add, edit, delete, print, printAll
+    public static void printSolution(){
+
+    }
+
+    public static void printUser_groupOptions(){
+        printOptions(
+                "dodaj grupe",
+                "edytuj grupe",
+                "usun grupe",
+                "wyswietl grupe",
+                "wyswietl wszystkie grupy"
         );
     }
 
@@ -32,13 +33,16 @@ public class Print {
         );
     }
 
-    public static void printUser_groupOptions(){
-        printOptions(
-                "dodaj grupe",
-                "edytuj grupe",
-                "usun grupe",
-                "wyswietl grupe",
-                "wyswietl wszystkie grupy"
+    private static void printOptions(String add, String edit, String delete, String print, String printAll){
+        System.out.printf(
+                "Wpisz jaka akcje chcesz wykonac\n" +
+                        "[quit] - zakonczenie programu\n" +
+                        "[add] - %s\n" +
+                        "[edit] - %s\n" +
+                        "[delete] - %s\n" +
+                        "[print] - %s\n" +
+                        "[printAll] - %s\n"
+                , add, edit, delete, print, printAll
         );
     }
 
