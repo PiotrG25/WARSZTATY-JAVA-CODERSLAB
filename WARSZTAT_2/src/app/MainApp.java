@@ -1,7 +1,5 @@
 package app;
 
-import classes.User_group;
-
 import java.sql.*;
 import java.util.Scanner;
 

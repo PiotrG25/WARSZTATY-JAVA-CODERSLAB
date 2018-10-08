@@ -1,7 +1,9 @@
 package classes;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,15 +23,93 @@ public class Solution {
         setUsers_is(users_id);
     }
 
-    public void saveToDB(Connection conn) throws SQLException {
-        //todo: czy id == 0
-        //todo: czy gdy id != 0 chcesz zmienic zawartosc
-        //todo: czy wszystkie atrybuty sa wypelnione
-        //todo: czy nie ma obiektu juz w taleli
-        //todo: ewentualnie zmienic istniejacy obiekt
-        //todo: czy prepare statement zwraca jakies wyjatki
-        //todo: pobrac id z bazy i przypisac do obiektu
-        //todo:
+    public String saveToDB(Connection conn) throws SQLException {
+        if(created == null){
+            System.err.println("Brak daty stworzenia");
+            return "created";
+        }
+        if(updated == null){
+            System.err.println("Brak daty aktualizacji");
+            return "updated";
+        }
+        if(description == null){
+            System.err.println("Brak opisu");
+            return "description";
+        }
+        if(exercise_id == 0){
+            System.err.println("Brak id zadania");
+            return "exercise_id";
+        }
+        if(users_id == 0){
+            System.err.println("Brak id uzytkownika");
+            return "users_id";
+        }
+        Statement stm = conn.createStatement();
+
+        //check if exercise_id existance
+        String check = "SELECT id FROM exercise;";
+        ResultSet rs = stm.executeQuery(check);
+
+        boolean exeists = false;
+        while(rs.next()){
+            if(rs.getInt("id") == exercise_id){
+                exeists = true;
+                break;
+            }}
+        rs.close();
+
+        if(exeists == false){
+            System.err.println("Nie ma zadania o takim id");
+            return "group";
+        }
+
+        //check if users_id existance
+        check = "SELECT id FROM users;";
+        rs = stm.executeQuery(check);
+
+        exeists = false;
+        while(rs.next()){
+            if(rs.getInt("id") == users_id){
+                exeists = true;
+                break;
+            }}
+        rs.close();
+
+        if(exeists == false){
+            System.err.println("Nie ma uzytkownika o takim id");
+            return "group";
+        }
+
+//        todo all of this
+//        if(id == 0){
+//            String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
+//            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+//
+//            pstm.setString(1, username);
+//            pstm.setString(2, email);
+//            pstm.setString(3, password);
+//            pstm.setInt(4, user_group_id);
+//
+//            pstm.executeUpdate();
+//
+//            rs = pstm.getGeneratedKeys();
+//
+//            this.id = rs.getInt(1);
+//
+//            rs.close();
+//        }else{
+////            todo podzielic edycje na osobne metody do kazdej zmiennej
+//            String update = "UPDATE users SET username = ?, email = ?, password = ?, user_group_id = ?;";
+//            PreparedStatement pstm2 = conn.prepareStatement(update);
+//
+//            pstm2.setString(1, username);
+//            pstm2.setString(2, email);
+//            pstm2.setString(3, password);
+//            pstm2.setInt(4, user_group_id);
+//
+//            pstm2.executeUpdate();
+//        }
+        return "0";
     }
     public static Solution loadSolutionById(Connection conn, int id) throws SQLException {
 //        todo: test: czy metoda nie zwrocila nulla
