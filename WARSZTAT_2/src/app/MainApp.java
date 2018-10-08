@@ -32,23 +32,28 @@ public class MainApp {
                     Print.printUser_groupOptions();
                     String user_groupAction = scanner.next();
                     switch (user_groupAction){
+                        //todo cz dziala w nietypowych sytuacjach
                         case "quit":
-
                             break;
                         case "add":
-
+                            //dziala
+                            User_groupHandling.addUser_group(conn);
                             break;
                         case "edit":
-
+                            //todo dodac metode do zmiany zawartosci
+                            User_groupHandling.editUser_group(conn);
                             break;
                         case "delete":
-
+                            //dziala
+                            User_groupHandling.deleteUser_group(conn);
                             break;
                         case "print":
-
+                            //dziala
+                            User_groupHandling.printUser_group(conn);
                             break;
                         case "printAll":
-
+                            //dziala
+                            User_groupHandling.printAllUser_group(conn);
                             break;
                     }
 

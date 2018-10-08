@@ -35,6 +35,9 @@ public class User_group {
             id = rs.getInt(1);
 
             rs.close();
+        }else{
+            //todo metode do zmiany zawartosci
+            ;
         }
         //todo: gdy id != 0 zmienic zawartosc
         return "0";
