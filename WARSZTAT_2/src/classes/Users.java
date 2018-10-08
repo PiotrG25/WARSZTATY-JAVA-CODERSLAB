@@ -110,7 +110,7 @@ public class Users {
             int user_group_id = rs.getInt("user_gorup_id");
 
             Users u = new Users(name, email, password, user_group_id);
-            u.id = rs.getInt("id");
+            u.id = id;
             rs.close();
             return u;
         }
