@@ -172,7 +172,7 @@ public class UsersHandling {
         System.out.println("Podaj id uzytkownika");
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();

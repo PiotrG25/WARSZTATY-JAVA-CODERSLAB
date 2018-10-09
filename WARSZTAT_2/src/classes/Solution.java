@@ -1,11 +1,8 @@
 package classes;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Solution {
     private int id;
@@ -14,7 +11,6 @@ public class Solution {
     private String description;
     private int exercise_id;
     private int users_id;
-    private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public Solution(Calendar created, Calendar updated, String description, int exercise_id, int users_id) {
         this.created = created;
@@ -117,6 +113,7 @@ public class Solution {
             int users_id = rs.getInt("users_id");
 
             Solution solution = new Solution(created, updated, description, exercise_id, users_id);
+            solution.id = id;
             rs.close();
             return solution;
         }
@@ -126,11 +123,23 @@ public class Solution {
     }
 
     public static Solution[] loadAllSolutions(Connection conn) throws SQLException {
-//        todo: test: czy ne zwraca nulla
-//        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
-//        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
-//        todo:
-        return null;
+        String select = "SELECT id FROM solution;";
+        ResultSet rs = (conn.createStatement()).executeQuery(select);
+        Solution[] solutions = new Solution[1];
+
+        while(rs.next()){
+            solutions[solutions.length - 1] = loadSolutionById(conn, rs.getInt("id"));
+            solutions = Arrays.copyOf(solutions, solutions.length + 1);
+        }
+        rs.close();
+        solutions = Arrays.copyOf(solutions, solutions.length - 1);
+
+        if(solutions.length == 0){
+            System.err.println("Brak rozwiazan");
+            return null;
+        }else{
+            return solutions;
+        }
     }
 
     public void delete(Connection conn) throws SQLException {

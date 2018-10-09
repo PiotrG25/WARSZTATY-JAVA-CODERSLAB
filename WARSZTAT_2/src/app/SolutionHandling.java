@@ -4,9 +4,13 @@ import classes.Solution;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class SolutionHandling {
+    private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     public static void addSolution(Connection conn)throws SQLException {
         System.out.println("Dodawanie rozwiazania");
 
@@ -98,5 +102,52 @@ public class SolutionHandling {
         }
 
         System.out.println("----------");
+    }
+
+    public static void printSolution(Connection conn)throws SQLException{
+        System.out.println("Wyswietlanie rozwiazania");
+
+        System.out.println("Podaj id rozwiazania");
+        int id;
+        while(!MainApp.scanner.hasNextInt()){
+            System.out.println("Podaj liczbe calkowita");
+            MainApp.scanner.next();
+        }
+        id = MainApp.scanner.nextInt();
+
+        Solution solution = Solution.loadSolutionById(conn, id);
+
+        if(solution == null){
+            System.out.println("Brak rozwiazania o takim id");
+        }else{
+            System.out.println(solution.getId());
+            System.out.println(dateFormat.format(solution.getCreated().getTime()));
+            System.out.println(dateFormat.format(solution.getUpdated().getTime()));
+            System.out.println(solution.getDescription());
+            System.out.println(solution.getExercise_id());
+            System.out.println(solution.getUsers_id());
+        }
+
+        System.out.println("----------");
+    }
+
+    public static void printAllSolution(Connection conn)throws SQLException{
+        System.out.println("Wyswietlanie rozwiazan");
+
+        Solution[] solutions = Solution.loadAllSolutions(conn);
+
+        if(solutions == null){
+            System.out.println("Brak rozwiazan");
+        }else{
+            for(Solution s : solutions){
+                System.out.println(s.getId());
+                System.out.println(dateFormat.format(s.getCreated().getTime()));
+                System.out.println(dateFormat.format(s.getUpdated().getTime()));
+                System.out.println(s.getDescription());
+                System.out.println(s.getExercise_id());
+                System.out.println(s.getUsers_id());
+                System.out.println("----------");
+            }
+        }
     }
 }

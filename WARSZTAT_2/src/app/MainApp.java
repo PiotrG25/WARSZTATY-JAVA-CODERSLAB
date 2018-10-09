@@ -1,5 +1,7 @@
 package app;
 
+import classes.Solution;
+
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -83,12 +85,16 @@ public class MainApp {
                             SolutionHandling.addSolution(conn);
                             break;
                         case "edit":
+                            //todo all
                             break;
                         case "delete":
+                            SolutionHandling.deleteSolution(conn);
                             break;
                         case "print":
+                            SolutionHandling.printSolution(conn);
                             break;
                         case "printAll":
+                            SolutionHandling.printAllSolution(conn);
                             break;
                     }
 
