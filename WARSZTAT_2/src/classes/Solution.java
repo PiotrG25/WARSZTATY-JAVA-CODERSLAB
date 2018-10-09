@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.Arrays;
 import java.util.Calendar;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 public class Solution {
     private int id;
     private Calendar created;
@@ -78,16 +80,17 @@ public class Solution {
 
         if (id == 0) {
             String insert = "INSERT INTO solution (created, updated, description, exercise_id, users_id) VALUES (?, ?, ?, ?, ?);";
-            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
 
-            pstm.setDate(1, (java.sql.Date) (created.getTime()));
-            pstm.setDate(2, (Date) (updated.getTime()));
+            pstm.setDate(1, new java.sql.Date(created.getTimeInMillis()));
+            pstm.setDate(2, new java.sql.Date(updated.getTimeInMillis()));
             pstm.setString(3, description);
             pstm.setInt(4, exercise_id);
             pstm.setInt(5, users_id);
 
             pstm.executeUpdate();
             rs = pstm.getGeneratedKeys();
+            rs.next();
             this.id = rs.getInt(1);
             rs.close();
         } else {
@@ -98,7 +101,7 @@ public class Solution {
     }
 
     public static Solution loadSolutionById(Connection conn, int id) throws SQLException {
-        String select = "SELECT * FROM solutions WHERE id=?;";
+        String select = "SELECT * FROM solution WHERE id=?;";
         PreparedStatement pstm = conn.prepareStatement(select);
         pstm.setInt(1, id);
         ResultSet rs = pstm.executeQuery();

@@ -3,6 +3,8 @@ package classes;
 import java.sql.*;
 import java.util.Arrays;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 public class Users {
     private int id;
     private String username;
@@ -64,7 +66,7 @@ public class Users {
 
         if(id == 0){
             String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
-            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
 
             pstm.setString(1, username);
             pstm.setString(2, email);
@@ -73,6 +75,7 @@ public class Users {
 
             pstm.executeUpdate();
             rs = pstm.getGeneratedKeys();
+            rs.next();
             this.id = rs.getInt(1);
             rs.close();
         }else{

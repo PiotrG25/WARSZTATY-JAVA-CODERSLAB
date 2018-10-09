@@ -3,6 +3,8 @@ package classes;
 import java.sql.*;
 import java.util.Arrays;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 public class Exercise {
     private int id;
     private String title;
@@ -26,7 +28,7 @@ public class Exercise {
 
         if(id == 0){
             String insert = "INSERT INTO exercise (title, description) VALUES (?, ?);";
-            PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
 
             pstm.setString(1, title);
             pstm.setString(2, description);

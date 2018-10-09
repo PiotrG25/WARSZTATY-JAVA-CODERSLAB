@@ -48,11 +48,9 @@ public class MainApp {
                     Print.printExerciseOptions();
                     String exerciseAction = scanner.next();
                     switch (exerciseAction){
-                        //todo czy dziala w szegulnych przypadkach
                         case "quit":
                             break;
                         case "add":
-                            //dziala
                             ExerciseHandling.addExercise(conn);
                             break;
                         case "edit":
@@ -60,15 +58,12 @@ public class MainApp {
                             ExerciseHandling.editExercise(conn);
                             break;
                         case "delete":
-                            //dziala
                             ExerciseHandling.deleteExercise(conn);
                             break;
                         case "print":
-                            //dziala
                             ExerciseHandling.printExercise(conn);
                             break;
                         case "printAll":
-                            //dziala
                             ExerciseHandling.printAllExercise(conn);
                             break;
                     }
@@ -78,14 +73,13 @@ public class MainApp {
                     Print.printSolutionOptions();
                     String solutionAction = scanner.next();
                     switch (solutionAction){
-                        //todo all
                         case "quit":
                             break;
                         case "add":
                             SolutionHandling.addSolution(conn);
                             break;
                         case "edit":
-                            //todo all
+                            //todo osobne metody
                             break;
                         case "delete":
                             SolutionHandling.deleteSolution(conn);
@@ -103,27 +97,22 @@ public class MainApp {
                     Print.printUser_groupOptions();
                     String user_groupAction = scanner.next();
                     switch (user_groupAction){
-                        //todo cz dziala w nietypowych sytuacjach
                         case "quit":
                             break;
                         case "add":
-                            //dziala
                             User_groupHandling.addUser_group(conn);
                             break;
                         case "edit":
-                            //todo dodac metode do zmiany zawartosci
+                            //todo czy dziala
                             User_groupHandling.editUser_group(conn);
                             break;
                         case "delete":
-                            //dziala
                             User_groupHandling.deleteUser_group(conn);
                             break;
                         case "print":
-                            //dziala
                             User_groupHandling.printUser_group(conn);
                             break;
                         case "printAll":
-                            //dziala
                             User_groupHandling.printAllUser_group(conn);
                             break;
                     }
@@ -133,11 +122,9 @@ public class MainApp {
                     Print.ptintUsersOptions();
                     String userAction = scanner.next();
                     switch (userAction){
-                        //todo czy dziala w nietypowych sytuacjach
                         case "quit":
                             break;
                         case "add":
-                            //dziala
                             UsersHandling.addUser(conn);
                             break;
                         case "edit":
@@ -145,15 +132,12 @@ public class MainApp {
                             UsersHandling.editUser(conn);
                             break;
                         case "delete":
-                            //dziala
                             UsersHandling.deleteUser(conn);
                             break;
                         case "print":
-                            //dziala
                             UsersHandling.printUser(conn);
                             break;
                         case "printAll":
-                            //dziala
                             UsersHandling.printAllUsers(conn);
                             break;
                     }
