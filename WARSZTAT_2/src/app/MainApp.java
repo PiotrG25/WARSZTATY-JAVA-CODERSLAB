@@ -1,11 +1,6 @@
 package app;
 
-import classes.Solution;
-
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class MainApp {
