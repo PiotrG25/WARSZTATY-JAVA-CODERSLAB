@@ -79,10 +79,6 @@ public class User_group {
         }else{
             return ug;
         }
-//        todo: test: czy ne zwraca nulla
-//        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
-//        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
-//        todo:
     }
 
     public void delete(Connection conn) throws SQLException {

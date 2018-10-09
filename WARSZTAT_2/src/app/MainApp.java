@@ -54,7 +54,6 @@ public class MainApp {
                             ExerciseHandling.addExercise(conn);
                             break;
                         case "edit":
-                            //todo zrobic metody do edycji atrybutow
                             ExerciseHandling.editExercise(conn);
                             break;
                         case "delete":
@@ -79,7 +78,7 @@ public class MainApp {
                             SolutionHandling.addSolution(conn);
                             break;
                         case "edit":
-                            //todo osobne metody
+                            SolutionHandling.editSolution(conn);
                             break;
                         case "delete":
                             SolutionHandling.deleteSolution(conn);
@@ -103,7 +102,6 @@ public class MainApp {
                             User_groupHandling.addUser_group(conn);
                             break;
                         case "edit":
-                            //todo czy dziala
                             User_groupHandling.editUser_group(conn);
                             break;
                         case "delete":
@@ -128,7 +126,6 @@ public class MainApp {
                             UsersHandling.addUser(conn);
                             break;
                         case "edit":
-                            //todo osobne metody
                             UsersHandling.editUser(conn);
                             break;
                         case "delete":

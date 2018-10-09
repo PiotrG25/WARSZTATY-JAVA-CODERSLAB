@@ -5,7 +5,7 @@ public class Print {
         System.out.println(
                 "Wybierz klase na ktorej chcesz operowac\n" +
                 "[exercise][solution][user_group][users]" +
-                "[quit - zakonczenie programu]"
+                "[quit] - zakonczenie programu"
         );
     }
 
@@ -59,15 +59,6 @@ public class Print {
                         "[print] - %s\n" +
                         "[printAll] - %s\n"
                 , add, edit, delete, print, printAll
-        );
-    }
-
-    public static void  ptintoptions(String add, String view){
-        System.out.printf(
-                        "[quit - zakonczenie programu]\n" +
-                        "[add - %s]\n" +
-                        "[view - %s]\n"
-                , add, view
         );
     }
 }

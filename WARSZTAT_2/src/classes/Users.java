@@ -88,7 +88,7 @@ public class Users {
             String dbUsername = rs.getString("username");
             String dbEmail = rs.getString("email");
             String dbPassword = rs.getString("password");
-            int dbUser_gorup_id = rs.getInt("user_group_id");
+            int dbUser_group_id = rs.getInt("user_group_id");
 
             if(!username.equals(dbUsername)){
                 String update = "UPDATE users SET username=? WHERE id=?;";
@@ -111,8 +111,8 @@ public class Users {
                 updateStatement.setString(1, password);
                 updateStatement.executeUpdate();
             }
-            if(user_group_id != dbUser_gorup_id){
-                String update = "UPDATE users SET user_gorup_id=? WHERE id=?;";
+            if(user_group_id != dbUser_group_id){
+                String update = "UPDATE users SET user_group_id=? WHERE id=?;";
                 PreparedStatement updateStatement = conn.prepareStatement(update);
                 updateStatement.setInt(2, id);
                 updateStatement.setInt(1, user_group_id);
@@ -122,9 +122,6 @@ public class Users {
         return "0";
     }
 
-//        todo: test: czy metoda nie zwrocila nulla
-//        todo: czy obiekt ma szystkie dane takie same jak w recordzie
-//        todo:
     public static Users loadUserById(Connection conn, int id) throws SQLException {
         String selectById = "SELECT * FROM users WHERE id = ?;";
         PreparedStatement pstm = conn.prepareStatement(selectById);

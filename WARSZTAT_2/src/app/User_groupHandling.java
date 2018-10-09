@@ -1,7 +1,6 @@
 package app;
 
 import classes.User_group;
-import classes.Users;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -26,29 +25,22 @@ public class User_groupHandling {
         System.out.println("Podaj id grupy");
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
 
         User_group user_group = User_group.loadUser_groupById(conn, id);
 
-        while (user_group == null){
+        if(user_group == null){
             System.out.println("Nie ma grupy o takim id");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            user_group = User_group.loadUser_groupById(conn, id);
+            System.out.println("----------");
+            return;
         }
 
         System.out.println("Podaj nowa nazwe grupy");
-
         String name = MainApp.scanner.next();
-
         user_group.setName(name);
-
         user_group.saveToDB(conn);
 
         System.out.println("----------");
@@ -61,7 +53,7 @@ public class User_groupHandling {
 
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
@@ -84,20 +76,16 @@ public class User_groupHandling {
 
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
 
         User_group user_group = User_group.loadUser_groupById(conn, id);
-        while (user_group == null){
+        if(user_group == null){
             System.out.println("Nie ma grupy o takim id");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            user_group = User_group.loadUser_groupById(conn, id);
+            System.out.println("----------");
+            return;
         }
 
         System.out.println(user_group.getId());
@@ -113,6 +101,7 @@ public class User_groupHandling {
 
         if(user_groups == null){
             System.out.println("Brak uzytkownikow");
+            System.out.println("----------");
         }else{
             for(int i = 0; i < user_groups.length; i++){
                 System.out.println(user_groups[i].getId());

@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="813c283e-59f1-4af8-83e4-2ba35131b5dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/app/ExerciseHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ExerciseHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Print.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Print.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/SolutionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/SolutionHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/User_groupHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/User_groupHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/UsersHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/UsersHandling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/User_group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/User_group.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Users.java" afterDir="false" />
     </list>
@@ -36,23 +41,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="19003" />
+          <entry key="java" value="20702" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="19003" />
+          <entry key="JAVA" value="20702" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/Exercise.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="1921">
+              <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2070#2071#0" expanded="true" />
@@ -69,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="103" column="68" lean-forward="true" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+            <state relative-caret-position="-731">
+              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5811#5812#0" expanded="true" />
@@ -93,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/User_group.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="307">
+              <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/Users.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="83" column="42" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+            <state relative-caret-position="136">
+              <caret line="148" column="70" lean-forward="true" selection-start-line="148" selection-start-column="70" selection-end-line="148" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,8 +122,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="323">
+              <caret line="48" column="59" lean-forward="true" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/ExerciseHandling.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
-              <caret line="119" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="290">
+              <caret line="147" column="45" lean-forward="true" selection-start-line="147" selection-start-column="45" selection-end-line="147" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/SolutionHandling.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="11" selection-end-column="87" />
+            <state relative-caret-position="35">
+              <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,8 +158,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/User_groupHandling.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-373">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="307">
+              <caret line="103" column="42" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,8 +170,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/UsersHandling.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="176" selection-start-line="176" selection-end-line="176" />
+            <state relative-caret-position="-84">
+              <caret line="78" column="47" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,11 +179,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/Print.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="119">
+              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -200,16 +205,16 @@
       <list>
         <option value="$PROJECT_DIR$/src/classes/BooleanUtils.java" />
         <option value="$PROJECT_DIR$/src/app/Sout.java" />
-        <option value="$PROJECT_DIR$/src/app/Print.java" />
-        <option value="$PROJECT_DIR$/src/app/User_groupHandling.java" />
-        <option value="$PROJECT_DIR$/src/app/ExerciseHandling.java" />
         <option value="$PROJECT_DIR$/src/app/UsersHandling.java" />
+        <option value="$PROJECT_DIR$/src/classes/Users.java" />
+        <option value="$PROJECT_DIR$/src/app/User_groupHandling.java" />
+        <option value="$PROJECT_DIR$/src/classes/User_group.java" />
+        <option value="$PROJECT_DIR$/src/app/ExerciseHandling.java" />
+        <option value="$PROJECT_DIR$/src/classes/Exercise.java" />
+        <option value="$PROJECT_DIR$/src/classes/Solution.java" />
         <option value="$PROJECT_DIR$/src/app/SolutionHandling.java" />
         <option value="$PROJECT_DIR$/src/app/MainApp.java" />
-        <option value="$PROJECT_DIR$/src/classes/Solution.java" />
-        <option value="$PROJECT_DIR$/src/classes/Users.java" />
-        <option value="$PROJECT_DIR$/src/classes/User_group.java" />
-        <option value="$PROJECT_DIR$/src/classes/Exercise.java" />
+        <option value="$PROJECT_DIR$/src/app/Print.java" />
       </list>
     </option>
   </component>
@@ -278,7 +283,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539095088166" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539099461947" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Tydzień3/Homework_02" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -329,12 +334,12 @@
       <option name="presentableId" value="Default" />
       <updated>1538851922449</updated>
       <workItem from="1538851924369" duration="14700000" />
-      <workItem from="1538933884547" duration="40340000" />
+      <workItem from="1538933884547" duration="44641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55040000" />
+    <option name="totallyTimeSpent" value="59341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -392,17 +397,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/Print.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/Users.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/ExerciseHandling.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="136">
+          <caret line="148" column="70" lean-forward="true" selection-start-line="148" selection-start-column="70" selection-end-line="148" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -411,38 +409,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/User_groupHandling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-373">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="307">
+          <caret line="103" column="42" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/SolutionHandling.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/Exercise.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="11" selection-end-column="87" />
+        <state relative-caret-position="1921">
+          <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2070#2071#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2125#2126#0" expanded="true" />
+            <element signature="e#2153#2154#0" expanded="true" />
+            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/MainApp.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/User_group.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/UsersHandling.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="176" selection-start-line="176" selection-end-line="176" />
+        <state relative-caret-position="307">
+          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -451,8 +445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="103" column="68" lean-forward="true" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+        <state relative-caret-position="-731">
+          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5811#5812#0" expanded="true" />
@@ -471,39 +465,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/User_group.java">
+    <entry file="file://$PROJECT_DIR$/src/app/UsersHandling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="-84">
+          <caret line="78" column="47" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/Users.java">
+    <entry file="file://$PROJECT_DIR$/src/app/ExerciseHandling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="83" column="42" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+        <state relative-caret-position="290">
+          <caret line="147" column="45" lean-forward="true" selection-start-line="147" selection-start-column="45" selection-end-line="147" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/Exercise.java">
+    <entry file="file://$PROJECT_DIR$/src/app/SolutionHandling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="35">
+          <caret line="120" column="49" lean-forward="true" selection-start-line="120" selection-start-column="49" selection-end-line="120" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2070#2071#0" expanded="true" />
-            <element signature="e#2095#2096#0" expanded="true" />
-            <element signature="e#2125#2126#0" expanded="true" />
-            <element signature="e#2153#2154#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
-            <element signature="e#2223#2224#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="48" column="59" lean-forward="true" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Print.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
         </state>
       </provider>
     </entry>

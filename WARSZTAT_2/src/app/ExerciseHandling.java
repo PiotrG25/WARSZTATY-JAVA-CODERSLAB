@@ -26,7 +26,6 @@ public class ExerciseHandling {
         }
 
         Exercise exercise = new Exercise(title, description.toString());
-
         exercise.saveToDB(conn);
 
         System.out.println("----------");
@@ -38,61 +37,52 @@ public class ExerciseHandling {
         System.out.println("Podaj id zadania");
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
 
         Exercise exercise = Exercise.loadExerciseById(conn, id);
-        while (exercise == null){
+        if(exercise == null){
             System.out.println("Nie ma zadania o takim id");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            exercise = Exercise.loadExerciseById(conn, id);
+            System.out.println("----------");
+            return;
         }
 
-        boolean repeatChoice = true;
+        System.out.println("Podaj ktora wartosc chcesz edytowac");
+        System.out.println("[quit] - nic");
+        System.out.println("[title] - tytul zadania");
+        System.out.println("[description] - opis zadania");
 
-        do{
-            System.out.println("Podaj ktora wartosc chcesz edytowac");
-            System.out.println("[quit] - nic");
-            System.out.println("[title] - tytul zadania");
-            System.out.println("[description] - opis zadania");
+        String toEdit = MainApp.scanner.next();
 
-            String toEdit = MainApp.scanner.next();
+        switch (toEdit){
+            case "quit":
+                break;
+            case "title":
+                System.out.println("Podaj nowy tytul");
+                exercise.setTitle(MainApp.scanner.next());
+                break;
+            case "description":
+                System.out.println("Podaj nowy opis");
+                System.out.println("Zakoncz podajac XYZ");
+                StringBuilder description = new StringBuilder();
 
-            switch (toEdit){
-                case "quit":
-                    repeatChoice = false;
-                    break;
-                case "title":
-                    System.out.println("Podaj nowy tytul");
-                    exercise.setTitle(MainApp.scanner.next());
-                    break;
-                case "description":
-                    System.out.println("Podaj nowy opis");
-                    System.out.println("Zakoncz podajac XYZ");
-                    StringBuilder description = new StringBuilder();
-
-                    while(MainApp.scanner.hasNext()){
-                        String word = MainApp.scanner.next();
-                        if(word.equals("XYZ")){
-                            break;
-                        }else{
-                            description.append(word + " ");
-                        }
+                while(MainApp.scanner.hasNext()){
+                    String word = MainApp.scanner.next();
+                    if(word.equals("XYZ")){
+                        break;
+                    }else{
+                        description.append(word + " ");
                     }
+                }
 
-                    exercise.setDescription(description.toString());
-                    break;
-                default:
-                    System.out.println("Nie obslugiwane wyrazenie");
-                    break;
-            }
-        }while(repeatChoice);
+                exercise.setDescription(description.toString());
+                break;
+            default:
+                System.out.println("Nie obslugiwane wyrazenie");
+                break;
+        }
 
         exercise.saveToDB(conn);
 
@@ -105,7 +95,7 @@ public class ExerciseHandling {
         System.out.println("Podaj id zadania");
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
@@ -128,20 +118,17 @@ public class ExerciseHandling {
 
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
 
         Exercise exercise = Exercise.loadExerciseById(conn, id);
-        while (exercise == null){
+
+        if(exercise == null){
             System.out.println("Nie ma zadania o takim id");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            exercise = Exercise.loadExerciseById(conn, id);
+            System.out.println("----------");
+            return;
         }
 
         System.out.println(exercise.getId());
@@ -158,6 +145,7 @@ public class ExerciseHandling {
 
         if(exercises == null){
             System.out.println("Brak zadan");
+            System.out.println("----------");
         }else{
             for(Exercise e : exercises){
                 System.out.println(e.getId());

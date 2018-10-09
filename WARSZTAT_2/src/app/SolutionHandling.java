@@ -14,19 +14,6 @@ public class SolutionHandling {
     public static void addSolution(Connection conn)throws SQLException {
         System.out.println("Dodawanie rozwiazania");
 
-        System.out.println("Podaj rozwiazanie");
-        System.out.println("Zakoncz XYZ");
-
-        StringBuilder description = new StringBuilder();
-        while(MainApp.scanner.hasNext()){
-            String word = MainApp.scanner.next();
-            if(word.equals("XYZ")){
-                break;
-            }else{
-                description.append(word + " ");
-            }
-        }
-
         System.out.println("Podaj id zadania");
         int exercise_id;
         while(!MainApp.scanner.hasNextInt()){
@@ -43,43 +30,123 @@ public class SolutionHandling {
         }
         users_id = MainApp.scanner.nextInt();
 
-        Solution solution = new Solution(Calendar.getInstance(), Calendar.getInstance(), description.toString(), exercise_id, users_id);
+        System.out.println("Podaj rozwiazanie");
+        System.out.println("Zakoncz XYZ");
+
+        StringBuilder description = new StringBuilder();
+        while(MainApp.scanner.hasNext()){
+            String word = MainApp.scanner.next();
+            if(word.equals("XYZ")){
+                break;
+            }else{
+                description.append(word + " ");
+            }
+        }
+
+        Calendar now = Calendar.getInstance();
+
+        Solution solution = new Solution(now, now, description.toString(), exercise_id, users_id);
 
         String adding = solution.saveToDB(conn);
 
-        while(adding.equals("exercise")){
+        if(adding.equals("exercise")){
             System.out.println("Nie ma zadania o takim id");
-            while(!MainApp.scanner.hasNextInt()){
-                System.out.println("Podaj liczbe calkowita");
-                MainApp.scanner.next();
-            }
-            exercise_id = MainApp.scanner.nextInt();
-            solution.setExercise_id(exercise_id);
-            solution.setCreated(Calendar.getInstance());
-            solution.setUpdated(Calendar.getInstance());
-            adding = solution.saveToDB(conn);
+            System.out.println("----------");
+            return;
         }
 
-        while(adding.equals("users")){
+        if(adding.equals("users")){
             System.out.println("Nie ma uzytkownika o takim id");
-            while(!MainApp.scanner.hasNextInt()){
-                System.out.println("Podaj liczbe calkowita");
-                MainApp.scanner.next();
-            }
-            users_id = MainApp.scanner.nextInt();
-            solution.setUsers_is(users_id);
-            solution.setCreated(Calendar.getInstance());
-            solution.setUpdated(Calendar.getInstance());
-            adding = solution.saveToDB(conn);
+            System.out.println("----------");
+            return;
         }
 
         System.out.println("----------");
     }
 
     public static void editSolution(Connection conn)throws SQLException{
-        //todo
-        //todo
-        //todo
+        System.out.println("Edytowanie rozwiazania");
+
+        System.out.println("Podaj id rozwiazania");
+        int id;
+        while(!MainApp.scanner.hasNextInt()){
+            System.out.println("Podaj liczbe calkowita");
+            MainApp.scanner.next();
+        }
+        id = MainApp.scanner.nextInt();
+
+        Solution solution = Solution.loadSolutionById(conn, id);
+        if(solution == null){
+            System.out.println("Nie ma rozwiazania o takim id");
+            System.out.println("----------");
+            return;
+        }
+
+        System.out.println("Podaj wartosc jaka chcesz edytowac");
+        System.out.println("[quit] - nic");
+        System.out.println("[exercise_id] - id zadania");
+        System.out.println("[users_id] - id uzytkownika");
+        System.out.println("[description] - rozwiazanie");
+
+        String toEdit = MainApp.scanner.next();
+
+        switch (toEdit){
+            case "quit":
+                break;
+            case "exercise_id":
+                System.out.println("Podaj nowe id zadania");
+                int exercise_id;
+                while(!MainApp.scanner.hasNextInt()){
+                    System.out.println("Podaj liczbe calkowita");
+                    MainApp.scanner.next();
+                }
+                exercise_id = MainApp.scanner.nextInt();
+                solution.setExercise_id(exercise_id);
+                break;
+            case "users_id":
+                System.out.println("Podaj nowe id uzytkownika");
+                int users_id;
+                while(!MainApp.scanner.hasNextInt()){
+                    System.out.println("Podaj liczbe calkowita");
+                    MainApp.scanner.next();
+                }
+                users_id = MainApp.scanner.nextInt();
+                solution.setUsers_is(users_id);
+                break;
+            case "description":
+                System.out.println("Podaj nowe rozwiazanie");
+                System.out.println("Zakoncz XYZ");
+
+                StringBuilder description = new StringBuilder();
+                while(MainApp.scanner.hasNext()){
+                    String word = MainApp.scanner.next();
+                    if(word.equals("XYZ")){
+                        break;
+                    }else{
+                        description.append(word + " ");
+                    }
+                }
+                solution.setDescription(description.toString());
+                break;
+            default:
+                System.out.println("Nie obslugiwane wyrazenie");
+                break;
+        }
+
+        String adding = solution.saveToDB(conn);
+
+        if(adding.equals("exercise")){
+            System.out.println("Nie ma zadania o takim id");
+            System.out.println("----------");
+            return;
+        }
+        if(adding.equals("users")){
+            System.out.println("Nie ma uzytkownika o takim id");
+            System.out.println("----------");
+            return;
+        }
+
+        System.out.println("----------");
     }
 
     public static void deleteSolution(Connection conn)throws SQLException{
@@ -138,6 +205,7 @@ public class SolutionHandling {
 
         if(solutions == null){
             System.out.println("Brak rozwiazan");
+            System.out.println("----------");
         }else{
             for(Solution s : solutions){
                 System.out.println(s.getId());

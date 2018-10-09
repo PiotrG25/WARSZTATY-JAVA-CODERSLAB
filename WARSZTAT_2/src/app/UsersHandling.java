@@ -21,8 +21,7 @@ public class UsersHandling {
         System.out.println("Podaj do ktorej grupy nalezy(user_group_id)");
         int user_group_id;
         while(!MainApp.scanner.hasNextInt()){
-            System.out.println("Podaj wartosc calkowita");
-            System.out.println("Podaj do ktorej grupy nalezy(user_group_id)");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         user_group_id = MainApp.scanner.nextInt();
@@ -31,16 +30,8 @@ public class UsersHandling {
 
         String adding = user.saveToDB(conn);
 
-        while(adding.equals("group")){
+        if(adding.equals("group")){
             System.out.println("Nie ma grupy o takim id");
-            while(!MainApp.scanner.hasNextInt()){
-                System.out.println("Podaj wartosc calkowita");
-                System.out.println("Podaj do ktorej grupy nalezy(user_group_id)");
-                MainApp.scanner.next();
-            }
-            user_group_id = MainApp.scanner.nextInt();
-            user.setUser_group_id(user_group_id);
-            adding = user.saveToDB(conn);
         }
 
         System.out.println("----------");
@@ -52,67 +43,64 @@ public class UsersHandling {
         System.out.println("Podaj id uzytkownika");
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
 
         Users user = Users.loadUserById(conn, id);
-        while (user == null){
+        if(user == null){
             System.out.println("Nie ma uzytkownika o takim id");
-            System.out.println("Podaj id uzytkownika");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            user = Users.loadUserById(conn, id);
+            System.out.println("----------");
+            return;
         }
 
-        boolean repeatchoice = true;
+        System.out.println("Podaj wartosc jaka chcesz edytowac");
+        System.out.println("[quit] - nic");
+        System.out.println("[username] - nazwa uzytkownika");
+        System.out.println("[email] - email uzytkownika");
+        System.out.println("[group] - grupa uzytkownika");
+        System.out.println("[password] - haslo uzytkownika");
 
-        do{
-            System.out.println("Podaj wartosc jaka chcesz edytowac");
-            System.out.println("[quit] - nic");
-            System.out.println("[username] - nazwa uzytkownika");
-            System.out.println("[email] - email uzytkownika");
-            System.out.println("[group] - grupa uzytkownika");
-            System.out.println("[password] - haslo uzytkownika");
+        String toEdit = MainApp.scanner.next();
 
-            String toEdit = MainApp.scanner.next();
-
-            switch (toEdit){
-                case "quit":
-                    repeatchoice = false;
-                    break;
-                case "username":
-                    System.out.println("Podaj nowa nazwe uzytkownika");
-                    user.setUserName(MainApp.scanner.next());
-                    break;
-                case "email":
-                    System.out.println("Podaj nowy email");
-                    user.setEmail(MainApp.scanner.next());
-                    break;
-                case "group":
-                    System.out.println("Podaj id grupy");
-                    while (!MainApp.scanner.hasNextInt()){
-                        System.out.println("to nie jest liczba calkowita");
-                        MainApp.scanner.next();
-                    }
-                    user.setUser_group_id(MainApp.scanner.nextInt());
-                    break;
-                case "password":
+        switch (toEdit){
+            case "quit":
+                break;
+            case "username":
+                System.out.println("Podaj nowa nazwe uzytkownika");
+                user.setUserName(MainApp.scanner.next());
+                break;
+            case "email":
+                System.out.println("Podaj nowy email");
+                user.setEmail(MainApp.scanner.next());
+                break;
+            case "group":
+                System.out.println("Podaj id grupy");
+                while (!MainApp.scanner.hasNextInt()){
+                    System.out.println("to nie jest liczba calkowita");
+                    MainApp.scanner.next();
+                }
+                user.setUser_group_id(MainApp.scanner.nextInt());
+                break;
+            case "password":
 //                todo ustawic podwujne potwierdzenie hasla i sprawdzenie czy uzytkownik zna stare haslo
-                    System.out.println("Podaj nowe haslo");
-                    user.setPassword(MainApp.scanner.next());
-                    break;
-                default:
-                    System.out.println("Nie obslugiwane wyrazenie");
-                    break;
-            }
-        }while(repeatchoice);
+                System.out.println("Podaj nowe haslo");
+                user.setPassword(MainApp.scanner.next());
+                break;
+            default:
+                System.out.println("Nie obslugiwane wyrazenie");
+                break;
+        }
 
-        user.saveToDB(conn);
+        String adding = user.saveToDB(conn);
+
+        if(adding.equals("group")){
+            System.out.println("Nie ma grupy o takim id");
+        }
+        if(adding.equals("emial")){
+            System.out.println("Ten email juz istnieje");
+        }
 
         System.out.println("----------");
     }
@@ -123,7 +111,7 @@ public class UsersHandling {
         System.out.println("Podaj id uzytkownika");
         int id;
         while (!MainApp.scanner.hasNextInt()){
-            System.out.println("To nie jest liczba calkowita");
+            System.out.println("Podaj liczbe calkowita");
             MainApp.scanner.next();
         }
         id = MainApp.scanner.nextInt();
@@ -144,31 +132,24 @@ public class UsersHandling {
         System.out.println("[id] - wg id");
         System.out.println("[email] - wg emaila");
 
-        boolean repeatChoice;
-        do{
-            repeatChoice = false;
-            String method = MainApp.scanner.next();
+        String method = MainApp.scanner.next();
 
-            switch (method){
-                case "id":
-                    printUserById(conn);
-                    break;
-                case "email":
-                    printUserByEmail(conn);
-                    break;
-                default:
-                    repeatChoice = true;
-                    System.out.println("Wybiez z powyzszych");
-                    break;
-            }
-        }while (repeatChoice);
+        switch (method){
+            case "id":
+                printUserById(conn);
+                break;
+            case "email":
+                printUserByEmail(conn);
+                break;
+            default:
+                System.out.println("Nie obslugiwane wyrazenie");
+                break;
+        }
 
         System.out.println("----------");
     }
 
     private static void printUserById(Connection conn)throws SQLException{
-        System.out.println("Wyswietlanie uzytkownika");
-
         System.out.println("Podaj id uzytkownika");
         int id;
         while (!MainApp.scanner.hasNextInt()){
@@ -178,15 +159,9 @@ public class UsersHandling {
         id = MainApp.scanner.nextInt();
 
         Users user = Users.loadUserById(conn, id);
-        while (user == null){
+        if(user == null){
             System.out.println("Nie ma uzytkownika o takim id");
-            System.out.println("Podaj id uzytkownika");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            user = Users.loadUserById(conn, id);
+            return;
         }
 
         System.out.println(user.getId());
@@ -198,17 +173,12 @@ public class UsersHandling {
     }
 
     private static void printUserByEmail(Connection conn)throws SQLException{
-        System.out.println("Wyswietlanie uzytkownika");
-
         System.out.println("Podaj email uzytkownika");
         String email = MainApp.scanner.next();
 
         Users user = Users.loadUserByEmail(conn, email);
-        while (user == null){
+        if(user == null){
             System.out.println("Nie ma uzytkownika o takim emailu");
-            System.out.println("Podaj email uzytkownika");
-            email = MainApp.scanner.next();
-            user = Users.loadUserByEmail(conn, email);
         }
 
         System.out.println(user.getId());
@@ -226,6 +196,7 @@ public class UsersHandling {
 
         if(users == null){
             System.out.println("Brak uzytkownikow");
+            System.out.println("----------");
         }else{
             for(int i = 0; i < users.length; i++){
                 System.out.println(users[i].getId());

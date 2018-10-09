@@ -112,10 +112,6 @@ public class Exercise {
             pstm.executeUpdate();
             id = 0;
         }
-//        todo: usunac obiekt ktory jest w bazie danych(id != 0)
-//        todo: jezeli go tam nie ma nic nie robid
-//        todo: gdy usuniemy obiekt zmieniamy jego id na 0
-//        todo:
     }
 
     public Exercise setTitle(String title){
