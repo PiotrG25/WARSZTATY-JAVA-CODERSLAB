@@ -1,6 +1,8 @@
 package classes;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 
@@ -13,6 +15,8 @@ public class Solution {
     private String description;
     private int exercise_id;
     private int users_id;
+
+    private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public Solution(Calendar created, Calendar updated, String description, int exercise_id, int users_id) {
         this.created = created;
@@ -82,8 +86,8 @@ public class Solution {
             String insert = "INSERT INTO solution (created, updated, description, exercise_id, users_id) VALUES (?, ?, ?, ?, ?);";
             PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
 
-            pstm.setDate(1, new java.sql.Date(created.getTimeInMillis()));
-            pstm.setDate(2, new java.sql.Date(updated.getTimeInMillis()));
+            pstm.setString(1, dateFormat.format(created.getTime()));//new java.sql.Date(created.getTimeInMillis())
+            pstm.setString(2, dateFormat.format(updated.getTime()));
             pstm.setString(3, description);
             pstm.setInt(4, exercise_id);
             pstm.setInt(5, users_id);
