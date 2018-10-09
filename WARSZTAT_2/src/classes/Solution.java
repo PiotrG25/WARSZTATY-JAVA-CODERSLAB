@@ -196,6 +196,7 @@ public class Solution {
 
     public static Solution[] loadAllByExerciseId(Connection conn, int id) throws SQLException {
 //        todo: pobranie wszystkich rozwiazan danego zadania
+//        todo:posortowane od najnowszego do najstarszego
 //        todo:
         return null;
     }

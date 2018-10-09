@@ -21,11 +21,14 @@ public class MainApp {
     ){
         boolean repeat = true;
         System.out.println("Witam w programie");
-        
+
         do{
             Print.printClasses();
             String classChoice = scanner.next();
 
+            //todo tytul moze zawierac wiecej niz jedno slowo :( (wszystko)
+            //todo solution wyswietla 02:00:00 wszystkie
+            //todo posortowac po id (nie sortownosc szczegulnie widoczna przy duzej ilosci recordow)
             switch(classChoice){
                 case "quit":
                     repeat = false;

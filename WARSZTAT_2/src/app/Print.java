@@ -4,7 +4,7 @@ public class Print {
     public static void printClasses(){
         System.out.println(
                 "Wybierz klase na ktorej chcesz operowac\n" +
-                "[exercise][solution][user_group][users]" +
+                "[exercise][solution][user_group][users]\n" +
                 "[quit] - zakonczenie programu"
         );
     }

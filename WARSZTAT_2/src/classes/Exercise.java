@@ -81,7 +81,7 @@ public class Exercise {
             return exercise;
         }
         rs.close();
-        System.out.println("Nie ma zadania o takim id");
+        System.err.println("Nie ma zadania o takim id");
         return null;
     }
     public static Exercise[] loadAllExercises(Connection conn) throws SQLException {

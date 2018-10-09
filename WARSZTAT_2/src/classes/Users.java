@@ -85,10 +85,10 @@ public class Users {
             ResultSet selectResult = selectStatement.executeQuery();
             selectResult.next();
 
-            String dbUsername = rs.getString("username");
-            String dbEmail = rs.getString("email");
-            String dbPassword = rs.getString("password");
-            int dbUser_group_id = rs.getInt("user_group_id");
+            String dbUsername = selectResult.getString("username");
+            String dbEmail = selectResult.getString("email");
+            String dbPassword = selectResult.getString("password");
+            int dbUser_group_id = selectResult.getInt("user_group_id");
 
             if(!username.equals(dbUsername)){
                 String update = "UPDATE users SET username=? WHERE id=?;";
@@ -195,7 +195,7 @@ public class Users {
         }
     }
 
-    public static Users[] loadAllByGroupId(Connection conn, int id) throws SQLException {
+    public static Users[] loadAllByGroupId(Connection conn, int user_group_id) throws SQLException {
 //        todo: pobranie wszystkich uzytkownikow z grupy
 //        todo:
         return null;

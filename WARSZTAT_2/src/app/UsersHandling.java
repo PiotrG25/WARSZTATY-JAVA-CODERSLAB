@@ -98,7 +98,7 @@ public class UsersHandling {
         if(adding.equals("group")){
             System.out.println("Nie ma grupy o takim id");
         }
-        if(adding.equals("emial")){
+        if(adding.equals("email")){
             System.out.println("Ten email juz istnieje");
         }
 
@@ -179,6 +179,7 @@ public class UsersHandling {
         Users user = Users.loadUserByEmail(conn, email);
         if(user == null){
             System.out.println("Nie ma uzytkownika o takim emailu");
+            return;
         }
 
         System.out.println(user.getId());
