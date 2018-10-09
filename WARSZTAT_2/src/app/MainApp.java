@@ -1,6 +1,9 @@
 package app;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class MainApp {
@@ -16,6 +19,20 @@ public class MainApp {
     ){
         boolean repeat = true;
         System.out.println("Witam w programie");
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(dateFormat.format(calendar.getTime()));
+
+        java.util.Date date = new Date(Calendar.getInstance().getTimeInMillis());
+        System.out.println(dateFormat.format(date.getTime()));
+
+        Calendar cal = Calendar.getInstance();
+        System.out.println(dateFormat.format(cal.getTime()));
+        cal.add(Calendar.YEAR, 1);
+        System.out.println(dateFormat.format(cal.getTime()));
+        cal.setTime(date);
+        System.out.println(dateFormat.format(cal.getTime()));
 
         do{
             Print.printClasses();
@@ -63,6 +80,7 @@ public class MainApp {
                         case "quit":
                             break;
                         case "add":
+                            SolutionHandling.addSolution(conn);
                             break;
                         case "edit":
                             break;

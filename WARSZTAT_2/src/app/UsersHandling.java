@@ -29,7 +29,19 @@ public class UsersHandling {
 
         Users user = new Users(username,email,password,user_group_id);
 
-        user.saveToDB(conn);
+        String adding = user.saveToDB(conn);
+
+        while(adding.equals("group")){
+            System.out.println("Nie ma grupy o takim id");
+            while(!MainApp.scanner.hasNextInt()){
+                System.out.println("Podaj wartosc calkowita");
+                System.out.println("Podaj do ktorej grupy nalezy(user_group_id)");
+                MainApp.scanner.next();
+            }
+            user_group_id = MainApp.scanner.nextInt();
+            user.setUser_group_id(user_group_id);
+            adding = user.saveToDB(conn);
+        }
 
         System.out.println("----------");
     }
