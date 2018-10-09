@@ -27,9 +27,7 @@ public class User_group {
             PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
 
             pstm.setString(1, name);
-
             pstm.executeUpdate();
-
             ResultSet rs = pstm.getGeneratedKeys();
             rs.next();
             id = rs.getInt(1);
@@ -50,7 +48,6 @@ public class User_group {
 
         if(rs.next()){
             String name = rs.getString("name");
-
             User_group user_group = new User_group(name);
             user_group.id = id;
 

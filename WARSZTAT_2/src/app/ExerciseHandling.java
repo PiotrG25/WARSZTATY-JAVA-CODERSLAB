@@ -111,18 +111,12 @@ public class ExerciseHandling {
         id = MainApp.scanner.nextInt();
 
         Exercise exercise = Exercise.loadExerciseById(conn, id);
-        while (exercise == null){
+        if(exercise == null) {
             System.out.println("Nie ma zadania o takim id");
-            System.out.println("Podaj id zadania");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            exercise = Exercise.loadExerciseById(conn, id);
+        }else{
+            exercise.delete(conn);
+            System.out.println("Usunieto zadanie");
         }
-
-        exercise.delete(conn);
 
         System.out.println("----------");
     }

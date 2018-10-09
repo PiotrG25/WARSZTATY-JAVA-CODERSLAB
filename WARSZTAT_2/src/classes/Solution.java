@@ -47,10 +47,9 @@ public class Solution {
         }
         Statement stm = conn.createStatement();
 
-        //check if exercise_id existance
+        //check exercise_id existance
         String check = "SELECT id FROM exercise;";
         ResultSet rs = stm.executeQuery(check);
-
         boolean exeists = false;
         while (rs.next()) {
             if (rs.getInt("id") == exercise_id) {
@@ -59,16 +58,14 @@ public class Solution {
             }
         }
         rs.close();
-
         if (exeists == false) {
             System.err.println("Nie ma zadania o takim id");
             return "exercise";
         }
 
-        //check if users_id existance
+        //check users_id existance
         check = "SELECT id FROM users;";
         rs = stm.executeQuery(check);
-
         exeists = false;
         while (rs.next()) {
             if (rs.getInt("id") == users_id) {
@@ -77,7 +74,6 @@ public class Solution {
             }
         }
         rs.close();
-
         if (exeists == false) {
             System.err.println("Nie ma uzytkownika o takim id");
             return "users";
@@ -95,11 +91,8 @@ public class Solution {
             pstm.setInt(5, users_id);
 
             pstm.executeUpdate();
-
             rs = pstm.getGeneratedKeys();
-
             this.id = rs.getInt(1);
-
             rs.close();
         } else {
 //            todo podzielic edycje na osobne metody do kazdej zmiennej
@@ -124,7 +117,6 @@ public class Solution {
             int users_id = rs.getInt("users_id");
 
             Solution solution = new Solution(created, updated, description, exercise_id, users_id);
-
             rs.close();
             return solution;
         }
@@ -142,10 +134,13 @@ public class Solution {
     }
 
     public void delete(Connection conn) throws SQLException {
-//        todo: usunac obiekt ktory jest w bazie danych(id != 0)
-//        todo: jezeli go tam nie ma nic nie robid
-//        todo: gdy usuniemy obiekt zmieniamy jego id na 0
-//        todo:
+        if(id != 0){
+            String delete = "DELETE FROM solution WHERE id=?";
+            PreparedStatement pstm = conn.prepareStatement(delete);
+            pstm.setInt(1, id);
+            pstm.executeUpdate();
+            id = 0;
+        }
     }
 
     public static Solution loadAllByUserId(Connection conn, int id) throws SQLException {
@@ -159,6 +154,7 @@ public class Solution {
 //        todo:
         return null;
     }
+
 
     public Solution setCreated(Calendar created) {
         this.created = created;
@@ -185,6 +181,7 @@ public class Solution {
         return this;
     }
 
+
     public int getId() {
         return id;
     }
@@ -209,56 +206,3 @@ public class Solution {
         return users_id;
     }
 }
-//    public static boolean isDateTime(String date) {
-////        'YYYY-MM-DD hh:mm:ss'
-////        Metoda sprawdza poprawnosc formatu a nie daty
-////        todo: czy dziala?
-//
-//        Pattern pattern = Pattern.compile(
-//                "[0-9]{4}-[0-9]{2}-[0-9]{2}\\s[0-9]{2}\\:[0-9]{2}:[0-9]{2}");
-//
-//        Matcher matcher = pattern.matcher(date);
-//
-//        if (matcher.matches()) {
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    public static String toDateTime(int YY, int MM, int DD, int hh, int mm, int ss){
-////        todo: czy dziala?
-//        String date = "";
-//
-//        if(YY < 1000) date += "0";
-//        if(YY < 100) date += "0";
-//        if(YY < 10) date += "0";
-//
-//        date += YY;
-//        date += "-";
-//
-//        if(MM < 10) date += "0";
-//
-//        date += MM;
-//        date += "-";
-//
-//        if(DD < 10) date += "0";
-//
-//        date += DD;
-//        date += " ";
-//
-//        if(hh < 10) date += "0";
-//
-//        date += hh;
-//        date += ":";
-//
-//        if(mm < 10) date += "0";
-//
-//        date += mm;
-//        date += ":";
-//
-//        if(ss < 10) date += "0";
-//
-//        date += ss;
-//
-//        return date;
-//    }

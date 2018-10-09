@@ -32,11 +32,9 @@ public class Exercise {
             pstm.setString(2, description);
 
             pstm.executeUpdate();
-
             ResultSet rs = pstm.getGeneratedKeys();
             rs.next();
             id = rs.getInt(1);
-
             rs.close();
         }else{
             //todo metoda zmiany rekordu w tabeli
@@ -56,7 +54,6 @@ public class Exercise {
 
             Exercise exercise = new Exercise(title, description);
             exercise.id = id;
-
             rs.close();
             return exercise;
         }

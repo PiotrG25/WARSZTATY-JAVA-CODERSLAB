@@ -129,18 +129,12 @@ public class UsersHandling {
         id = MainApp.scanner.nextInt();
 
         Users user = Users.loadUserById(conn, id);
-        while (user == null){
+        if(user == null) {
             System.out.println("Nie ma uzytkownika o takim id");
-            System.out.println("Podaj id uzytkownika");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            user = Users.loadUserById(conn, id);
+        }else{
+            user.delete(conn);
+            System.out.println("usunieto uzytkownika");
         }
-
-        user.delete(conn);
 
         System.out.println("----------");
     }

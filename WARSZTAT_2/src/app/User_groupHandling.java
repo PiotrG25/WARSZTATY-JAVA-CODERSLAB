@@ -67,17 +67,12 @@ public class User_groupHandling {
         id = MainApp.scanner.nextInt();
 
         User_group user_group = User_group.loadUser_groupById(conn, id);
-        while (user_group == null){
+        if(user_group == null) {
             System.out.println("Nie ma grupy o takim id");
-            while (!MainApp.scanner.hasNextInt()){
-                System.out.println("To nie jest liczba calkowita");
-                MainApp.scanner.next();
-            }
-            id = MainApp.scanner.nextInt();
-            user_group = User_group.loadUser_groupById(conn, id);
+        }else{
+            user_group.delete(conn);
+            System.out.println("Usunieto grupe");
         }
-
-        user_group.delete(conn);
 
         System.out.println("----------");
     }

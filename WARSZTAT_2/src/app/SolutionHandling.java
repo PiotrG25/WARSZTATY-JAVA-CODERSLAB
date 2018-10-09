@@ -73,6 +73,30 @@ public class SolutionHandling {
     }
 
     public static void editSolution(Connection conn)throws SQLException{
+        //todo
+        //todo
+        //todo
+    }
 
+    public static void deleteSolution(Connection conn)throws SQLException{
+        System.out.println("Usuwanie rozwiazania");
+
+        System.out.println("Podaj id zadania");
+        int id;
+        while(!MainApp.scanner.hasNextInt()){
+            System.out.println("Podaj liczbe calkowita");
+            MainApp.scanner.next();
+        }
+        id = MainApp.scanner.nextInt();
+
+        Solution solution = Solution.loadSolutionById(conn, id);
+        if(solution == null){
+            System.out.println("Nie ma rozwiazania o takim id");
+        }else{
+            solution.delete(conn);
+            System.out.println("Usunieto rozwiazanie");
+        }
+
+        System.out.println("----------");
     }
 }

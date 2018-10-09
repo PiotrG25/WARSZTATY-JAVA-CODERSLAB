@@ -27,10 +27,9 @@ public class Users {
         }
         Statement stm = conn.createStatement();
 
-        //check if user_group_id existance
+        //check user_group_id existance
         String check = "SELECT id FROM user_group;";
         ResultSet rs = stm.executeQuery(check);
-
         boolean existsGroupId = false;
         while(rs.next()){
             if(rs.getInt("id") == user_group_id){
@@ -38,7 +37,6 @@ public class Users {
                 break;
         }}
         rs.close();
-
         if(existsGroupId == false){
             System.err.println("Nie ma grupy o takim id");
             return "group";
@@ -47,7 +45,6 @@ public class Users {
         //check email Uniquness
         check = "SELECT email, id FROM users;";
         rs = stm.executeQuery(check);
-
         boolean isUnique = true;
         while(rs.next()){
             if(rs.getString("email").equals(email)){
@@ -59,12 +56,11 @@ public class Users {
             }
         }
         rs.close();
-
         if(isUnique == false){
             System.err.println("Taki email już istnieje");
             return "email";
         }
-//        Koniec walidacji
+        //Koniec walidacji
 
         if(id == 0){
             String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
@@ -76,11 +72,8 @@ public class Users {
             pstm.setInt(4, user_group_id);
 
             pstm.executeUpdate();
-
             rs = pstm.getGeneratedKeys();
-
             this.id = rs.getInt(1);
-
             rs.close();
         }else{
 //            todo podzielic edycje na osobne metody do kazdej zmiennej
