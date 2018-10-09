@@ -51,6 +51,8 @@ public class SolutionHandling {
             }
             exercise_id = MainApp.scanner.nextInt();
             solution.setExercise_id(exercise_id);
+            solution.setCreated(Calendar.getInstance());
+            solution.setUpdated(Calendar.getInstance());
             adding = solution.saveToDB(conn);
         }
 
@@ -62,9 +64,15 @@ public class SolutionHandling {
             }
             users_id = MainApp.scanner.nextInt();
             solution.setUsers_is(users_id);
+            solution.setCreated(Calendar.getInstance());
+            solution.setUpdated(Calendar.getInstance());
             adding = solution.saveToDB(conn);
         }
 
         System.out.println("----------");
+    }
+
+    public static void editSolution(Connection conn)throws SQLException{
+
     }
 }
