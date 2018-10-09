@@ -79,16 +79,45 @@ public class Users {
             this.id = rs.getInt(1);
             rs.close();
         }else{
-//            todo podzielic edycje na osobne metody do kazdej zmiennej
-            String update = "UPDATE users SET username = ?, email = ?, password = ?, user_group_id = ?;";
-            PreparedStatement pstm2 = conn.prepareStatement(update);
+            String select = "SELECT * FROM users WHERE id=?;";
+            PreparedStatement selectStatement = conn.prepareStatement(select);
+            selectStatement.setInt(1, id);
+            ResultSet selectResult = selectStatement.executeQuery();
+            selectResult.next();
 
-            pstm2.setString(1, username);
-            pstm2.setString(2, email);
-            pstm2.setString(3, password);
-            pstm2.setInt(4, user_group_id);
+            String dbUsername = rs.getString("username");
+            String dbEmail = rs.getString("email");
+            String dbPassword = rs.getString("password");
+            int dbUser_gorup_id = rs.getInt("user_group_id");
 
-            pstm2.executeUpdate();
+            if(!username.equals(dbUsername)){
+                String update = "UPDATE users SET username=? WHERE id=?;";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setString(1, username);
+                updateStatement.executeUpdate();
+            }
+            if(!email.equals(dbEmail)){
+                String update = "UPDATE users SET email=? WHERE id=?;";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setString(1, email);
+                updateStatement.executeUpdate();
+            }
+            if(!password.equals(dbPassword)){
+                String update = "UPDATE users SET password=? WHERE id=?;";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setString(1, password);
+                updateStatement.executeUpdate();
+            }
+            if(user_group_id != dbUser_gorup_id){
+                String update = "UPDATE users SET user_gorup_id=? WHERE id=?;";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setInt(1, user_group_id);
+                updateStatement.executeUpdate();
+            }
         }
         return "0";
     }

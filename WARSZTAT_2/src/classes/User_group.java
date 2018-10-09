@@ -34,10 +34,12 @@ public class User_group {
 
             rs.close();
         }else{
-            //todo metode do zmiany zawartosci
-            ;
+            String update = "UPDATE user_group SET name=? WHERE id=?;";
+            PreparedStatement pstm = conn.prepareStatement(update);
+            pstm.setString(1, name);
+            pstm.setInt(2, id);
+            pstm.executeUpdate();
         }
-        //todo: gdy id != 0 zmienic zawartosc
         return "0";
     }
     public static User_group loadUser_groupById(Connection conn, int id) throws SQLException {

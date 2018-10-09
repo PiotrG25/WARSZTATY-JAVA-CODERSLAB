@@ -98,8 +98,37 @@ public class Solution {
             this.id = rs.getInt(1);
             rs.close();
         } else {
-//            todo podzielic edycje na osobne metody do kazdej zmiennej
-            ;
+            String select = "SELECT * FROM solution WHERE id=?;";
+            PreparedStatement selectStatement = conn.prepareStatement(select);
+            selectStatement.setInt(1, id);
+            ResultSet selectResult = selectStatement.executeQuery();
+            selectResult.next();
+
+            String dbDescription = selectResult.getString("description");
+            int dbExercise_id = selectResult.getInt("exercise_id");
+            int dbUsers_id = selectResult.getInt("users_id");
+
+            if(!description.equals(dbDescription)){
+                String update = "UPDATE solution SET description=? WHERE id=?";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setString(1, description);
+                updateStatement.executeUpdate();
+            }
+            if(exercise_id != dbExercise_id){
+                String update = "UPDATE solution SET exercise_id=? WHERE id=?";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setInt(1, exercise_id);
+                updateStatement.executeUpdate();
+            }
+            if(users_id != dbUsers_id){
+                String update = "UPDATE solution SET users_id=? WHERE id=?";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setInt(1, users_id);
+                updateStatement.executeUpdate();
+            }
         }
         return "0";
     }

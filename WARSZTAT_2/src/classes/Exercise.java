@@ -39,8 +39,29 @@ public class Exercise {
             id = rs.getInt(1);
             rs.close();
         }else{
-            //todo metoda zmiany rekordu w tabeli
-            ;
+            String select = "SELECT * FROM exercise WHERE id=?;";
+            PreparedStatement selectStatement = conn.prepareStatement(select);
+            selectStatement.setInt(1, id);
+            ResultSet selectResult = selectStatement.executeQuery();
+            selectResult.next();
+
+            String dbTitle = selectResult.getString("title");
+            String dbDescription = selectResult.getString("description");
+
+            if(!title.equals(dbTitle)){
+                String update = "UPDATE exercise SET title=? WHERE id=?;";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setString(1, title);
+                updateStatement.executeUpdate();
+            }
+            if(!description.equals(dbDescription)){
+                String update = "UPDATE exercise SET description=? WHERE id=?;";
+                PreparedStatement updateStatement = conn.prepareStatement(update);
+                updateStatement.setInt(2, id);
+                updateStatement.setString(1, description);
+                updateStatement.executeUpdate();
+            }
         }
         return "0";
     }
