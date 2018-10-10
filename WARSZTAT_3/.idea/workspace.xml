@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18f89e04-6fcc-434d-a47d-3c51c9e7e273" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/classes/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/classes/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/tableChoice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/tableChoice.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,14 +24,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="java" value="198" />
+          <entry key="java" value="278" />
           <entry key="jsp" value="137" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="198" />
+          <entry key="JAVA" value="278" />
           <entry key="JSP" value="137" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="XML" value="3" />
@@ -78,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/classes/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="181" column="58" selection-start-line="181" selection-start-column="58" selection-end-line="181" selection-end-column="58" />
+            <state relative-caret-position="494">
+              <caret line="200" selection-start-line="200" selection-end-line="200" />
             </state>
           </provider>
         </entry>
@@ -342,12 +340,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539187335964</updated>
       <workItem from="1539187344246" duration="2032000" />
-      <workItem from="1539195240875" duration="1136000" />
+      <workItem from="1539195240875" duration="2014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3168000" />
+    <option name="totallyTimeSpent" value="4046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -443,8 +441,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/classes/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="181" column="58" selection-start-line="181" selection-start-column="58" selection-end-line="181" selection-end-column="58" />
+        <state relative-caret-position="494">
+          <caret line="200" selection-start-line="200" selection-end-line="200" />
         </state>
       </provider>
     </entry>

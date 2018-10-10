@@ -178,6 +178,7 @@ public class Solution {
         }
     }
 
+//    Nowosci warsztat3
     public static Solution[] loadAllSolutions(Connection conn, int five)throws SQLException{
         String select = "SELECT id FROM solution ORDER BY updated DESC LIMIT " + five + ";";
         ResultSet rs = (conn.createStatement()).executeQuery(select);
@@ -197,6 +198,7 @@ public class Solution {
             return solutions;
         }
     }
+//    Koniec nowosci
 
     public void delete(Connection conn) throws SQLException {
         if(id != 0){
