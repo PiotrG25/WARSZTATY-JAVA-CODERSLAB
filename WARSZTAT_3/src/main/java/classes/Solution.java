@@ -178,6 +178,26 @@ public class Solution {
         }
     }
 
+    public static Solution[] loadAllSolutions(Connection conn, int five)throws SQLException{
+        String select = "SELECT id FROM solution ORDER BY updated DESC LIMIT " + five + ";";
+        ResultSet rs = (conn.createStatement()).executeQuery(select);
+        Solution[] solutions = new Solution[1];
+
+        while(rs.next()){
+            solutions[solutions.length - 1] = loadSolutionById(conn, rs.getInt("id"));
+            solutions = Arrays.copyOf(solutions, solutions.length + 1);
+        }
+        rs.close();
+        solutions = Arrays.copyOf(solutions, solutions.length - 1);
+
+        if(solutions.length == 0){
+            System.err.println("Brak rozwiazan");
+            return null;
+        }else{
+            return solutions;
+        }
+    }
+
     public void delete(Connection conn) throws SQLException {
         if(id != 0){
             String delete = "DELETE FROM solution WHERE id=?";
