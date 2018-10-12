@@ -18,13 +18,12 @@ public class exercise extends HttpServlet {
 
         String type = request.getParameter("type");
 
-        switch (type){
-            case "add":
-                break;
-            case "edit":
-                break;
-            case "delete":
-                break;
+        String id = request.getParameter("id");
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+
+        if(type == null){
+            getServletContext().getRequestDispatcher("/exercise.jsp").forward(request, response);
         }
 
         try {
@@ -37,6 +36,35 @@ public class exercise extends HttpServlet {
                         "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
                         "root", "coderslab");
         ){
+
+            switch (type){
+                case "add":
+                    if(title != null && !title.isEmpty() && description != null && !description.isEmpty()){
+                        Exercise exercise = new Exercise(title, description);
+                        exercise.saveToDB(conn);
+                    }
+                    break;
+                case "edit":
+                    if(id != null && !id.isEmpty()){
+                        Exercise exercise = Exercise.loadExerciseById(conn, Integer.parseInt(id));
+                        if(title != null && !title.isEmpty()){
+                            exercise.setTitle(title);
+                        }
+                        if(description != null && !description.isEmpty()){
+                            exercise.setDescription(description);
+                        }
+                        exercise.saveToDB(conn);
+                    }
+                    break;
+                case "delete":
+                    if(id != null && !id.isEmpty()) {
+                        Exercise exercise = Exercise.loadExerciseById(conn, Integer.parseInt("id"));
+                        exercise.delete(conn);
+                    }
+                    break;
+            }
+
+            getServletContext().getRequestDispatcher("/exercise.jsp").forward(request, response);
         }catch(SQLException e){
             e.printStackTrace();
         }
