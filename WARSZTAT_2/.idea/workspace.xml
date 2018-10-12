@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="813c283e-59f1-4af8-83e4-2ba35131b5dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_2/app/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WARSZTAT_2/app/MainApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_2/app/SolutionHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WARSZTAT_2/app/SolutionHandling.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/src/main/java/servlets/exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/src/main/java/servlets/exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/src/main/webapp/exercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/src/main/webapp/exercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/META-INF/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/classes/DbUtils.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/servlets/exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/servlets/exercise.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/exercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/exercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/classes/classes/DbUtils.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/classes/servlets/exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/target/classes/servlets/exercise.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,7 +20,7 @@
     <session id="1662680617">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.6" value="1" />
@@ -316,12 +313,12 @@
       <workItem from="1538851924369" duration="14700000" />
       <workItem from="1538933884547" duration="49186000" />
       <workItem from="1539186582327" duration="1376000" />
-      <workItem from="1539335081443" duration="5287000" />
+      <workItem from="1539335081443" duration="5649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70549000" />
+    <option name="totallyTimeSpent" value="70911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />

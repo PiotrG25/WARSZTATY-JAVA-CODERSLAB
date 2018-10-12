@@ -16,6 +16,30 @@ import java.sql.SQLException;
 public class exercise extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String type = request.getParameter("type");
+
+        switch (type){
+            case "add":
+                break;
+            case "edit":
+                break;
+            case "delete":
+                break;
+        }
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try(
+                Connection conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
+                        "root", "coderslab");
+        ){
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,32 +54,10 @@ public class exercise extends HttpServlet {
                         "root", "coderslab");
         ){
             Exercise[] exercises = Exercise.loadAllExercises(conn);
-            response.getWriter().append(
-                    "<a href='/main'>Strona główna</a><br/>" +
-                    "<a href='/addExercise'>dodanie zadania</a><br/>" +
-                    "<a href='/editExercise'>edycja zadania</a><br/>" +
-                    "<a href='/deleteExercise'>usuniecie zadania</a><br/>"
-                    );
-            response.getWriter().append("" +
-                    "<table>" +
-                    "   <tr>" +
-                    "       <td>id</td>" +
-                    "       <td>title</td>" +
-                    "       <td>description</td>" +
-                    "   </tr>"
-            );
-            for(Exercise e : exercises){
-                response.getWriter().append("" +
-                    "   <tr>" +
-                    "       <td>" + e.getId() + "</td>" +
-                    "       <td>" + e.getTitle() + "</td>" +
-                    "       <td>" + e.getDescription() + "</td>" +
-                    "   </tr>"
-                );
-            }
-            response.getWriter().append(
-                    "</table>"
-            );
+            request.setCharacterEncoding("utf-8");
+            response.setCharacterEncoding("utf-8");
+            request.setAttribute("exercises", exercises);
+            getServletContext().getRequestDispatcher("/exercise.jsp").forward(request, response);
         }catch(SQLException e){
             e.printStackTrace();
         }
