@@ -1,5 +1,6 @@
 package servlets;
 
+import classes.DbUtil;
 import classes.User_group;
 
 import javax.servlet.ServletException;
@@ -22,15 +23,8 @@ public class user_group extends HttpServlet {
             response.sendRedirect("/user_group");
         }
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         try(
-                Connection conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
-                        "root", "coderslab");
+                Connection conn = DbUtil.getConn();
         ){
 
 
@@ -65,15 +59,9 @@ public class user_group extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
         try(
-                Connection conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
-                        "root", "coderslab");
+                Connection conn = DbUtil.getConn();
         ){
             User_group[] user_groups = User_group.loadAllUser_groups(conn);
             request.setCharacterEncoding("utf-8");

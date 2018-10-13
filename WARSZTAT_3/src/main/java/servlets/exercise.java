@@ -1,5 +1,6 @@
 package servlets;
 
+import classes.DbUtil;
 import classes.Exercise;
 
 import javax.servlet.ServletException;
@@ -22,15 +23,8 @@ public class exercise extends HttpServlet {
             response.sendRedirect("/exercise");
         }
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         try(
-                Connection conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
-                        "root", "coderslab");
+                Connection conn = DbUtil.getConn();
         ){
 
             String id = request.getParameter("id");
@@ -70,15 +64,9 @@ public class exercise extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
         try(
-                Connection conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
-                        "root", "coderslab");
+                Connection conn = DbUtil.getConn();
         ){
             Exercise[] exercises = Exercise.loadAllExercises(conn);
             request.setCharacterEncoding("utf-8");
