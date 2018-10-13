@@ -4,33 +4,7 @@
 <head>
     <title>exercise</title>
     <meta charset="UTF-8"/>
-    <style>
-        td{
-            border: 1px solid black;
-        }
-        ol > li{
-            width: 300px;
-            background-color: chartreuse;
-            border: 1px solid olivedrab;
-            list-style-type: none;
-            cursor: pointer;
-            display: inline-block;
-        }
-        ol > li > form{
-            width: 290px;
-            padding: 5px;
-            background-color: grey;
-            display: none;
-            position: fixed;
-            cursor: default;
-        }
-        ol > li:hover{
-            background-color: grey;
-        }
-        ol > li:hover > form{
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
     <a href="/exercise">Strona główna</a><br/>
