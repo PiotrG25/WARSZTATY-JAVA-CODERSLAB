@@ -5,10 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/src/main/java/servlets/user_group.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/src/main/java/servlets/user_group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/src/main/webapp/exercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/src/main/webapp/exercise.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/src/main/webapp/user_group.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/src/main/webapp/user_group.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/servlets/user_group.class" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/servlets/user_group.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/user_group.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/target/WARSZTAT_3-1.0-SNAPSHOT/user_group.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/classes/servlets/user_group.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/target/classes/servlets/user_group.class" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/target/classes/servlets/user_group.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +22,7 @@
     <session id="1662680617">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.6" value="2" />
@@ -324,7 +325,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11649016" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

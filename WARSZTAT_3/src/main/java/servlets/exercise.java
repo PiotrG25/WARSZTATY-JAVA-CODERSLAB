@@ -18,10 +18,6 @@ public class exercise extends HttpServlet {
 
         String type = request.getParameter("type");
 
-        String id = request.getParameter("id");
-        String title = request.getParameter("title");
-        String description = request.getParameter("description");
-
         if(type == null || type.isEmpty()){
             response.sendRedirect("/exercise");
         }
@@ -36,6 +32,10 @@ public class exercise extends HttpServlet {
                         "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
                         "root", "coderslab");
         ){
+
+            String id = request.getParameter("id");
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
 
             boolean doAdd = (title != null && !title.isEmpty() && description != null && !description.isEmpty());
             boolean doEdit = (id != null && !id.isEmpty());

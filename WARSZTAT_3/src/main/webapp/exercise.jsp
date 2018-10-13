@@ -10,7 +10,7 @@
     <a href="/main">Strona główna</a><br/>
     <ol>
         <li>
-            dodanie zadania
+            Dodanie zadania
             <form action="/exercise" method="post">
                 <input type="text" name="type" value="add" style="display: none;"/>
                 Podaj dane zadania<br/>
@@ -20,7 +20,7 @@
             </form>
         </li>
         <li>
-            edycja użytkowników
+            Edycja użytkowników
             <form action="/exercise" method="post">
                 <input type="text" name="type" value="edit" style="display: none;"/>
                 Podaj id zadania do edycji<br/>
@@ -31,12 +31,12 @@
             </form>
         </li>
         <li>
-            usuniecie zadania
+            Usunięcie zadania
             <form action="/exercise" method="post">
                 <input type="text" name="type" value="delete" style="display: none;"/>
                 Podaj id zadania do usunięcia<br/>
                 <input type="number" name="id" placeholder="id"/>
-                <input type="submit" value="Usuń"/>
+                <input type="submit" value="Usuń"/><br/>
             </form>
         </li>
     </ol>

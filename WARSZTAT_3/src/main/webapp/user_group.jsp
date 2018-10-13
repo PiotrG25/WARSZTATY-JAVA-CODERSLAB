@@ -10,15 +10,15 @@
     <a href="/main">Strona główna</a><br/>
     <ol>
         <li>
-            dodanie grupy
+            Dodanie grupy
             <form action="/user_group" method="post">
                 <input type="text" name="type" value="add" style="display: none;"/>
                 <input type="text" name="name" placeholder="nazwa"/><br/>
-                <input type="submit" value="Dadaj"/><br/>
+                <input type="submit" value="Dodaj"/><br/>
             </form>
         </li>
         <li>
-            edycja grupy
+            Edycja grupy
             <form action="/user_group" method="post">
                 <input type="text" name="type" value="edit" style="display: none;"/>
                 Podaj id grupy do edycji<br/>
@@ -33,7 +33,7 @@
                 <input type="text" name="type" value="delete" style="display: none;"/>
                 Podaj id grupy do usunięcia<br/>
                 <input type="number" name="id" placeholder="id"/><br/>
-                <input type="submit" value="Usuń"/>
+                <input type="submit" value="Usuń"/><br/>
             </form>
         </li>
     </ol>

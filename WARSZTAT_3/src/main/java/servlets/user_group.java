@@ -18,9 +18,6 @@ public class user_group extends HttpServlet {
 
         String type = request.getParameter("type");
 
-        String id = request.getParameter("id");
-        String name = request.getParameter("name");
-
         if(type == null || type.isEmpty()){
             response.sendRedirect("/user_group");
         }
@@ -35,6 +32,10 @@ public class user_group extends HttpServlet {
                         "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
                         "root", "coderslab");
         ){
+
+
+            String id = request.getParameter("id");
+            String name = request.getParameter("name");
 
             boolean doAdd = (name != null && !name.isEmpty());
             boolean doDelete = (id != null && !id.isEmpty());
