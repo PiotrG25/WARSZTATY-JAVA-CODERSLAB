@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
-    <a href="/exercise">Strona główna</a><br/>
+    <a href="/main">Strona główna</a><br/>
     <ol>
         <li>
             dodanie zadania
