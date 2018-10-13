@@ -22,8 +22,8 @@ public class exercise extends HttpServlet {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
 
-        if(type == null){
-            getServletContext().getRequestDispatcher("/exercise.jsp").forward(request, response);
+        if(type == null || type.isEmpty()){
+            response.sendRedirect("/exercise");
         }
 
         try {
@@ -37,34 +37,33 @@ public class exercise extends HttpServlet {
                         "root", "coderslab");
         ){
 
-            switch (type){
-                case "add":
-                    if(title != null && !title.isEmpty() && description != null && !description.isEmpty()){
-                        Exercise exercise = new Exercise(title, description);
-                        exercise.saveToDB(conn);
+            boolean doAdd = (title != null && !title.isEmpty() && description != null && !description.isEmpty());
+            boolean doEdit = (id != null && !id.isEmpty());
+            boolean doDelete = (id != null && !id.isEmpty());
+
+            if(type.equals("add") && doAdd){
+                Exercise exercise = new Exercise(title, description);
+                exercise.saveToDB(conn);
+            }else if(type.equals("edit") && doEdit){
+                Exercise exercise = Exercise.loadExerciseById(conn, Integer.parseInt(id));
+                if(exercise != null){
+                    if(title != null && !title.isEmpty()){
+                        exercise.setTitle(title);
                     }
-                    break;
-                case "edit":
-                    if(id != null && !id.isEmpty()){
-                        Exercise exercise = Exercise.loadExerciseById(conn, Integer.parseInt(id));
-                        if(title != null && !title.isEmpty()){
-                            exercise.setTitle(title);
-                        }
-                        if(description != null && !description.isEmpty()){
-                            exercise.setDescription(description);
-                        }
-                        exercise.saveToDB(conn);
+                    if(description != null && !description.isEmpty()){
+                        exercise.setDescription(description);
                     }
-                    break;
-                case "delete":
-                    if(id != null && !id.isEmpty()) {
-                        Exercise exercise = Exercise.loadExerciseById(conn, Integer.parseInt("id"));
-                        exercise.delete(conn);
-                    }
-                    break;
+                    exercise.saveToDB(conn);
+                }
+            }else if(type.equals("delete") && doDelete){
+                Exercise exercise = Exercise.loadExerciseById(conn, Integer.parseInt(id));
+                if(exercise != null){
+                    exercise.delete(conn);
+                }
             }
 
-            getServletContext().getRequestDispatcher("/exercise.jsp").forward(request, response);
+            response.sendRedirect("/exercise");
+
         }catch(SQLException e){
             e.printStackTrace();
         }

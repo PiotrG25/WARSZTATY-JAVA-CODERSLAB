@@ -33,6 +33,7 @@
     </style>
 </head>
 <body>
+    <a href="/exercise">Strona główna</a><br/>
     <ol>
         <li>
             dodanie zadania

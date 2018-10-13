@@ -7,7 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18f89e04-6fcc-434d-a47d-3c51c9e7e273" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exerciseOptions/exerciseOptions/addExercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exerciseOptions/exerciseOptions/deleteExercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exerciseOptions/exerciseOptions/editExercise.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/servlets/exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/exercise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/exercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/exercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/exerciseOptions/exerciseOptions/addExercise.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/exerciseOptions/exerciseOptions/deleteExercise.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/exerciseOptions/exerciseOptions/editExercise.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/servlets/exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/WARSZTAT_3-1.0-SNAPSHOT/WEB-INF/classes/servlets/exercise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/WARSZTAT_3-1.0-SNAPSHOT/exercise.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/WARSZTAT_3-1.0-SNAPSHOT/exercise.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exerciseOptions/exerciseOptions/addExercise.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exerciseOptions/exerciseOptions/deleteExercise.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exerciseOptions/exerciseOptions/editExercise.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/servlets/exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/servlets/exercise.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,29 +43,29 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="java" value="2717" />
-          <entry key="jsp" value="1855" />
+          <entry key="java" value="3050" />
+          <entry key="jsp" value="1896" />
           <entry key="xml" value="118" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2717" />
-          <entry key="JSP" value="1855" />
+          <entry key="JAVA" value="3050" />
+          <entry key="JSP" value="1896" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="XML" value="118" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="20" />
+          <entry key="java" value="21" />
           <entry key="jsp" value="11" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="20" />
+          <entry key="JAVA" value="21" />
           <entry key="JSP" value="11" />
           <entry key="XML" value="4" />
         </counts>
@@ -84,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlets/exercise.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="102">
+              <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -93,40 +107,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/exercise.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+            <state relative-caret-position="136">
+              <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#form#0;n#li#0;n#ol#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#form#0;n#li#1;n#ol#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#form#0;n#li#2;n#ol#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exerciseOptions/exerciseOptions/addExercise.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exerciseOptions/exerciseOptions/editExercise.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exerciseOptions/exerciseOptions/deleteExercise.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -168,8 +155,8 @@
         <option value="$PROJECT_DIR$/src/main/java/classes/DbUtils.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/tableChoice.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/filtressees/Filter1.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/exercise.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/exercise.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/exercise.jsp" />
       </list>
     </option>
   </component>
@@ -245,14 +232,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="exerciseOptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WARSZTAT_3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WARSZTAT_3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="servlets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,7 +254,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539373544369" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539433117948" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Tydzień3/JEE_Exam_3/WRO_JEE_S_06_Exam_3" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -387,29 +366,29 @@
       <option name="presentableId" value="Default" />
       <updated>1539187335964</updated>
       <workItem from="1539187344246" duration="2032000" />
-      <workItem from="1539195240875" duration="26890000" />
+      <workItem from="1539195240875" duration="31117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28922000" />
+    <option name="totallyTimeSpent" value="33149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9245902" visible="true" weight="0.13615733" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.88916254" visible="true" weight="0.13615733" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.07540984" side_tool="true" visible="true" weight="0.13615733" />
+      <window_info id="Web" order="7" sideWeight="0.11083744" side_tool="true" weight="0.13615733" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5786885" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33442622" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -563,10 +542,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classes/Exercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="125" column="18" lean-forward="true" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/exercise.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+        <state relative-caret-position="136">
+          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#li#0;n#ol#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#form#0;n#li#1;n#ol#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -575,17 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classes/Exercise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="125" column="18" lean-forward="true" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/exercise.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="102">
+          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
         </state>
       </provider>
     </entry>
