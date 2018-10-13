@@ -34,7 +34,7 @@ public class users extends HttpServlet {
         ){
 
             String id = request.getParameter("id");
-            String username = request.getParameter("usersname");
+            String username = request.getParameter("username");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String user_group_id = request.getParameter("user_group_id");

@@ -4,7 +4,7 @@
 <head>
     <title>users</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="style.css" type="text/html"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
     <a href="/main">Strona główna</a><br/>

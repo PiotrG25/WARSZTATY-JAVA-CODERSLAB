@@ -254,12 +254,12 @@ public class Solution {
         return id;
     }
 
-    public Calendar getCreated() {
-        return created;
+    public String getCreated() {
+        return dateFormat.format(created.getTime());
     }
 
-    public Calendar getUpdated() {
-        return updated;
+    public String getUpdated() {
+        return dateFormat.format(updated.getTime());
     }
 
     public String getDescription() {
