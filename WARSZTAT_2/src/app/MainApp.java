@@ -23,6 +23,7 @@ public class MainApp {
 
             //todo tytul moze zawierac wiecej niz jedno slowo :( (wszystko)
             //todo solution wyswietla 02:00:00 wszystkie
+            //todo zapomnialem zrobic setUpdated przy edycji
             //todo posortowac po id (nie sortownosc szczegulnie widoczna przy duzej ilosci recordow)
             switch(classChoice){
                 case "quit":
