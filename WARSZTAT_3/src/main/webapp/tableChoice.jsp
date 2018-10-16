@@ -5,9 +5,7 @@
     <title>tableChoice</title>
 </head>
 <body>
-    <a href="/exercise">Exercise</a> - obsługa zadań<br/>
-    <a href="/solution">Solution</a> - obsługa rozwiązań<br/>
-    <a href="/user_group">User_group</a> - obsługa grup<br/>
-    <a href="/users">Users</a> - obsługa użytkowników<br/>
+    <jsp:include page="WEB-INF/header.jsp"/>
+    <jsp:include page="WEB-INF/footer.jsp"/>
 </body>
 </html>

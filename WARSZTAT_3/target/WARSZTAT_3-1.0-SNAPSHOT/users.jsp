@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
-    <a href="/main">Strona główna</a><br/>
+    <jsp:include page="WEB-INF/header.jsp"/>
     <ol>
         <li>
             Dodanie użytkownika
@@ -62,5 +62,6 @@
             </tr>
         </c:forEach>
     </table>
+    <jsp:include page="WEB-INF/footer.jsp"/>
 </body>
 </html>
