@@ -78,8 +78,6 @@ public class users extends HttpServlet {
                 Connection conn = DbUtil.getConn();
         ){
             Users[] users = Users.loadAllUsers(conn);
-            request.setCharacterEncoding("utf-8");
-            response.setCharacterEncoding("utf-8");
             request.setAttribute("users", users);
             getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
         }catch(SQLException e){

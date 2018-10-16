@@ -64,8 +64,6 @@ public class user_group extends HttpServlet {
                 Connection conn = DbUtil.getConn();
         ){
             User_group[] user_groups = User_group.loadAllUser_groups(conn);
-            request.setCharacterEncoding("utf-8");
-            response.setCharacterEncoding("utf-8");
             request.setAttribute("groups", user_groups);
             getServletContext().getRequestDispatcher("/user_group.jsp").forward(request, response);
         }catch(SQLException e){

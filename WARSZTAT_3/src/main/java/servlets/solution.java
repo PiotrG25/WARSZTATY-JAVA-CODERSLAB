@@ -84,8 +84,6 @@ public class solution extends HttpServlet {
                 Connection conn = DbUtil.getConn();
         ){
             Solution[] solutions = Solution.loadAllSolutions(conn);
-            request.setCharacterEncoding("utf-8");
-            response.setCharacterEncoding("utf-8");
             request.setAttribute("solutions", solutions);
             getServletContext().getRequestDispatcher("/solution.jsp").forward(request, response);
         }catch(SQLException e){
