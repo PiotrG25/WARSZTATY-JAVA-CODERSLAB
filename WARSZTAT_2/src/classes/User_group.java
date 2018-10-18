@@ -66,6 +66,7 @@ public class User_group {
         ResultSet rs = (conn.createStatement()).executeQuery(selectIds);
         User_group[] ug = new User_group[1];
 
+//        todo Zamienić tablicę na listę
         while(rs.next()){
             ug[ug.length - 1] = loadUser_groupById(conn, rs.getInt("id"));
             ug = Arrays.copyOf(ug, ug.length + 1);

@@ -89,6 +89,7 @@ public class Exercise {
         ResultSet rs = (conn.createStatement()).executeQuery(selectIds);
         Exercise[] exercises = new Exercise[1];
 
+//        todo Zamienić tablicę na listę
         while(rs.next()){
             exercises[exercises.length - 1] = loadExerciseById(conn, rs.getInt("id"));
             exercises = Arrays.copyOf(exercises, exercises.length + 1);

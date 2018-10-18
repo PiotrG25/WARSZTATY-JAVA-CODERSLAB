@@ -163,6 +163,7 @@ public class Solution {
         ResultSet rs = (conn.createStatement()).executeQuery(select);
         Solution[] solutions = new Solution[1];
 
+//        todo Zamienić tablicę na listę
         while(rs.next()){
             solutions[solutions.length - 1] = loadSolutionById(conn, rs.getInt("id"));
             solutions = Arrays.copyOf(solutions, solutions.length + 1);

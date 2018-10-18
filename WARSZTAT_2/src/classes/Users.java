@@ -170,6 +170,7 @@ public class Users {
         ResultSet rs = (conn.createStatement()).executeQuery(selectIds);
         Users[] u = new Users[1];
 
+//        todo Zamienić tablicę na listę
         while(rs.next()){
             u[u.length - 1] = loadUserById(conn, rs.getInt("id"));
             u = Arrays.copyOf(u, u.length + 1);
@@ -211,7 +212,7 @@ public class Users {
     }
     public Users setPassword(String password){
         String hashed;
-        hashed = BCrypt.hashpw(password, classes.BCrypt.gensalt());
+        hashed = BCrypt.hashpw(password, BCrypt.gensalt());
         this.password = hashed;
         return this;
     }

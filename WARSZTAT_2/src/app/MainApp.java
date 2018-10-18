@@ -9,7 +9,7 @@ public class MainApp {
     public static void main(String[] args) {
     try(
         Connection conn = DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8",
+        "jdbc:mysql://localhost:3306/warsztat2?useTimezone=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8&allowPublicKeyRetrieval=true",
         "root", "coderslab");
 //        Statement stm = conn.createStatement();
 //        PreparedStatement pstm = conn.prepareStatement();
@@ -21,10 +21,29 @@ public class MainApp {
             Print.printClasses();
             String classChoice = scanner.next();
 
-            //todo tytul moze zawierac wiecej niz jedno slowo :( (wszystko)
-            //todo solution wyswietla 02:00:00 wszystkie
-            //todo zapomnialem zrobic setUpdated przy edycji
+            //todo tytul moze zawierac wiecej niz jedno slowo :( poprawić wszędzie
+            //todo solution wyswietla 02:00:00, poprawić wszystkie w solution
+            //todo zapomnialem zrobic setUpdated przy edycji solution
             //todo posortowac po id (nie sortownosc szczegulnie widoczna przy duzej ilosci recordow)
+
+            //from mentor
+            //todo zmienić nazwę pakietu classes na nazwę, która sugeryje do czego one służą
+            //todo zmienić nazwę klasy Users na klasę User, klasa ma sugerować co reprezentuje a nie do jakiej tabeli się podłączyła
+            //todo zmienić tablicę na listę w metodach loadAll... ale dalej zwracać tablicę
+            //todo rozmiar metody powinien być między 20-30 linii, szczegulnie w saveToDB, zwiększyć czytelność kodu
+            //todo zapoznać się z SOLID
+            //todo nie zwracać String-ów przy błędzie saveToDB
+            //todo nie rozbijać update-a na osobne, wszystkie klasy
+            //todo Przenieść BCrypt poza pakiet classes i zrobić żeby działało, może maven
+            //todo nie ma konwencji nazywania klas po tabelach z kturymi się łączą
+            //todo podzielić program na podprogramy obsługujące każdą klasę albo trzymałą w module
+            //todo statyczny scanner to fatalny pomysł, ewentualnie udostępniać przez metody statyczne
+            //todo Print powinna być klasą prywatną klasy która ją wywołuje
+
+            //from konkurencja
+            //todo zrobić osobną klasę zajmującą się walidacją elementów
+            //todo dodać regex na email i hasło
+
             switch(classChoice){
                 case "quit":
                     repeat = false;
