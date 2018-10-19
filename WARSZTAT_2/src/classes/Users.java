@@ -90,34 +90,16 @@ public class Users {
             String dbPassword = selectResult.getString("password");
             int dbUser_group_id = selectResult.getInt("user_group_id");
 
-            if(!username.equals(dbUsername)){
-                String update = "UPDATE users SET username=? WHERE id=?;";
-                PreparedStatement updateStatement = conn.prepareStatement(update);
-                updateStatement.setInt(2, id);
-                updateStatement.setString(1, username);
-                updateStatement.executeUpdate();
-            }
-            if(!email.equals(dbEmail)){
-                String update = "UPDATE users SET email=? WHERE id=?;";
-                PreparedStatement updateStatement = conn.prepareStatement(update);
-                updateStatement.setInt(2, id);
-                updateStatement.setString(1, email);
-                updateStatement.executeUpdate();
-            }
-            if(!password.equals(dbPassword)){
-                String update = "UPDATE users SET password=? WHERE id=?;";
-                PreparedStatement updateStatement = conn.prepareStatement(update);
-                updateStatement.setInt(2, id);
-                updateStatement.setString(1, password);
-                updateStatement.executeUpdate();
-            }
-            if(user_group_id != dbUser_group_id){
-                String update = "UPDATE users SET user_group_id=? WHERE id=?;";
-                PreparedStatement updateStatement = conn.prepareStatement(update);
-                updateStatement.setInt(2, id);
-                updateStatement.setInt(1, user_group_id);
-                updateStatement.executeUpdate();
-            }
+            String update = "UPDATE users SET username=?, email=?, password=?, user_group_id=? WHERE id=?;";
+            PreparedStatement updateStatement = conn.prepareStatement(update);
+            updateStatement.setInt(5, id);
+            updateStatement.setInt(4, user_group_id);
+
+            updateStatement.setString(1, username);
+            updateStatement.setString(2, email);
+            updateStatement.setString(3,password);
+            updateStatement.executeUpdate();
+            
         }
         return "0";
     }
