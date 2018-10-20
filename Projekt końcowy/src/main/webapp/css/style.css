@@ -1,57 +1,9 @@
-
-#emptyBox{
-    background-color: black;
-    width: 32px;
-    height: 32px;
-    float: left;
-}
-.clear{
-    clear: both;
-}
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#topList > li{
-    float: left;
-    width: 100px;
-    height: 30px;
-    background-color: darkturquoise;
-    border: brown solid 1px;
-}
-#leftList > li{
-    width: 30px;
-    height: 100px;
-    background-color: darkturquoise;
-    border: brown solid 1px;
-}
-.box{
+td{
     width: 100px;
     height: 100px;
     background-color: dimgray;
-    border: black solid 1px;
+    margin: 0;
+    border: 0;
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
 }
-#topList > li > ul{
-    margin-top: 31px;
-    margin-left: -1px;
-}
-#leftList > li > .slider{
-    margin-left: 31px;
-    margin-top: -1px;
-}
-#leftList > li > .slider > .box{
-    float: left;
-}
-
-ul > li > .slider{
-    position: fixed;
-    display: none;
-}
-/*
-ul > li:hover > .slider{
-    display: block;
-}*/
