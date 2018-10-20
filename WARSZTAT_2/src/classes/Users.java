@@ -99,7 +99,7 @@ public class Users {
             updateStatement.setString(2, email);
             updateStatement.setString(3,password);
             updateStatement.executeUpdate();
-            
+
         }
         return "0";
     }
