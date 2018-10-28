@@ -1,9 +1,12 @@
 td{
     width: 100px;
     height: 100px;
-    background-color: dimgray;
+    background-color: green;
     margin: 0;
     border: 0;
     text-align: center;
     font-size: 30px;
+}
+table{
+    background-color: black;
 }

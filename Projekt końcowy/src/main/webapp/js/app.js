@@ -1,43 +1,29 @@
 $(function(){
     var buttons = $("button");
     var tds = $("td");
-    var maxNumber = 100;
-    var goal = random(maxNumber);
 
     tds.each(function(index, element){
-        $(element).text(goal);
-        element.dataset.goal = goal;
-        element.dataset.other = other(goal, maxNumber);
+        element.dataset.currentColor = "green";
     });
 
     buttons.each(function(index, element){
         var tabOfIndexes = randomIndexes(tds.length);
-        console.log(tabOfIndexes.length);
         $(element).click(function(){
             for(var i = 0; i < tabOfIndexes.length; i++){
                 change(tds.eq(tabOfIndexes[i]));
             }
         })
-    })
+    });
 });
 
-function random(length){
-    return Math.floor(Math.random() * length);
-}
-
 function change(element){
-    if(element.text() == element.data().goal){
-        element.text(element.data().other);
+    if(element.data().currentColor == "green"){
+        element.css("background-color", "red");
+        element.data().currentColor = "red";
     }else{
-        element.text(element.data().goal);
+        element.css("background-color", "green");
+        element.data().currentColor = "green";
     }
-}
-
-function other(notThis, length){
-    do{
-        var other = random(length);
-    }while(other === notThis);
-    return other;
 }
 
 function randomIndexes(length){
@@ -47,11 +33,12 @@ function randomIndexes(length){
     }
 
     var tab2 = [];
-    var length2 = random(length) + 1;
+    var length2 = Math.floor(Math.random() * length) + 1;
 
     for(i = 0; i < length2; i++){
-        var r = random(length);
+        var r = Math.floor(Math.random() * length);
         tab2.push(tab[r]);
+
         tab[r] = tab[length - 1];
         length--;
     }
