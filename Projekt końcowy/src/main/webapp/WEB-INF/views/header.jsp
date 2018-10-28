@@ -5,8 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-    <a href=""></a>
-    <a href=""></a>
-    <a href=""></a>
+    <h2>Go to level:</h2>
+    <c:forEach var="i" begin="1" end="5">
+        <a href="/main?level=${i}">${i}</a>
+    </c:forEach>
 </body>
 </html>
