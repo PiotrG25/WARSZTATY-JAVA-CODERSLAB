@@ -1,3 +1,4 @@
+<%@ page import="spring.beans.FindSession" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -9,6 +10,8 @@
     <script src="../../js/app.js"></script>
 </head>
 <body>
+    <% FindSession.orRedirect(request, response); %>
+
     <c:import url="header.jsp"/><br/>
     <c:forEach begin="1" var="i" end="${level}">
         <button>${i}</button>
