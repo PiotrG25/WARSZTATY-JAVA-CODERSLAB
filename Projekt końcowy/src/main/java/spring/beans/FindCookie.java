@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class FindCookie {
     public static void orRedirect(HttpServletRequest request, HttpServletResponse response){
-        try {
+        try {//działa
             Cookie[] cookies = request.getCookies();
             if (cookies == null) {
                 response.sendRedirect("/login.jsp");

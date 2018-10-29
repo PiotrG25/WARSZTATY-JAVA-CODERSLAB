@@ -7,9 +7,9 @@ import java.io.IOException;
 
 public class FindSession {
     public static void orRedirect(HttpServletRequest request, HttpServletResponse response){
-        try {
-            HttpSession sess = request.getSession();
-            if(sess.getAttribute("user") == null) {
+        try {//nie działa
+            HttpSession session = request.getSession();
+            if(session.getAttribute("user") == null || session.getAttribute("user").equals("")) {
                 response.sendRedirect("/login.jsp");
             }
         }catch (IOException e){

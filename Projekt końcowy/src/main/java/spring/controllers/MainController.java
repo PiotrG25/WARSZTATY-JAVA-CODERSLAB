@@ -1,10 +1,7 @@
 package spring.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import spring.beans.FindCookie;
 import spring.beans.FindSession;
 
@@ -22,21 +19,19 @@ public class MainController {
     //todo
     //todo
 
-    @PostMapping("/main")
+    @PostMapping("/login")
     public void login(HttpServletRequest request, HttpServletResponse response)throws IOException {
-        HttpSession sess = request.getSession();
-        sess.setAttribute("user", "user1");
-        sess.setMaxInactiveInterval(5);
+        HttpSession session = request.getSession();
+        session.setAttribute("user", "user1");
+        session.setMaxInactiveInterval(5);
         response.sendRedirect("/main");
     }
 
-    @GetMapping("/main")
+    @RequestMapping("/main")
     public String mainView(HttpServletRequest request, HttpServletResponse response){
-        FindSession.orRedirect(request, response);
-
         String level = request.getParameter("level");
         if(level != null && !level.isEmpty()){
-            request.setAttribute("level", level);
+            request.setAttribute("level", Integer.parseInt(level));
             return "game";
         }else{
             return "header";
