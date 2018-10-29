@@ -12,7 +12,8 @@ $(function(){
             for(var i = 0; i < tabOfIndexes.length; i++){
                 change(tds.eq(tabOfIndexes[i]));
             }
-        })
+        });
+        $(element).click();//clicking each button
     });
 });
 
