@@ -12,10 +12,23 @@ $(function(){
             for(var i = 0; i < tabOfIndexes.length; i++){
                 change(tds.eq(tabOfIndexes[i]));
             }
+            checkWinCondition(tds);
         });
         $(element).click();//clicking each button
     });
 });
+
+function checkWinCondition(tds){
+    var allGreen = true;
+    tds.each(function(index, element){
+        if($(element).data().currentColor == "red"){
+            allGreen = false;
+        }
+    });
+    if(allGreen){
+        alert("Wygrałeś!!!");
+    }
+}
 
 function change(element){
     if(element.data().currentColor == "green"){
