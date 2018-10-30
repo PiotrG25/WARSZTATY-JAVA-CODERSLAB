@@ -8,9 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="18f89e04-6fcc-434d-a47d-3c51c9e7e273" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Projekt końcowy/src/main/java/spring/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Projekt końcowy/src/main/java/spring/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/WEB-INF/views/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/WEB-INF/views/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WARSZTAT_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -302,7 +301,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540887780031" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540898379813" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Tydzień2/Exam2/WRO_JEE_S_06_Exam_2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -424,15 +423,16 @@
       <workItem from="1540018833702" duration="291000" />
       <workItem from="1540191881514" duration="461000" />
       <workItem from="1540192509736" duration="11000" />
-      <workItem from="1540830002877" duration="4047000" />
+      <workItem from="1540830002877" duration="4237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57798000" />
+    <option name="totallyTimeSpent" value="57988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8786885" visible="true" weight="0.15128593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

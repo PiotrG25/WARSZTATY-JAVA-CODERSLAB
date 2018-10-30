@@ -1,8 +1,6 @@
 package spring.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import spring.beans.DbUtil;
@@ -18,17 +16,11 @@ import java.sql.Statement;
 @Controller
 public class MainController {
 
+    //todo login
+    //todo rejestracja
     //todo
     //todo
     //todo
-
-    @PostMapping("/login")
-    public String login(HttpServletRequest request, HttpServletResponse response){
-        HttpSession session = request.getSession();
-        session.setAttribute("user", "user1");
-        session.setMaxInactiveInterval(10);
-        return "redirect:/main";
-    }
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){
@@ -37,20 +29,31 @@ public class MainController {
         return "redirect:/main";
     }
 
-    @GetMapping("/main")
+    @RequestMapping("/main")
     public String mainView(HttpServletRequest request, HttpServletResponse response){
-        HttpSession sess = request.getSession();
-        if(sess.getAttribute("user") == null || sess.getAttribute("user").equals("")){
-            return "login";
+        HttpSession session = request.getSession();
+        if(session.getAttribute("user") == null || session.getAttribute("user").equals("")){
+            return "redirect:/login";
         }
 
         String level = request.getParameter("level");
-        if(level != null && !level.isEmpty()){
-            request.setAttribute("level", Integer.parseInt(level));
-            return "game";
-        }else{
+
+        if(level == null || level.isEmpty()){
             return "header";
         }
+        for(char c : level.toCharArray()){
+            if(!Character.isDigit(c)){
+                return "header";
+            }
+        }
+        int levelInt = Integer.parseInt(level);
+        if(levelInt < 1 || levelInt > 5){
+            return "header";
+        }
+
+        request.setAttribute("level", levelInt);
+        return "game";
+
     }
 
     @RequestMapping("/print")
