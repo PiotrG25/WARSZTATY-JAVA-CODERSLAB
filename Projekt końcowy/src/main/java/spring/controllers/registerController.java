@@ -37,15 +37,16 @@ public class registerController {
         }
 
         try(Connection conn = DbUtil.getConn()){
-            User user = new User(name, password, email);
+            User user = new User(name, password, email, true);
+
             String effect = user.saveToDb(conn);
             setEffectToDb(request, effect);
+
+            session.setAttribute("user", user);
+            session.setMaxInactiveInterval(60 * 5);
         }catch (SQLException e){
             e.printStackTrace();
         }
-
-        session.setAttribute("user", "user1");
-        session.setMaxInactiveInterval(60 * 5);
         return "register";
     }
     @GetMapping("/register")

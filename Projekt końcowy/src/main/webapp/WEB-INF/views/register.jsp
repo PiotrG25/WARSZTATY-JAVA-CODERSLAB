@@ -4,7 +4,7 @@
 <head>
     <title>Register</title>
     <style>
-        .succes{
+        .success{
             color: green;
         }
         .error{
@@ -32,7 +32,7 @@
 
         <input type="submit" value="Zarejestruj się"/><br/>
         <c:if test="${arguments}"><span class="error">Brakuje kilku argumentów</span><br/></c:if>
-        <c:if test="${success}"><span class="succes">Rejestracja się powiodła</span><br/></c:if>
+        <c:if test="${success}"><span class="success">Rejestracja się powiodła</span><br/></c:if>
 
     </form>
 </body>

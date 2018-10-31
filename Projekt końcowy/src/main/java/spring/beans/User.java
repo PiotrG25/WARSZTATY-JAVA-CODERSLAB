@@ -12,10 +12,29 @@ public class User {
     private String password;
     private String email;
 
-    public User(String name, String password, String email) {
+    public User(String name, String password, String email, boolean hashPassword) {
         this.name = name;
-        setPassword(password);
+        if(hashPassword){
+            setPassword(password);
+        }else{
+            this.password = password;
+        }
         this.email = email;
+    }
+
+    public static User loadUserByName(Connection conn, String name)throws SQLException{
+        String select = "SELECT * FROM users WHERE name=?;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+        pstm.setString(1, name);
+        ResultSet rs = pstm.executeQuery();
+
+        if(rs.next()){
+            User user = new User(rs.getString(2), rs.getString(3), rs.getString(4), false);
+            user.setId(rs.getInt(1));
+            return user;
+        }else{
+            return null;
+        }
     }
 
     public String saveToDb(Connection conn)throws SQLException {
