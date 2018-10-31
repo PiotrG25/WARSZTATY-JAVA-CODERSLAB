@@ -19,10 +19,10 @@ public class User {
     }
 
     public String saveToDb(Connection conn)throws SQLException {
-        if(!isNameUnique(conn)){
+        if(returnIdWhenNameFound(conn) != id){
             return "name";
         }
-        if(!isEmailUnique(conn)){
+        if(returnIdWhenEmailFound(conn) != id){
             return "email";
         }
 
@@ -33,31 +33,27 @@ public class User {
         }
         return "ok";
     }
-    private boolean isNameUnique(Connection conn)throws SQLException{
-        String select = "SELECT name FROM users;";
+    private int returnIdWhenNameFound(Connection conn)throws SQLException{
+        String select = "SELECT name, id FROM users;";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(select);
-        boolean isUnique = true;
         while(rs.next()){
             if(rs.getString(1).equals(name)){
-                isUnique = false;
-                break;
+                return rs.getInt(2);
             }
         }
-        return isUnique;
+        return 0;
     }
-    private boolean isEmailUnique(Connection conn)throws SQLException{
-        String select = "SELECT email FROM users;";
+    private int returnIdWhenEmailFound(Connection conn)throws SQLException{
+        String select = "SELECT email, id FROM users;";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(select);
-        boolean isUnique = true;
         while(rs.next()){
             if(rs.getString(1).equals(email)){
-                isUnique = false;
-                break;
+                return rs.getInt(2);
             }
         }
-        return isUnique;
+        return 0;
     }
     private void insertToDb(Connection conn)throws SQLException{
         String insert = "INSERT INTO users(name, password, email) VALUES (?, ?, ?);";
@@ -86,6 +82,9 @@ public class User {
 
     public int getId() {
         return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

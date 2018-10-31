@@ -15,7 +15,7 @@ public class loginController {
     public String postLogin(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         session.setAttribute("user", "user1");
-        session.setMaxInactiveInterval(10);
+        session.setMaxInactiveInterval(60 * 5);
         return "redirect:/main";
     }
     @GetMapping("/login")
