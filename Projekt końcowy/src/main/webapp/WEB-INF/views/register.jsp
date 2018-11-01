@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Register</title>
-    <link rel="stylesheet" href="../../css/style.css" type="text/css"/>
 </head>
 <body>
+
+    <c:if test="${user != null}"><c:import url="header.jsp"/></c:if>
+
     <a href="/login">Zaloguj się</a><br/>
     <form action="/register" method="post">
 

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Game</title>
-    <link rel="stylesheet" href="../../css/style.css" type="text/css"/>
     <script src="../../js/jQuery3.3.1.js"></script>
     <script src="../../js/app.js"></script>
 </head>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="../../css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/fontello-f5aae3d8/css/fontello.css" type="text/css"/>
 </head>
 <body>
     <header>
@@ -13,6 +14,7 @@
         </c:forEach>
 
         <a id="logoutLink" href="/logout">Logout!</a>
+        <a id="user" href="/user"><i class="icon-user-5"></i></a>
     </header>
 </body>
 </html>

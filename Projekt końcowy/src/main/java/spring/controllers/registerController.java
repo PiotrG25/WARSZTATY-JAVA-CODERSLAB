@@ -45,7 +45,12 @@ public class registerController {
     }
     @GetMapping("/register")
     public String getRegister(HttpServletRequest request, HttpServletResponse response){
-        return "register";
+        HttpSession session = request.getSession();
+        if(session.getAttribute("user") == null){
+            return "register";
+        }else{
+            return "game";
+        }
     }
 
     private boolean isErrorAndSetIt(HttpServletRequest request, String name, String email, String password, String password2){

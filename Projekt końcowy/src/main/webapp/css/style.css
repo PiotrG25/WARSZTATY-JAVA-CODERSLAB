@@ -22,7 +22,7 @@ header a{
     display: inline-block;
     height: 30px;
     width: 46px;
-    background-color: rosybrown;
+    background-color: grey;
     border: 1px solid black;
     border-radius: 5px;
     text-align: center;
@@ -40,12 +40,11 @@ header h3{
     margin: auto 10px;
     display: inline-block;
 }
-/*login.jsp register.jsp*/
-.error{
-    color: red;
-}
-.success{
-    color: green;
+#user{
+    float: right;
+    width: 30px;
+    height: 30px;
+
 }
 #logoutLink{
     width: 92px;
@@ -59,4 +58,12 @@ header h3{
     opacity: 1;
     transition: opacity .5s ease-in-out;
 }
+/*login.jsp register.jsp*/
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}
+
 

@@ -16,8 +16,8 @@ import java.sql.Statement;
 @Controller
 public class MainController {
 
-    //todo login
-    //todo rejestracja
+    //todo Strona użytkownika
+    //todo
     //todo
     //todo
     //todo
@@ -32,7 +32,7 @@ public class MainController {
     @RequestMapping("/main")
     public String mainView(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
-        if(session.getAttribute("user") == null || session.getAttribute("user").equals("")){
+        if(session.getAttribute("user") == null){
             return "redirect:/login";
         }
 
