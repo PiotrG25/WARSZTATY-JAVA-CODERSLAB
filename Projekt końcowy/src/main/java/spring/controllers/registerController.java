@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Controller
 public class registerController {
@@ -30,23 +28,18 @@ public class registerController {
         if(name == null || name.isEmpty() || password == null || password.isEmpty() ||
         password2 == null || password2.isEmpty() || email == null || email.isEmpty()){
             request.setAttribute("arguments",true);
-            return "register";
-        }
-
-        if(setIfIsAnyError(request, name, email, password, password2)){
-            return "register";
-        }
-
-        try(Connection conn = DbUtil.getConn()){
-            User user = new User(name, password, email, true);
-
-            String effect = user.saveToDb(conn);
-            setEffectToDb(request, effect);
-
-            session.setAttribute("user", user);
-            session.setMaxInactiveInterval(60 * 5);
-        }catch (SQLException e){
-            e.printStackTrace();
+        }else if(isErrorAndSetIt(request, name, email, password, password2)){
+        }else{
+            try(Connection conn = DbUtil.getConn()){
+                User user = new User(name, password, email, true);
+                String effect = user.saveToDb(conn);
+                if(isSuccesOrSetError(request, effect)){
+                    session.setAttribute("user", user);
+                    session.setMaxInactiveInterval(60 * 5);
+                }
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
         }
         return "register";
     }
@@ -55,35 +48,36 @@ public class registerController {
         return "register";
     }
 
-    private boolean setIfIsAnyError(HttpServletRequest request, String name, String email, String password, String password2){
-        boolean error = false;
+    private boolean isErrorAndSetIt(HttpServletRequest request, String name, String email, String password, String password2){
+        boolean isError = false;
         if(!CheckValidity.isNameValid(name)){
             request.setAttribute("name", true);
-            error = true;
+            isError = true;
         }
         if(!CheckValidity.isEmailValid(email)){
             request.setAttribute("email", true);
-            error = true;
+            isError = true;
         }
         if(!CheckValidity.isPasswordValid(password)){
             request.setAttribute("password", true);
-            error = true;
+            isError = true;
         }
         if(!password.equals(password2)){
             request.setAttribute("diferentPassword", true);
-            error = true;
+            isError = true;
         }
-        return error;
+        return isError;
     }
-    private void setEffectToDb(HttpServletRequest request, String effect){
+    private boolean isSuccesOrSetError(HttpServletRequest request, String effect){
         if(effect.equals("name")){
             request.setAttribute("nameNotUnique", true);
-        }
-        if(effect.equals("email")){
+            return false;
+        }else if(effect.equals("email")){
             request.setAttribute("emailNotUnique", true);
-        }
-        if(effect.equals("ok")){
+            return false;
+        }else{//if(effect.equals("ok"))
             request.setAttribute("success", true);
+            return true;
         }
     }
 }

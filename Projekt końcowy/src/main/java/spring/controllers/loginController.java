@@ -18,7 +18,6 @@ import java.sql.SQLException;
 public class loginController {
 
     @PostMapping("/login")
-    //todo wyczyścić kod
     public String postLogin(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
 
