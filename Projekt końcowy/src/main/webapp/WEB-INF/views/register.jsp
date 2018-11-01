@@ -2,15 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="UTF-8"/>
     <title>Register</title>
-    <style>
-        .success{
-            color: green;
-        }
-        .error{
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css"/>
 </head>
 <body>
     <a href="/login">Zaloguj się</a><br/>

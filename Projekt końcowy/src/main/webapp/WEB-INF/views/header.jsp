@@ -2,20 +2,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <style>
-        #logoutLink{
-            float: right;
-            font-size: 20px;
-        }
-    </style>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css"/>
 </head>
 <body>
-    <h2>Go to level:</h2>
-    <c:forEach var="i" begin="1" end="5">
-        <a href="/main?level=${i}">${i}</a>
-    </c:forEach>
+    <header>
+        <h3>Go to level:</h3>
+        <c:forEach var="i" begin="1" end="5">
+            <a href="/main?level=${i}">${i}</a>
+        </c:forEach>
 
-    <a id="logoutLink" href="/logout">Logout!</a>
+        <a id="logoutLink" href="/logout">Logout!</a>
+    </header>
 </body>
 </html>

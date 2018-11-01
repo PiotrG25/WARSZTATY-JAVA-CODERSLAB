@@ -4,14 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Login</title>
-    <style>
-        .error{
-            color: red;
-        }
-        .success{
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/style.css" type="text/css"/>
 </head>
 <body>
     <a href="/register">Zarejestruj się</a><br/>
