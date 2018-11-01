@@ -3,6 +3,7 @@ package spring.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import spring.beans.CheckValidity;
 import spring.beans.DbUtil;
 import spring.beans.User;
 
@@ -56,15 +57,15 @@ public class registerController {
 
     private boolean setIfIsAnyError(HttpServletRequest request, String name, String email, String password, String password2){
         boolean error = false;
-        if(!isNameValid(name)){
+        if(!CheckValidity.isNameValid(name)){
             request.setAttribute("name", true);
             error = true;
         }
-        if(!isEmailValid(email)){
+        if(!CheckValidity.isEmailValid(email)){
             request.setAttribute("email", true);
             error = true;
         }
-        if(!isPasswordValid(password)){
+        if(!CheckValidity.isPasswordValid(password)){
             request.setAttribute("password", true);
             error = true;
         }
@@ -83,34 +84,6 @@ public class registerController {
         }
         if(effect.equals("ok")){
             request.setAttribute("success", true);
-        }
-    }
-
-    private boolean isNameValid(String name){
-        Pattern pattern = Pattern.compile("^[a-zA-Z0-9]{8,20}$");
-        Matcher matcher = pattern.matcher(name);
-        if(matcher.matches()){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    private boolean isEmailValid(String email){
-        Pattern pattern = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
-        Matcher matcher = pattern.matcher(email);
-        if(matcher.matches()){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    private boolean isPasswordValid(String password){
-        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,20}$");
-        Matcher matcher = pattern.matcher(password);
-        if(matcher.matches()){
-            return true;
-        }else{
-            return false;
         }
     }
 }
