@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 @Controller
-public class loginController {
+public class LoginController {
 
     @PostMapping("/login")
     public String postLogin(HttpServletRequest request, HttpServletResponse response){

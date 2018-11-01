@@ -16,11 +16,23 @@ import java.sql.Statement;
 @Controller
 public class MainController {
 
+    //todo header loggedIn i loggedOut
+    //todo footer
+    //todo sprawdzić najpopularniejsze błędy na kture podatne są formularze
+    //todo Ostylować formularze
+    //todo JS login
+    //todo JS register
+    //todo podzielić css
     //todo Strona użytkownika
-    //todo
-    //todo
-    //todo
-    //todo
+    //todo userController
+    //todo widok statystyk
+    //todo TOP 10
+    //todo zmiana hasła
+    //todo zmiana maila
+    //todo usunięcie konta
+    //todo Klasa losująca
+    //todo JS ustawiający grę wg kodu
+    //todo JS odsyłający na server
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){

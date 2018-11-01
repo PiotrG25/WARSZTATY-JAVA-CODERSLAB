@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 @Controller
-public class registerController {
+public class RegisterController {
 
     @PostMapping("/register")
     public String postRegister(HttpServletRequest request, HttpServletResponse response){
