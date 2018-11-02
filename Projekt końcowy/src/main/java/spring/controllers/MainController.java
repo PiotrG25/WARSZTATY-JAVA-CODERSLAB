@@ -33,6 +33,7 @@ public class MainController {
     //todo Klasa losująca
     //todo JS ustawiający grę wg kodu
     //todo JS odsyłający na server
+    //todo GameController
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){
