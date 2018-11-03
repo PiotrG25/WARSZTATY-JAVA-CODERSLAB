@@ -11,6 +11,12 @@ public class RandomMachine {
         setTab();
     }
 
+    public static void main(String[] args) {
+        int [][] tab = new RandomMachine(3).getTab();
+        for(int [] i : tab){
+            System.out.println(Arrays.toString(i));
+        }
+    }
     public int[][] getTab() {
         return tab;
     }

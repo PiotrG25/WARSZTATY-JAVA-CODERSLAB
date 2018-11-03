@@ -11,12 +11,24 @@
 
     <c:import url="header.jsp"/><br/>
 
-    <c:forEach begin="1" var="i" end="${level}">
-        <c:forEach begin="1" var="j" end="${level}">
-            <button>${((i - 1) * level) + j}</button>
+    <c:forEach begin="1" var="i" end="${length}">
+        <c:forEach begin="1" var="j" end="${length}">
+            <button>${((i - 1) * length) + j}</button>
         </c:forEach>
         <br/>
     </c:forEach>
+
+    <table>
+        <c:forEach var="i" items="${tab}">
+            <tr>
+                <c:forEach var="j" items="${i}">
+                    <td>
+                        ${j}
+                    </td>
+                </c:forEach>
+            </tr>
+        </c:forEach>
+    </table>
 
     <c:import url="footer.jsp"/><br/>
 </body>

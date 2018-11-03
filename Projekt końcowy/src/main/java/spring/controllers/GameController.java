@@ -3,6 +3,7 @@ package spring.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import spring.beans.RandomMachine;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,7 +63,9 @@ return null;
             return "header";
         }
 
-        request.setAttribute("level", levelInt);
+        int [][] tab = new RandomMachine(levelInt*levelInt).getTab();
+        request.setAttribute("length", levelInt);
+        request.setAttribute("tab", tab);
         return "game";
     }
 }
