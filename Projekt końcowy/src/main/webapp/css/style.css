@@ -1,16 +1,10 @@
 /*game.jsp*/
-td{
-    width: 100px;
-    height: 100px;
-    background-color: green;
-    margin: 0;
-    border: 0;
-    text-align: center;
-    font-size: 30px;
-}
-table{
-    background-color: black;
-}
+    button{
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        border: 1px solid black;
+    }
 /*header.jsp*/
 header{
     width: 100%;
