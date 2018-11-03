@@ -3,6 +3,7 @@ package spring.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import other.BCrypt;
 import spring.beans.CheckValidity;
 import spring.beans.DbUtil;
@@ -46,8 +47,16 @@ public class LoginController {
         }
         return "login";
     }
+
     @GetMapping("/login")
     public String getLogin(HttpServletRequest request, HttpServletResponse response){
         return "login";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "redirect:/game";
     }
 }

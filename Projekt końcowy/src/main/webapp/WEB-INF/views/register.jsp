@@ -20,7 +20,7 @@
         <c:if test="${password}"><span class="error">Hasło powinno zawierać 8-20 znaków, małą literę, dużą literę i cyfrę</span><br/></c:if>
 
         <input type="password" name="password2" placeholder="confirm password"/><br/>
-        <c:if test="${diferentPassword}"><span class="error">różne hasła</span><br/></c:if>
+        <c:if test="${differentPassword}"><span class="error">różne hasła</span><br/></c:if>
 
         <input type="email" name="email" placeholder="email"/><br/>
         <c:if test="${email}"><span class="error">niewłaściwy email</span><br/></c:if>

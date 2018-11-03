@@ -10,7 +10,7 @@
     <header>
         <h3>Go to level:</h3>
         <c:forEach var="i" begin="1" end="5">
-            <a href="/main?level=${i}">${i}</a>
+            <a href="/game?level=${i}">${i}</a>
         </c:forEach>
 
         <a id="logoutLink" href="/logout">Logout!</a>

@@ -13,6 +13,12 @@ public class UserController {
 
     @PostMapping("/user")
     public String postUser(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
+        if(session.getAttribute("user") == null){
+            return "redirect:/login";
+        }
+        //todo
+        //todo
         //todo
         return null;
     }

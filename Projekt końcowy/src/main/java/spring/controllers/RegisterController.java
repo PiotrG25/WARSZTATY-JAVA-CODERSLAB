@@ -49,7 +49,7 @@ public class RegisterController {
         if(session.getAttribute("user") == null){
             return "register";
         }else{
-            return "game";
+            return "redirect:/game";
         }
     }
 
@@ -68,7 +68,7 @@ public class RegisterController {
             isError = true;
         }
         if(!password.equals(password2)){
-            request.setAttribute("diferentPassword", true);
+            request.setAttribute("differentPassword", true);
             isError = true;
         }
         return isError;
