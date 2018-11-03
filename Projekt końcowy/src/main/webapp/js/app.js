@@ -2,11 +2,11 @@ $(function(){
 
     var buttons = $("button");
     var pushed = [];
+    var trs = $("tr");
 
     buttons.each(function(index, element){
         pushed.push(true);
         $(element).css("background-color", "green");
-        console.log(element, index);
         $(element).click(function(){
             change(index);
             if(checkWinCondition()){

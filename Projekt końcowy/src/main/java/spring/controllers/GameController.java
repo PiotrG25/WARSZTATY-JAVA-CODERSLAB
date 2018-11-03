@@ -59,7 +59,7 @@ return null;
         }
 
         int levelInt = Integer.parseInt(level);
-        if(levelInt < 1 || levelInt > 5){
+        if(levelInt < 2 || levelInt > 5){
             return "header";
         }
 

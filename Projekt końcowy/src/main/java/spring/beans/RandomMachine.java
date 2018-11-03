@@ -12,11 +12,12 @@ public class RandomMachine {
     }
 
     public static void main(String[] args) {
-        int [][] tab = new RandomMachine(3).getTab();
+        int [][] tab = new RandomMachine(4).getTab();
         for(int [] i : tab){
             System.out.println(Arrays.toString(i));
         }
     }
+
     public int[][] getTab() {
         return tab;
     }
@@ -37,11 +38,12 @@ public class RandomMachine {
         for(int i = 0; i < tab.length; i++){//Wypełniamy tablicę tab indeksami
             tab[i] = i;
         }
-        for(int i = 0; i < tab.length; i ++){//Usunięcie niepotrzebnego indexu na koniec
+        for(int i = 0; i < tab.length; i++){//Usunięcie niepotrzebnego indexu na koniec
             if(tab[i] == otherThanThis){
                 int help = tab[i];
                 tab[i] = tab[tab.length - 1];
                 tab[tab.length - 1] = help;
+                break;
             }
         }
 
