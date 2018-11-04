@@ -1,6 +1,7 @@
 /*game.jsp*/
 table, td{
     border: 1px solid black;
+    display: none; /*in case remove() nie dziala*/
 }
 button{
     width: 50px;
