@@ -6,15 +6,31 @@ $(function(){
 
     buttons.each(function(index, element){
         pushed.push(true);
+
         $(element).css("background-color", "green");
-        $(element).click(function(){
+        $(element).on("click", function(){
             change(index);
             if(checkWinCondition()){
-                alert("Wygrałeś!!!");//warynek wygranej
+                alert("Wygrałeś!!!");//todo warynek wygranej
             }
         });
+
+        var tr = trs.eq(index);
+        var tds = tr.children();
+        var len = tds.length;
+
+        $(element).on("click", function(){
+            for(var i = 0; i < len; i++){
+                change(parseInt(tds.eq(i).text()))
+            }
+        });
+
         $(element).click();//klikanie każdego
     });
+
+    $("table").remove();
+
+//Takie tam funkcje
 
     function change(index){
         if(pushed[index] === true){
