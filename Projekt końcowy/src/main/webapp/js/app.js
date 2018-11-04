@@ -8,12 +8,6 @@ $(function(){
         pushed.push(true);
 
         $(element).css("background-color", "green");
-        $(element).on("click", function(){
-            change(index);
-            if(checkWinCondition()){
-                alert("Wygrałeś!!!");//todo warynek wygranej
-            }
-        });
 
         var tr = trs.eq(index);
         var tds = tr.children();
@@ -26,6 +20,14 @@ $(function(){
         });
 
         $(element).click();//klikanie każdego
+
+        $(element).on("click", function(){
+            change(index);
+            if(checkWinCondition()){
+                alert("Wygrałeś!!!");//todo warynek wygranej
+            }
+        });
+
     });
 
     $("table").remove();
