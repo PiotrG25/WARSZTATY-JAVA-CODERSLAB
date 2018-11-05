@@ -14,29 +14,27 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //todo header loggedIn i loggedOut
-    //todo footer
-    //todo sprawdzić najpopularniejsze błędy na kture podatne są formularze
-    //todo Ostylować formularze
-    //todo JS login
-    //todo JS register
-    //todo podzielić css
-    //todo Strona użytkownika
     //todo userController
     //todo widok statystyk
     //todo TOP 10
     //todo zmiana hasła
     //todo zmiana maila
     //todo usunięcie konta
-    //todo JS ustawiający grę wg kodu
+    //todo sprawdzić najpopularniejsze błędy na kture podatne są formularze
+    //todo JS login
+    //todo JS register
+    //todo Strona użytkownika
     //todo JS odsyłający na server
-    //todo GameController
+    //todo podzielić css
+    //todo naprawic css'a
+    //todo ostylować formulaże
+    //todo header loggedOut ładniej
+    //todo footer
 
     @PostMapping("/game")
     public String postGame(HttpServletRequest request, HttpServletResponse response){
-
-
-return null;
+        //todo
+        return null;
     }
 
     @GetMapping("/game")

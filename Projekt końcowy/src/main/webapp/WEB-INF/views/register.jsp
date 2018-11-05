@@ -6,10 +6,11 @@
     <title>Register</title>
 </head>
 <body>
+    <%
+        request.setAttribute("inRegister", true);
+    %>
+    <c:import url="header.jsp"/>
 
-    <c:if test="${user != null}"><c:import url="header.jsp"/></c:if>
-
-    <a href="/login">Zaloguj się</a><br/>
     <form action="/register" method="post">
 
         <input type="text" name="name" placeholder="name"/><br/>
@@ -31,5 +32,7 @@
         <c:if test="${success}"><span class="success">Rejestracja się powiodła</span><br/></c:if>
 
     </form>
+
+    <c:import url="footer.jsp"/>
 </body>
 </html>

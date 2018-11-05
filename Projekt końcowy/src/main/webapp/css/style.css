@@ -44,7 +44,7 @@ header h3{
     height: 30px;
 
 }
-#logoutLink{
+#logoutLink, #loginLink, #registerLink{
     width: 92px;
     float: right;
     font-size: 20px;
@@ -52,7 +52,11 @@ header h3{
     opacity: 0.7;
     transition: opacity .5s ease-in-out;
 }
-#logoutLink:hover{
+#loginLink, #registerLink{
+    width: 130px;
+    background-color: green;
+}
+#logoutLink:hover, #loginLink:hover, #registerLink:hover{
     opacity: 1;
     transition: opacity .5s ease-in-out;
 }

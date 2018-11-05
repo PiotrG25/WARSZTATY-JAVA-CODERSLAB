@@ -11,6 +11,13 @@
 
     <c:import url="header.jsp"/><br/>
 
+    <h2>Twoim zadaniem jest wciśnięcie wszystkich przycisków</h2>
+    <ul>
+        <li>Zielony oznacza wciśnięty</li>
+        <li>jeden przycisk może wpływać na kilka przycisków</li>
+        <li>Powodzenia! :)</li>
+    </ul>
+
     <c:forEach begin="1" var="i" end="${length}">
         <c:forEach begin="1" var="j" end="${length}">
             <button>${((i - 1) * length) + j}</button>

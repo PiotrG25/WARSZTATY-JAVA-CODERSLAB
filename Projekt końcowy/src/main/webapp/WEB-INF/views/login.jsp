@@ -6,10 +6,11 @@
     <title>Login</title>
 </head>
 <body>
+    <%
+        request.setAttribute("inLogin", true);
+    %>
+    <c:import url="header.jsp"/>
 
-    <c:if test="${user != null}"><c:import url="header.jsp"/></c:if>
-
-    <a href="/register">Zarejestruj się</a><br/>
     <form action="/login" method="post">
         <input type="text" name="name" placeholder="name"/><br/>
         <input type="password" name="password" placeholder="password"/><br/>
@@ -18,5 +19,7 @@
         <c:if test="${error}"><span class="error">Niewłaściwa nazwa użytkownika lub hasło</span><br/></c:if>
         <c:if test="${success}"><span class="success">Witam ${user.name}</span><br/></c:if>
     </form>
+
+    <c:import url="footer.jsp"/>
 </body>
 </html>
