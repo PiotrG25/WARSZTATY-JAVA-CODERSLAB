@@ -18,12 +18,16 @@
         <li>Powodzenia! :)</li>
     </ul>
 
-    <c:forEach begin="1" var="i" end="${length}">
-        <c:forEach begin="1" var="j" end="${length}">
-            <button>${((i - 1) * length) + j}</button>
+    <div id="game">
+        <div id="counter">Kliknięcia: 0</div>
+        <div id="timer">Czas gry: 00:00</div>
+        <c:forEach begin="1" var="i" end="${length}">
+            <c:forEach begin="1" var="j" end="${length}">
+                <button>${((i - 1) * length) + j}</button>
+            </c:forEach>
+            <br/>
         </c:forEach>
-        <br/>
-    </c:forEach>
+    </div>
 
     <table>
         <c:forEach var="i" items="${tab}">

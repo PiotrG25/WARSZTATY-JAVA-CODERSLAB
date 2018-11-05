@@ -14,7 +14,14 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //todo userController
+    //todo Klasa Games
+    //todo games.leadByUser
+    //todo games.countByUser na ilość wygranych
+    //todo JS zamienić punkty i ruchy na "pozostało ruchów: "
+    //todo JS naprawić on("click") żeby się dało wygrać dla ofmieny :)
+    //todo tutorial z jednym guzikiem
+    //todo stan tutorialu przechowywać w ciasteczkach
+    //todo UserController
     //todo widok statystyk
     //todo TOP 10
     //todo zmiana hasła

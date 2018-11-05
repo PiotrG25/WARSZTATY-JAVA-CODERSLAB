@@ -4,6 +4,10 @@ $(function(){
     var pushed = [];
     var trs = $("tr");
 
+    var clicks = 0;
+    var gameTime = 0;
+    var points = 100;//początkowa wartość dekrementowana po każdym kliknięciu
+
     buttons.each(function(index, element){
         pushed.push(true);
 
@@ -14,21 +18,26 @@ $(function(){
         var len = tds.length;
 
         $(element).on("click", function(){
+            change(index);
             for(var i = 0; i < len; i++){
                 change(parseInt(tds.eq(i).text()))
             }
         });
 
-        $(element).click();//klikanie każdego
+        $(element).click();//klikanie każdego, inaczej kodowanie gry :)
+        //musi się wydażyć przed sprawdzaniem warunku wygranej
 
         $(element).on("click", function(){
-            change(index);
+            incrementCounter();//zwiększenie licznika i wyświetlenie go na stronie
+            decrementPoints();//zmniejszenie ilości punktów
             if(checkWinCondition()){
-                alert("Wygrałeś!!!");//todo warynek wygranej
+                alert("Wygrałeś!!!\n" + points + " punktów");//todo warynek wygranej
             }
         });
 
     });
+
+    setInterval(function(){incrementGameTime();}, 1000);
 
     $("table").remove();
 
@@ -51,6 +60,36 @@ $(function(){
             }
         }
         return true;
+    }
+
+    function incrementCounter(){
+        var div = $("#counter");
+        clicks++;
+        div.text("Kliknięcia: " + clicks);
+    }
+
+    function decrementPoints(){
+        points--;
+        if(points === 0){
+            alert("przegrałeś!\n:(")
+        }
+    }
+
+    function incrementGameTime(){
+        var div = $("#timer");
+        gameTime++;
+
+        var secs = gameTime % 60;
+        var minutes = (gameTime - secs) / 60;
+
+        if(secs < 10){
+            secs = "0" + secs;
+        }
+        if(minutes < 10){
+            minutes = "0" + minutes;
+        }
+
+        div.text("Czas gry: " + minutes + ":" + secs);
     }
 });
 
