@@ -18,7 +18,6 @@ public class GameController {
     //todo games.leadByUser
     //todo games.countByUser na ilość wygranych
     //todo JS zamienić punkty i ruchy na "pozostało ruchów: "
-    //todo JS naprawić on("click") żeby się dało wygrać dla ofmieny :)
     //todo tutorial z jednym guzikiem
     //todo stan tutorialu przechowywać w ciasteczkach
     //todo UserController
@@ -27,7 +26,7 @@ public class GameController {
     //todo zmiana hasła
     //todo zmiana maila
     //todo usunięcie konta
-    //todo sprawdzić najpopularniejsze błędy na kture podatne są formularze
+    //todo sprawdzić najpopularniejsze błędy na które podatne są formularze
     //todo JS login
     //todo JS register
     //todo Strona użytkownika

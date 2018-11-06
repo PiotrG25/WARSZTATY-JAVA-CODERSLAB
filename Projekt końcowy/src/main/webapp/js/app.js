@@ -8,10 +8,14 @@ $(function(){
     var gameTime = 0;
     var points = 100;//początkowa wartość dekrementowana po każdym kliknięciu
 
-    buttons.each(function(index, element){
-        pushed.push(true);
+    buttons.each(function(index, element) {
+        pushed.push(false);
+        $(element).css("background-color", "red");
+    });
 
-        $(element).css("background-color", "green");
+    console.log(pushed.length);
+
+    buttons.each(function(index, element){
 
         var tr = trs.eq(index);
         var tds = tr.children();
@@ -22,6 +26,7 @@ $(function(){
             for(var i = 0; i < len; i++){
                 change(parseInt(tds.eq(i).text()))
             }
+            console.log("Kliknięto: " + index);
         });
 
         $(element).click();//klikanie każdego, inaczej kodowanie gry :)
@@ -31,7 +36,7 @@ $(function(){
             incrementCounter();//zwiększenie licznika i wyświetlenie go na stronie
             decrementPoints();//zmniejszenie ilości punktów
             if(checkWinCondition()){
-                alert("Wygrałeś!!!\n" + points + " punktów");//todo warynek wygranej
+                alert("Wygrałeś!!!\nZdobyłeś: " + points + " punktów");//todo warynek wygranej
             }
         });
 
