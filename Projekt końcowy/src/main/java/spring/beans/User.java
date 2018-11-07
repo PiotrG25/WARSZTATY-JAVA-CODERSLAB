@@ -14,12 +14,14 @@ public class User {
 
     public User(String name, String password, String email, boolean hashPassword) {
         this.name = name;
+        this.email = email;
+
+        //When we load user from dataBase we don't have to hash already hashed password
         if(hashPassword){
             setPassword(password);
         }else{
             this.password = password;
         }
-        this.email = email;
     }
 
     public static User loadUserByName(Connection conn, String name)throws SQLException{
@@ -38,10 +40,13 @@ public class User {
     }
 
     public String saveToDb(Connection conn)throws SQLException {
+        //Validation is correct either when we insert new user and update existing user
         if(returnIdWhenNameFound(conn) != id){
+            //Error when there is user with that name
             return "name";
         }
         if(returnIdWhenEmailFound(conn) != id){
+            //Error when there is user with that email
             return "email";
         }
 
@@ -50,6 +55,7 @@ public class User {
         }else{
             updateToDb(conn);
         }
+        //return something
         return "ok";
     }
     private int returnIdWhenNameFound(Connection conn)throws SQLException{
@@ -116,9 +122,8 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public User setPassword(String password) {
+    public void setPassword(String password) {
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        return this;
     }
 
     public String getEmail() {

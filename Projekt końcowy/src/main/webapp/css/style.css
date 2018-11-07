@@ -2,11 +2,8 @@
 body{
     text-align: center;
 }
-#game{
-}
 table, td{
     border: 1px solid black;
-    display: none; /*in case remove() nie dziala*/
 }
 button{
     cursor: pointer;

@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
+    //todo nie tablice przycisków a poziomy
     //todo Klasa Games
     //todo games.leadByUser
     //todo games.countByUser na ilość wygranych

@@ -6,7 +6,30 @@
 </head>
 <body>
     <c:import url="header.jsp"/>
-        Witaj nieznajomy!
+        Witaj ${user.name}!<br/>
+        <div>
+            <h3>Statysyki</h3>
+            <table style="margin-left: auto; margin-right: auto">
+                <tr>
+                    <td></td>
+                    <td>poziom</td>
+                    <td>ruchy</td>
+                    <td>czas</td>
+                </tr>
+                <c:forEach begin="1" var="i" end="10">
+                    <tr>
+                        <td>${i}</td>
+                        <td>${i}</td>
+                        <td>${i}</td>
+                        <td>${i}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+
+        <div id="redZone">
+            form
+        </div>
     <c:import url="footer.jsp"/>
 </body>
 </html>
