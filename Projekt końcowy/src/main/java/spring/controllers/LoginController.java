@@ -50,7 +50,12 @@ public class LoginController {
 
     @GetMapping("/login")
     public String getLogin(HttpServletRequest request, HttpServletResponse response){
-        return "login";
+        HttpSession session = request.getSession();
+        if(session.getAttribute("user") == null){
+            return "login";
+        }else{
+            return "redirect:/game";
+        }
     }
 
     @RequestMapping("/logout")

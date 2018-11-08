@@ -14,8 +14,9 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //todo nie tablice przycisków a poziomy
     //todo Klasa Games
+    //todo zamienić DbUtil na singletona
+    //todo zrobić LOG wg wzorca singletonu
     //todo games.leadByUser
     //todo games.countByUser na ilość wygranych
     //todo JS zamienić punkty i ruchy na "pozostało ruchów: "
@@ -40,7 +41,11 @@ public class GameController {
 
     @PostMapping("/game")
     public String postGame(HttpServletRequest request, HttpServletResponse response){
-        //todo
+        HttpSession session = request.getSession();
+        if(session.getAttribute("user") == null){
+            return "redirect:/login";
+        }
+
         return null;
     }
 

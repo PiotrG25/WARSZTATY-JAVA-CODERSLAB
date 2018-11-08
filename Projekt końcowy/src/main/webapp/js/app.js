@@ -6,7 +6,6 @@ $(function(){
 
     var clicks = 0;
     var gameTime = 0;
-    var points = 100;//początkowa wartość dekrementowana po każdym kliknięciu
 
     buttons.each(function(index, element) {
         pushed.push(false);
@@ -34,9 +33,9 @@ $(function(){
 
         $(element).on("click", function(){
             incrementCounter();//zwiększenie licznika i wyświetlenie go na stronie
-            decrementPoints();//zmniejszenie ilości punktów
             if(checkWinCondition()){
-                alert("Wygrałeś!!!\nZdobyłeś: " + points + " punktów");//todo warynek wygranej
+                alert("Wygrałeś!!!");//todo warynek wygranej
+                //todo tworzenie formularza i wysyłanie go do post/game
             }
         });
 
@@ -71,13 +70,6 @@ $(function(){
         var div = $("#counter");
         clicks++;
         div.text("Kliknięcia: " + clicks);
-    }
-
-    function decrementPoints(){
-        points--;
-        if(points === 0){
-            alert("przegrałeś!\n:(")
-        }
     }
 
     function incrementGameTime(){
