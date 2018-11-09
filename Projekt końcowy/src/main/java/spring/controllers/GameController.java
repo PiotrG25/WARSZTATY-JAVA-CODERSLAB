@@ -14,6 +14,12 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
+    //todo zamienić baze danych na hibernetową
+    //todo przerobic baze danych
+    //User long id, String name, String password, String email;
+    //users: id BIGINT(20), name VARCHAR(255), password VARCHAR(255), email VARCHAR(255)
+    //Game long id, long user_id, int level, int moves, long time;
+    //games: id BIGINT(20), user_id BIGINT(20), level INT(1), moves INT(10), time BIGINT(20)
     //todo Klasa Games
     //todo zamienić DbUtil na singletona
     //todo zrobić LOG wg wzorca singletonu

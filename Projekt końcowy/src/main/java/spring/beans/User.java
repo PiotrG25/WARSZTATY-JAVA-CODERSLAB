@@ -7,7 +7,7 @@ import java.sql.*;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class User {
-    private int id;
+    private int id;//BIGINT(20)
     private String name;
     private String password;
     private String email;
