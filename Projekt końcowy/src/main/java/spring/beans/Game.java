@@ -1,6 +1,8 @@
 package spring.beans;
 
-import java.sql.Connection;
+import java.awt.image.DataBufferUShort;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game{
@@ -13,19 +15,41 @@ public class Game{
     private int moves;
     private long time;
 
-    public Game(long user_id, int level, int moves, long time) {
+    public Game(long user_id, int level, int moves, long time){
         this.user_id = user_id;
         this.level = level;
         this.moves = moves;
         this.time = time;
     }
 
-    public static List<Game> loadAllGamesByUser(Connection conn, User user){
-        String select = "SELECT * FROM games WHERE user_id = ?";
-        //todo
-        //todo
-        //todo
-        return null;
+    public static List<Game> loadAllGamesByUser(Connection conn, User user)throws SQLException{
+        String select = "SELECT * FROM games WHERE user_id = ?;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+        pstm.setLong(1, user.getId());
+        List<Game> games = new ArrayList<>();
+
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next()){
+            Game game = new Game(rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
+            game.setId(rs.getLong(1));
+            games.add(game);
+        }
+        return games;
+    }
+
+    public void saveToDb(Connection conn)throws SQLException{
+        String insert = "INSERT INTO games (user_id, level, moves, time) VALUES (?, ?, ?, ?);";
+        PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+
+        pstm.setLong(1, user_id);
+        pstm.setInt(2, level);
+        pstm.setInt(3, moves);
+        pstm.setLong(4, time);
+
+        pstm.executeUpdate();
+        ResultSet rs = pstm.getGeneratedKeys();
+        rs.next();
+        this.id = rs.getInt(1);
     }
 
     public long getId() {

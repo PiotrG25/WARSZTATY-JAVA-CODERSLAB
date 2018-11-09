@@ -3,6 +3,7 @@ package spring.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import spring.beans.RandomMachine;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,9 @@ public class GameController {
 
     //todo zamienić baze danych na hibernetową
     //todo Klasa Games
+    //load10BestByMoves
+    //load10BestByTime
+    //przekazac level do postGame
     //todo zamienić DbUtil na singletona
     //todo zrobić LOG wg wzorca singletonu
     //todo games.leadByUser
@@ -45,8 +49,7 @@ public class GameController {
         if(session.getAttribute("user") == null){
             return "redirect:/login";
         }
-
-        return null;
+        return "redirect:/logout";
     }
 
     @GetMapping("/game")

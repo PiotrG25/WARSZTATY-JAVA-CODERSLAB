@@ -10,7 +10,7 @@ public class User {
     //User long id, String name, String password, String email;
     //users: id BIGINT(20), name VARCHAR(255), password VARCHAR(255), email VARCHAR(255)
 
-    private int id;
+    private long id;
     private String name;
     private String password;
     private String email;
@@ -19,7 +19,7 @@ public class User {
         this.name = name;
         this.email = email;
 
-        //When we load user from dataBase we don't have to hash already hashed password
+        //When we load user from dataBase we don't need to hash already hashed password
         if(hashPassword){
             setPassword(password);
         }else{
@@ -35,14 +35,14 @@ public class User {
 
         if(rs.next()){
             User user = new User(rs.getString(2), rs.getString(3), rs.getString(4), false);
-            user.setId(rs.getInt(1));
+            user.setId(rs.getLong(1));
             return user;
         }else{
             return null;
         }
     }
 
-    public String saveToDb(Connection conn)throws SQLException {
+    public String saveToDb(Connection conn)throws SQLException{
         //Validation is correct either when we insert new user and update existing user
         if(returnIdWhenNameFound(conn) != id){
             //Error when there is user with that name
@@ -61,30 +61,30 @@ public class User {
         //return something
         return "ok";
     }
-    private int returnIdWhenNameFound(Connection conn)throws SQLException{
+    private long returnIdWhenNameFound(Connection conn)throws SQLException{
         String select = "SELECT name, id FROM users;";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(select);
         while(rs.next()){
             if(rs.getString(1).equals(name)){
-                return rs.getInt(2);
+                return rs.getLong(2);
             }
         }
         return 0;
     }
-    private int returnIdWhenEmailFound(Connection conn)throws SQLException{
+    private long returnIdWhenEmailFound(Connection conn)throws SQLException{
         String select = "SELECT email, id FROM users;";
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery(select);
         while(rs.next()){
             if(rs.getString(1).equals(email)){
-                return rs.getInt(2);
+                return rs.getLong(2);
             }
         }
         return 0;
     }
     private void insertToDb(Connection conn)throws SQLException{
-        String insert = "INSERT INTO users(name, password, email) VALUES (?, ?, ?);";
+        String insert = "INSERT INTO users (name, password, email) VALUES (?, ?, ?);";
         PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
 
         pstm.setString(1, name);
@@ -94,7 +94,7 @@ public class User {
         pstm.executeUpdate();
         ResultSet rs = pstm.getGeneratedKeys();
         rs.next();
-        this.id = rs.getInt(1);
+        this.id = rs.getLong(1);
     }
     private void updateToDb(Connection conn)throws SQLException{
         String update = "UPDATE users SET name=?, password=?, email=? WHERE id=?;";
@@ -103,15 +103,15 @@ public class User {
         pstm.setString(1, name);
         pstm.setString(2, password);
         pstm.setString(3, email);
-        pstm.setInt(4, id);
+        pstm.setLong(4, id);
 
         pstm.executeUpdate();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

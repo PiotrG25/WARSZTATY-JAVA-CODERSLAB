@@ -29,7 +29,7 @@
         </c:forEach>
     </div>
 
-    <table>
+    <table style="display: none;">
         <c:forEach var="i" items="${tab}">
             <tr>
                 <c:forEach var="j" items="${i}">

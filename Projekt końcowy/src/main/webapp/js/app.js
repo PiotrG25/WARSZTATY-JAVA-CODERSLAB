@@ -8,8 +8,8 @@ $(function(){
     var gameTime = 0;
 
     buttons.each(function(index, element) {
-        pushed.push(false);
-        $(element).css("background-color", "red");
+        pushed.push(true);
+        $(element).css("background-color", "green");
     });
 
     console.log(pushed.length);
@@ -34,8 +34,7 @@ $(function(){
         $(element).on("click", function(){
             incrementCounter();//zwiększenie licznika i wyświetlenie go na stronie
             if(checkWinCondition()){
-                alert("Wygrałeś!!!");//todo warynek wygranej
-                //todo tworzenie formularza i wysyłanie go do post/game
+                redirectGame();//creating form and sending it by post to /game
             }
         });
 
@@ -87,6 +86,20 @@ $(function(){
         }
 
         div.text("Czas gry: " + minutes + ":" + secs);
+    }
+
+    function redirectGame(){
+        var form = $(
+            "<form action='/game' method='post' style='display: none;'>" +
+                "<input type='number' name='moves' value=" + clicks + "/>" +
+                "<input type='number' name='time' value=" + gameTime + "/>" +
+                "<input type='submit' id='goToGame'/>" +
+            "</form>"
+        );
+        $("body").append(form);
+
+        var toClick = $("#goToGame");
+        toClick.click();
     }
 });
 
