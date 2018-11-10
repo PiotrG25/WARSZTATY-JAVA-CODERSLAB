@@ -24,26 +24,28 @@ import java.util.regex.Pattern;
 public class GameController {
 
     //todo Cookies in EL
-    //todo zamienić baze danych na hibernetową
-    //todo Klasa Games
-    //load10BestByMoves
-    //load10BestByTime
-    //OnLevel
-    //todo games.countByUserOnLevel na ilość wygranych
+    //todo HIBERNATE
+    //todo GameController
+    //zwiększyć czytelność kodu
     //todo zwiększyć czytelność RandomMachine
     //todo zrobić LOG wg wzorca singletonu
-    //todo Strona użytkownika
     //todo UserController
-    //todo widok statystyk
-    //todo zmiana hasła
-    //todo zmiana maila
-    //todo usunięcie konta active/inactive
+    //umożliwić zmianę przeglądanego poziomu (osobny)JS plus ukryty formularz
+    //I ustawiać tylko jedną listę w zależności od poziomu
+    //zmiana hasła
+    //zmiana maila
+    //usunięcie konta active/inactive
+    //todo statystyki user
+    //w skrucie
+    //bestByTime
+    //bestByMoves
+    //Onlevel
     //todo sprawdzić najpopularniejsze błędy na które podatne są formularze
     //todo JS login
     //todo JS register
     //todo podzielić css
     //todo naprawic css'a
-    //todo ostylować formulaże
+    //todo ostylować formularze
     //todo footer
 
     @PostMapping("/game")
