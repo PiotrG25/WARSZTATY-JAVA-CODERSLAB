@@ -39,6 +39,7 @@ public class UserController {
             int count = Game.countAllByUser(conn, user);
             request.setAttribute("count", count);
             request.setAttribute("gamesByMoves", Game.load10BestByMovesOnLevel(conn, user, 2));
+            request.setAttribute("gamesByTime", Game.load10BestByTimeOnLevel(conn, user, 2));
         }catch (SQLException e){
             e.printStackTrace();
         }

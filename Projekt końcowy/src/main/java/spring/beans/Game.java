@@ -74,6 +74,25 @@ public class Game{
         pstm.setInt(2, level);
 
         ResultSet rs = pstm.executeQuery();
+        List<Game> games = set10Games(rs);
+
+        return games;
+    }
+
+    public static List<Game> load10BestByTimeOnLevel(Connection conn, User user, int level)throws SQLException{
+        String select = "SELECT * FROM games WHERE user_id = ? AND level = ? ORDER BY time ASC LIMIT 10;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+
+        pstm.setLong(1, user.getId());
+        pstm.setInt(2, level);
+
+        ResultSet rs = pstm.executeQuery();
+        List<Game> games = set10Games(rs);
+
+        return games;
+    }
+
+    private static List<Game> set10Games(ResultSet rs)throws SQLException{
         List<Game> games = new ArrayList<>();
         while(rs.next()){
             Game game = new Game();

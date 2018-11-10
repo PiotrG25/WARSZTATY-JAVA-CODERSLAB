@@ -47,7 +47,6 @@ public class GameController {
     //todo footer
 
     @PostMapping("/game")
-    @ResponseBody
     public String postGame(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){

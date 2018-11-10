@@ -19,9 +19,17 @@
                     <td>ruchy</td>
                     <td>czas</td>
                 </tr>
-                <c:forEach items="${gamesByMoves}" var="game">
+                <c:forEach items="${gamesByMoves}" var="game" varStatus="i">
                     <tr>
-                        <td><%%></td>
+                        <td>${i.count}</td>
+                        <td>${game.level}</td>
+                        <td>${game.moves}</td>
+                        <td>${game.time}</td>
+                    </tr>
+                </c:forEach>
+                <c:forEach items="${gamesByTime}" var="game" varStatus="i">
+                    <tr>
+                        <td>${i.count}</td>
                         <td>${game.level}</td>
                         <td>${game.moves}</td>
                         <td>${game.time}</td>
