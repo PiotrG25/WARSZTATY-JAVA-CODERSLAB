@@ -16,6 +16,6 @@ public class MainController {
         if(session.getAttribute("user") == null){
             return "redirect:/login";
         }
-        return "header";
+        return "main";
     }
 }

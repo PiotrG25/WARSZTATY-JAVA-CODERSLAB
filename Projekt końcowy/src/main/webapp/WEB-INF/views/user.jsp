@@ -9,6 +9,9 @@
         Witaj ${user.name}!<br/>
         <div>
             <h3>Statysyki</h3>
+            <ol>
+                <li>Wygrane: ${count}</li>
+            </ol>
             <table style="margin-left: auto; margin-right: auto">
                 <tr>
                     <td></td>
@@ -16,12 +19,12 @@
                     <td>ruchy</td>
                     <td>czas</td>
                 </tr>
-                <c:forEach begin="1" var="i" end="10">
+                <c:forEach items="${gamesByMoves}" var="game">
                     <tr>
-                        <td>${i}</td>
-                        <td>${i}</td>
-                        <td>${i}</td>
-                        <td>${i}</td>
+                        <td><%%></td>
+                        <td>${game.level}</td>
+                        <td>${game.moves}</td>
+                        <td>${game.time}</td>
                     </tr>
                 </c:forEach>
             </table>

@@ -23,20 +23,15 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //todo naprawić błąd z wysyłaniem formulaża do PostGame za pomocą JS
     //todo Cookies in EL
     //todo zamienić baze danych na hibernetową
-    //todo usunąć wylogowywanie przy wygranej
     //todo Klasa Games
     //load10BestByMoves
     //load10BestByTime
     //OnLevel
     //todo games.countByUserOnLevel na ilość wygranych
-    //przekazac level do postGame
     //todo zwiększyć czytelność RandomMachine
     //todo zrobić LOG wg wzorca singletonu
-    //todo tutorial z jednym guzikiem
-    //todo stan tutorialu przechowywać w ciasteczkach
     //todo Strona użytkownika
     //todo UserController
     //todo widok statystyk
@@ -56,7 +51,7 @@ public class GameController {
     public String postGame(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){
-            return "redirect:/main1";
+            return "redirect:/main";
         }
 
         Cookie[] cookies = request.getCookies();
@@ -68,25 +63,25 @@ public class GameController {
         }
 
         if(levelCookie == null){
-            return "redirect:/main2";
+            return "redirect:/main";
         }
         String level = levelCookie.getValue();
         levelCookie.setMaxAge(0);
         response.addCookie(levelCookie);
 
         if(level == null || level.isEmpty()){
-            return "redirect:/main3";
+            return "redirect:/main";
         }
 
         Pattern pattern = Pattern.compile("[0-9]+");
         Matcher matcher = pattern.matcher(level);
         if(!matcher.matches()){
-            return "redirect:/main4";
+            return "redirect:/main";
         }
 
         int levelInt = Integer.parseInt(level);
         if(levelInt < 2 || levelInt > 5){
-            return "redirect:/main5";
+            return "redirect:/main";
         }
 
         String moves = request.getParameter("moves");
@@ -94,14 +89,14 @@ public class GameController {
 
         if(moves == null || moves.isEmpty() || time == null || time.isEmpty()){
             //todo jakiś błąd here
-            return "redirect:/main6";
+            return "redirect:/main";
         }
 
         Matcher movesMatcher = pattern.matcher(moves);
         Matcher timeMatcher = pattern.matcher(time);
 
         if(!movesMatcher.matches() || !timeMatcher.matches()){
-            return "redirect:/main7";
+            return "redirect:/main";
         }
 
         int movesInt = Integer.parseInt(moves);
@@ -117,7 +112,7 @@ public class GameController {
             e.printStackTrace();
         }
 
-        return "redirect:/logout8";
+        return "redirect:/main";
     }
 
     @GetMapping("/game")

@@ -17,6 +17,8 @@ public class Game{
     private int moves;
     private long time;
 
+    public Game(){}
+
     public Game(long user_id, int level, int moves, long time){
         this.user_id = user_id;
         this.level = level;
@@ -52,6 +54,39 @@ public class Game{
         ResultSet rs = pstm.getGeneratedKeys();
         rs.next();
         this.id = rs.getInt(1);
+    }
+
+    public static int countAllByUser(Connection conn, User user)throws SQLException{
+        String select = "SELECT COUNT(*) FROM games WHERE user_id = ?;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+        pstm.setLong(1, user.getId());
+        ResultSet rs = pstm.executeQuery();
+
+        rs.next();
+        return rs.getInt(1);
+    }
+
+    public static List<Game> load10BestByMovesOnLevel(Connection conn, User user, int level)throws SQLException{
+        String select = "SELECT * FROM games WHERE user_id = ? AND level = ? ORDER BY moves ASC LIMIT 10;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+
+        pstm.setLong(1, user.getId());
+        pstm.setInt(2, level);
+
+        ResultSet rs = pstm.executeQuery();
+        List<Game> games = new ArrayList<>();
+        while(rs.next()){
+            Game game = new Game();
+
+            game.setId(rs.getLong(1));
+            game.setUser_id(rs.getLong(2));
+            game.setLevel(rs.getInt(3));
+            game.setMoves(rs.getInt(4));
+            game.setTime(rs.getLong(5));
+
+            games.add(game);
+        }
+        return games;
     }
 
     public long getId() {
