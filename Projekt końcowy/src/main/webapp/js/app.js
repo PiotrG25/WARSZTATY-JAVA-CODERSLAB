@@ -44,6 +44,12 @@ $(function(){
 
     $("table").remove();
 
+    if(checkWinCondition()){ //in case game was not well coded;
+        buttons.eq(0).click();
+        clicks = 0;
+        gameTime = 0;
+    }
+
 //Takie tam funkcje
 
     function change(index){
@@ -91,8 +97,8 @@ $(function(){
     function redirectGame(){
         var form = $(
             "<form action='/game' method='post' style='display: none;'>" +
-                "<input type='number' name='moves' value=" + clicks + "/>" +
-                "<input type='number' name='time' value=" + gameTime + "/>" +
+                "<input type='number' name='moves' value='" + clicks + "'/>" +
+                "<input type='number' name='time' value='" + gameTime + "'/>" +
                 "<input type='submit' id='goToGame'/>" +
             "</form>"
         );

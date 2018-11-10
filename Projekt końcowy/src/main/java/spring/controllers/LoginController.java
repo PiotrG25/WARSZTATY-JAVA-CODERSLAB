@@ -38,7 +38,7 @@ public class LoginController {
                     request.setAttribute("error", true);
                 }else{
                     session.setAttribute("user", user);
-                    session.setMaxInactiveInterval(60 * 5);
+                    session.setMaxInactiveInterval(60 * 15);
                     request.setAttribute("success", true);
                 }
             }catch (SQLException e){
@@ -54,7 +54,7 @@ public class LoginController {
         if(session.getAttribute("user") == null){
             return "login";
         }else{
-            return "redirect:/game";
+            return "redirect:/main";
         }
     }
 
@@ -62,6 +62,6 @@ public class LoginController {
     public String logout(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         session.invalidate();
-        return "redirect:/game";
+        return "redirect:/main";
     }
 }

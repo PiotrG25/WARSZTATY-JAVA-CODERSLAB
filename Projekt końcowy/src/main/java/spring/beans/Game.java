@@ -5,6 +5,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 public class Game{
     //Game long id, long user_id, int level, int moves, long time;
     //games: id BIGINT(20), user_id BIGINT(20), level INT(1), moves INT(10), time BIGINT(20)
@@ -39,7 +41,7 @@ public class Game{
 
     public void saveToDb(Connection conn)throws SQLException{
         String insert = "INSERT INTO games (user_id, level, moves, time) VALUES (?, ?, ?, ?);";
-        PreparedStatement pstm = conn.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement pstm = conn.prepareStatement(insert, RETURN_GENERATED_KEYS);
 
         pstm.setLong(1, user_id);
         pstm.setInt(2, level);

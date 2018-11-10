@@ -20,6 +20,10 @@ public class RegisterController {
     public String postRegister(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
 
+        if(session.getAttribute("user") != null){
+            return "redirect:/main";
+        }
+
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         String password2 = request.getParameter("password2");
@@ -49,7 +53,7 @@ public class RegisterController {
         if(session.getAttribute("user") == null){
             return "register";
         }else{
-            return "redirect:/game";
+            return "redirect:/main";
         }
     }
 

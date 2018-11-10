@@ -15,7 +15,7 @@ public class UserController {
     public String postUser(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){
-            return "redirect:/login";
+            return "redirect:/main";
         }
         //todo
         //todo
@@ -26,7 +26,7 @@ public class UserController {
     public String getUser(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){
-            return "redirect:/login";
+            return "redirect:/main";
         }else{
             return "user";
         }
