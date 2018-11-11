@@ -27,6 +27,7 @@ public class GameController {
     //todo HIBERNATE
     //todo GameController
     //zwiększyć czytelność kodu
+    //app.js give up button i przeslanie getem do main
     //todo zwiększyć czytelność RandomMachine
     //todo zrobić LOG wg wzorca singletonu
     //todo UserController

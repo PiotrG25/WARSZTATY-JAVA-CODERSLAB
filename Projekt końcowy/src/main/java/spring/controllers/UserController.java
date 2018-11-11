@@ -35,11 +35,18 @@ public class UserController {
         }
 
         try(Connection conn = DbUtil.getConn()){
-            User user = (User)session.getAttribute("user");
-            int count = Game.countAllByUser(conn, user);
-            request.setAttribute("count", count);
-            request.setAttribute("gamesByMoves", Game.load10BestByMovesOnLevel(conn, user, 2));
-            request.setAttribute("gamesByTime", Game.load10BestByTimeOnLevel(conn, user, 2));
+            long userId = ((User)session.getAttribute("user")).getId();
+
+            int winCount = Game.countAllGamesByUserId(conn, userId);
+            long movesCount = Game.countAllMovesByUserId(conn, userId);
+            long timeCount = Game.countAllTimeByUserId(conn, userId);
+
+            request.setAttribute("winCount", winCount);
+            request.setAttribute("movesCount", movesCount);
+            request.setAttribute("timeCount", timeCount);
+
+            request.setAttribute("gamesByMoves", Game.load10BestMovesByUserIdOnLevel(conn, userId, 2));
+            request.setAttribute("gamesByTime", Game.load10BestTimeByUserIdOnLevel(conn, userId, 2));
         }catch (SQLException e){
             e.printStackTrace();
         }

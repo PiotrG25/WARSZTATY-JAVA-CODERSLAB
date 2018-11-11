@@ -8,18 +8,18 @@ import java.util.List;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class Game{
-    //Game long id, long user_id, int level, int moves, long time;
-    //games: id BIGINT(20), user_id BIGINT(20), level INT(1), moves INT(10), time BIGINT(20)
+    //Game long id, long user_id, int level, long moves, long time;
+    //games: id BIGINT(20), user_id BIGINT(20), level INT(1), moves BIGINT(20), time BIGINT(20)
 
     private long id;
     private long user_id;
     private int level;
-    private int moves;
+    private long moves;
     private long time;
 
     public Game(){}
 
-    public Game(long user_id, int level, int moves, long time){
+    public Game(long user_id, int level, long moves, long time){
         this.user_id = user_id;
         this.level = level;
         this.moves = moves;
@@ -34,7 +34,7 @@ public class Game{
 
         ResultSet rs = pstm.executeQuery();
         while(rs.next()){
-            Game game = new Game(rs.getLong(2), rs.getInt(3), rs.getInt(4), rs.getLong(5));
+            Game game = new Game(rs.getLong(2), rs.getInt(3), rs.getLong(4), rs.getLong(5));
             game.setId(rs.getLong(1));
             games.add(game);
         }
@@ -47,30 +47,50 @@ public class Game{
 
         pstm.setLong(1, user_id);
         pstm.setInt(2, level);
-        pstm.setInt(3, moves);
+        pstm.setLong(3, moves);
         pstm.setLong(4, time);
 
         pstm.executeUpdate();
         ResultSet rs = pstm.getGeneratedKeys();
         rs.next();
-        this.id = rs.getInt(1);
+        this.id = rs.getLong(1);
     }
 
-    public static int countAllByUser(Connection conn, User user)throws SQLException{
+    public static int countAllGamesByUserId(Connection conn, long user_id)throws SQLException{
         String select = "SELECT COUNT(*) FROM games WHERE user_id = ?;";
         PreparedStatement pstm = conn.prepareStatement(select);
-        pstm.setLong(1, user.getId());
+        pstm.setLong(1, user_id);
         ResultSet rs = pstm.executeQuery();
 
         rs.next();
         return rs.getInt(1);
     }
 
-    public static List<Game> load10BestByMovesOnLevel(Connection conn, User user, int level)throws SQLException{
+    public static long countAllMovesByUserId(Connection conn, long user_id)throws SQLException{
+        String select = "SELECT SUM(moves) FROM games WHERE user_id = ?;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+        pstm.setLong(1, user_id);
+        ResultSet rs = pstm.executeQuery();
+
+        rs.next();
+        return rs.getLong(1);
+    }
+
+    public static long countAllTimeByUserId(Connection conn, long user_id)throws SQLException{
+        String select = "SELECT SUM(time) FROM games WHERE user_id = ?;";
+        PreparedStatement pstm = conn.prepareStatement(select);
+        pstm.setLong(1, user_id);
+        ResultSet rs = pstm.executeQuery();
+
+        rs.next();
+        return rs.getLong(1);
+    }
+
+    public static List<Game> load10BestMovesByUserIdOnLevel(Connection conn, long user_id, int level)throws SQLException{
         String select = "SELECT * FROM games WHERE user_id = ? AND level = ? ORDER BY moves ASC LIMIT 10;";
         PreparedStatement pstm = conn.prepareStatement(select);
 
-        pstm.setLong(1, user.getId());
+        pstm.setLong(1, user_id);
         pstm.setInt(2, level);
 
         ResultSet rs = pstm.executeQuery();
@@ -79,11 +99,11 @@ public class Game{
         return games;
     }
 
-    public static List<Game> load10BestByTimeOnLevel(Connection conn, User user, int level)throws SQLException{
+    public static List<Game> load10BestTimeByUserIdOnLevel(Connection conn, long user_id, int level)throws SQLException{
         String select = "SELECT * FROM games WHERE user_id = ? AND level = ? ORDER BY time ASC LIMIT 10;";
         PreparedStatement pstm = conn.prepareStatement(select);
 
-        pstm.setLong(1, user.getId());
+        pstm.setLong(1, user_id);
         pstm.setInt(2, level);
 
         ResultSet rs = pstm.executeQuery();
@@ -100,7 +120,7 @@ public class Game{
             game.setId(rs.getLong(1));
             game.setUser_id(rs.getLong(2));
             game.setLevel(rs.getInt(3));
-            game.setMoves(rs.getInt(4));
+            game.setMoves(rs.getLong(4));
             game.setTime(rs.getLong(5));
 
             games.add(game);
@@ -129,10 +149,10 @@ public class Game{
         this.level = level;
     }
 
-    public int getMoves() {
+    public long getMoves() {
         return moves;
     }
-    public void setMoves(int moves) {
+    public void setMoves(long moves) {
         this.moves = moves;
     }
 
