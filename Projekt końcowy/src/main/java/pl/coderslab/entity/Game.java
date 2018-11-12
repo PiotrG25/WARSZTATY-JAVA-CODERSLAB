@@ -3,12 +3,6 @@ package pl.coderslab.entity;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.awt.image.DataBufferUShort;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 @Entity
 @Table(name = "games")

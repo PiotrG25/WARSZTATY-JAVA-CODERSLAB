@@ -1,20 +1,22 @@
 package pl.coderslab.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.beans.CheckValidity;
-import pl.coderslab.beans.DbUtil;
+import pl.coderslab.dao.UserDao;
 import pl.coderslab.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 @Controller
 public class RegisterController {
+
+    @Autowired
+    UserDao userDao;
 
     @PostMapping("/register")
     public String postRegister(HttpServletRequest request, HttpServletResponse response){
@@ -34,15 +36,12 @@ public class RegisterController {
             request.setAttribute("arguments",true);
         }else if(isErrorAndSetIt(request, name, email, password, password2)){
         }else{
-            try(Connection conn = DbUtil.getConn()){
-                User user = new User(name, password, email, true);
-                String effect = user.saveToDb(conn);
-                if(isSuccesOrSetError(request, effect)){
-                    session.setAttribute("user", user);
-                    session.setMaxInactiveInterval(60 * 5);
-                }
-            }catch (SQLException e){
-                e.printStackTrace();
+            User user = new User(name, password, email);
+            String effect = userDao.saveToDb(user);
+
+            if(isSuccesOrSetError(request, effect)){
+                session.setAttribute("user", user);
+                session.setMaxInactiveInterval(60 * 5);
             }
         }
         return "register";

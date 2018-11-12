@@ -1,20 +1,21 @@
 package pl.coderslab.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.coderslab.beans.DbUtil;
-import pl.coderslab.entity.Game;
+import pl.coderslab.dao.GameDao;
 import pl.coderslab.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 @Controller
 public class UserController {
+
+    @Autowired
+    GameDao gameDao;
 
     @PostMapping("/user")
     public String postUser(HttpServletRequest request, HttpServletResponse response){
@@ -33,23 +34,18 @@ public class UserController {
         if(session.getAttribute("user") == null){
             return "redirect:/main";
         }
+        long userId = ((User)session.getAttribute("user")).getId();
 
-        try(Connection conn = DbUtil.getConn()){
-            long userId = ((User)session.getAttribute("user")).getId();
+        int winCount = gameDao.countAllGamesByUserId(userId);
+        long movesCount = gameDao.countAllMovesByUserId(userId);
+        long timeCount = gameDao.countAllTimeByUserId(userId);
 
-            int winCount = Game.countAllGamesByUserId(conn, userId);
-            long movesCount = Game.countAllMovesByUserId(conn, userId);
-            long timeCount = Game.countAllTimeByUserId(conn, userId);
+        request.setAttribute("winCount", winCount);
+        request.setAttribute("movesCount", movesCount);
+        request.setAttribute("timeCount", timeCount);
 
-            request.setAttribute("winCount", winCount);
-            request.setAttribute("movesCount", movesCount);
-            request.setAttribute("timeCount", timeCount);
-
-            request.setAttribute("gamesByMoves", Game.load10BestMovesByUserIdOnLevel(conn, userId, 2));
-            request.setAttribute("gamesByTime", Game.load10BestTimeByUserIdOnLevel(conn, userId, 2));
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        request.setAttribute("gamesByMoves", gameDao.load10BestMovesByUserIdOnLevel(userId, 2));
+        request.setAttribute("gamesByTime", gameDao.load10BestTimeByUserIdOnLevel(userId, 2));
         return "user";
     }
 }

@@ -1,19 +1,18 @@
 package pl.coderslab.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.dao.GameDao;
 import pl.coderslab.entity.Game;
 import pl.coderslab.beans.RandomMachine;
 import pl.coderslab.entity.User;
-import pl.coderslab.beans.DbUtil;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,6 +21,7 @@ public class GameController {
 
     //todo Cookies in EL
     //todo HIBERNATE
+    //walidacja wszystkiego
     //todo GameController
     //zwiększyć czytelność kodu
     //app.js give up button i przeslanie getem do main
@@ -45,6 +45,9 @@ public class GameController {
     //todo naprawic css'a
     //todo ostylować formularze
     //todo footer
+
+    @Autowired
+    GameDao gameDao;
 
     @PostMapping("/game")
     public String postGame(HttpServletRequest request, HttpServletResponse response){
@@ -105,11 +108,7 @@ public class GameController {
         System.out.println(user.getId());
         Game game = new Game(user.getId(), levelInt, movesInt, timeLong);
 
-        try(Connection conn = DbUtil.getConn()){
-            game.saveToDb(conn);
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
+        gameDao.saveToDb(game);
 
         return "redirect:/main";
     }

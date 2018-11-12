@@ -1,22 +1,24 @@
 package pl.coderslab.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import other.BCrypt;
 import pl.coderslab.beans.CheckValidity;
-import pl.coderslab.beans.DbUtil;
+import pl.coderslab.dao.UserDao;
 import pl.coderslab.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 @Controller
 public class LoginController {
+
+    @Autowired
+    UserDao userDao;
 
     @PostMapping("/login")
     public String postLogin(HttpServletRequest request, HttpServletResponse response){
@@ -31,18 +33,14 @@ public class LoginController {
             request.setAttribute("error", true);
         }else{
 
-            try(Connection conn = DbUtil.getConn()){
-                User user = User.loadUserByName(conn, name);
+            User user = userDao.loadByName(name);
 
-                if(user == null || !BCrypt.checkpw(password, user.getPassword())){
-                    request.setAttribute("error", true);
-                }else{
-                    session.setAttribute("user", user);
-                    session.setMaxInactiveInterval(60 * 15);
-                    request.setAttribute("success", true);
-                }
-            }catch (SQLException e){
-                e.printStackTrace();
+            if(user == null || !BCrypt.checkpw(password, user.getPassword())){
+                request.setAttribute("error", true);
+            }else{
+                session.setAttribute("user", user);
+                session.setMaxInactiveInterval(60 * 15);
+                request.setAttribute("success", true);
             }
         }
         return "login";
