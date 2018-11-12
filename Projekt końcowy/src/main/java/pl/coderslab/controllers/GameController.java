@@ -1,20 +1,17 @@
-package spring.controllers;
+package pl.coderslab.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import spring.beans.DbUtil;
-import spring.beans.Game;
-import spring.beans.RandomMachine;
-import spring.beans.User;
+import pl.coderslab.entity.Game;
+import pl.coderslab.beans.RandomMachine;
+import pl.coderslab.entity.User;
+import pl.coderslab.beans.DbUtil;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.regex.Matcher;

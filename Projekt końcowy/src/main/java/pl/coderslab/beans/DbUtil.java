@@ -1,4 +1,4 @@
-package spring.beans;
+package pl.coderslab.beans;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

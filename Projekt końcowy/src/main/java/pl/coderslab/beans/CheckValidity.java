@@ -1,4 +1,4 @@
-package spring.beans;
+package pl.coderslab.beans;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
