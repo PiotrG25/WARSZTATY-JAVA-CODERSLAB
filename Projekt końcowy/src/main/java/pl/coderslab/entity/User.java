@@ -27,7 +27,7 @@ public class User {
         this.email = email;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Game> games = new ArrayList<>();
 
     public void hashPassword(){
