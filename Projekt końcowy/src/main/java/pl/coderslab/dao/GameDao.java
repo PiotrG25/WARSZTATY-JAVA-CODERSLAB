@@ -24,15 +24,15 @@ public class GameDao {
         entityManager.persist(game);
     }
 
-    public int countAllGamesByUserId(long user_id){
+    public Integer countAllGamesByUserId(long user_id){
         return gameRepository.countAllGamesByUserId(user_id);
     }
 
-    public long countAllMovesByUserId(long user_id){
+    public Long countAllMovesByUserId(long user_id){
         return gameRepository.countAllMovesByUserId(user_id);
     }
 
-    public long countAllTimeByUserId(long user_id){
+    public Long countAllTimeByUserId(long user_id){
         return gameRepository.countAllTimeByUserId(user_id);
     }
 

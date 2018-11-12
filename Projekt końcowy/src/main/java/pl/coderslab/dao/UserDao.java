@@ -33,7 +33,7 @@ public class UserDao {
             return "email";
         }
 
-        if(user.getId() == 0){
+        if(user.getId() == null){
             entityManager.persist(user);
         }else{
             entityManager.merge(user);
