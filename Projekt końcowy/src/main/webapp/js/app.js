@@ -12,8 +12,6 @@ $(function(){
         $(element).css("background-color", "green");
     });
 
-    console.log(pushed.length);
-
     buttons.each(function(index, element){
 
         var tr = trs.eq(index);
@@ -25,7 +23,6 @@ $(function(){
             for(var i = 0; i < len; i++){
                 change(parseInt(tds.eq(i).text()))
             }
-            console.log("Kliknięto: " + index);
         });
 
         $(element).click();//klikanie każdego, inaczej kodowanie gry :)
@@ -46,7 +43,8 @@ $(function(){
 
     if(checkWinCondition()){ //in case game was not well coded;
         buttons.eq(0).click();
-        clicks = 0;
+        clicks = -1;
+        incrementCounter();
         gameTime = 0;
     }
 

@@ -4,22 +4,23 @@
 <html>
 <head>
     <title>${user.name}</title>
+
 </head>
 <body>
     <c:import url="header.jsp"/>
     Witaj ${user.name}!<br/>
 
     <h3>Statysyki</h3>
-    <ol>
+    <ul>
         <li>Wygrane: ${winCount}</li>
         <li>Łącznie ruchów: ${movesCount}</li>
         <li>Łączny czas gry: ${timeCount}</li>
-    </ol>
+    </ul>
 
     <h3 id="table">tablica 2x2</h3>
 
     <div class="tabDiv">
-        <h3>Najlepsze wg ruchów</h3>
+        <h4>Najlepsze wg ruchów</h4>
         <table>
             <tr>
                 <td></td>
@@ -37,7 +38,7 @@
     </div>
 
     <div class="tabDiv">
-        <h3>Najlepsze wg czasu</h3>
+        <h4>Najlepsze wg czasu</h4>
         <table>
             <tr>
                 <td></td>
