@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import other.BCrypt;
+import pl.coderslab.beans.BCrypt;
 import pl.coderslab.beans.CheckValidity;
 import pl.coderslab.dao.UserDao;
 import pl.coderslab.entity.User;

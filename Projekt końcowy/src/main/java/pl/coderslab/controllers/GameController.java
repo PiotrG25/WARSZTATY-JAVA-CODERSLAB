@@ -19,14 +19,13 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //todo Cookies in EL
-    //todo HIBERNATE
     //walidacja wszystkiego
+    //zmienic level na sesyjny
+    //odswierzanie sesji przy wchodzeniu na inną stronę bez wylogowywania
     //todo GameController
     //zwiększyć czytelność kodu
-    //app.js give up button i przeslanie getem do main
+    //app.js give up button rozkodowujący grę i przeslanie getem do main
     //todo zwiększyć czytelność RandomMachine
-    //todo zrobić LOG wg wzorca singletonu
     //todo UserController
     //umożliwić zmianę przeglądanego poziomu (osobny)JS plus ukryty formularz
     //I ustawiać tylko jedną listę w zależności od poziomu
@@ -34,10 +33,9 @@ public class GameController {
     //zmiana maila
     //usunięcie konta active/inactive
     //todo statystyki user
-    //w skrucie
     //bestByTime
     //bestByMoves
-    //Onlevel
+    //Onlevel 2,3,4,5
     //todo sprawdzić najpopularniejsze błędy na które podatne są formularze
     //todo JS login
     //todo JS register
@@ -90,7 +88,6 @@ public class GameController {
         String time = request.getParameter("time");
 
         if(moves == null || moves.isEmpty() || time == null || time.isEmpty()){
-            //todo jakiś błąd here
             return "redirect:/main";
         }
 
@@ -106,7 +103,7 @@ public class GameController {
 
         User user = (User)session.getAttribute("user");
         System.out.println(user.getId());
-        Game game = new Game(user.getId(), levelInt, movesInt, timeLong);
+        Game game = new Game(levelInt, movesInt, timeLong, user);
 
         gameDao.saveToDb(game);
 

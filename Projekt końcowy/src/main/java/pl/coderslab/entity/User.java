@@ -1,10 +1,8 @@
 package pl.coderslab.entity;
 
-import other.BCrypt;
+import pl.coderslab.beans.BCrypt;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +12,9 @@ public class User {
     //User long id, String name, String password, String email;
     //users: id BIGINT(20), name VARCHAR(255), password VARCHAR(255), email VARCHAR(255)
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String password;
     private String email;
@@ -30,13 +30,14 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Game> games = new ArrayList<>();
 
-    public void hashPassword(){this.password = BCrypt.hashpw(this.password, BCrypt.gensalt());}
+    public void hashPassword(){
+        this.password = BCrypt.hashpw(this.password, BCrypt.gensalt());
+    }
 
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

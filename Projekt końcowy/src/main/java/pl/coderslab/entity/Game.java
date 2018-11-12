@@ -1,45 +1,46 @@
 package pl.coderslab.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "games")
 public class Game{
-    //Game long id, long user_id, int level, long moves, long time;
-    //games: id BIGINT(20), user_id BIGINT(20), level INT(1), moves BIGINT(20), time BIGINT(20)
+    //Game long id, int level, long moves, long time, long user_id;
+    //games: id BIGINT(20), level INT(1), moves BIGINT(20), time BIGINT(20), user_id BIGINT(20)
 
-    private long id;
-    private long user_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private int level;
     private long moves;
     private long time;
 
     public Game(){}
 
-    public Game(long user_id, int level, long moves, long time){
-        this.user_id = user_id;
+    public Game(int level, long moves, long time, User user){
         this.level = level;
         this.moves = moves;
         this.time = time;
+        this.user = user;
     }
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getLevel() {

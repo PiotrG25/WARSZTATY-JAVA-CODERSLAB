@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 public class UserDao {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Autowired
     UserRepository userRepository;

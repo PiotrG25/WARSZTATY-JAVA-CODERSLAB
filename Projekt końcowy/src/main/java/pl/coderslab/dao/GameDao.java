@@ -15,7 +15,7 @@ import java.util.List;
 public class GameDao {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Autowired
     GameRepository gameRepository;
