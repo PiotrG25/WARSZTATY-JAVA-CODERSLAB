@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.beans.CheckValidity;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
+import pl.coderslab.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 public class RegisterController {
 
     @Autowired
-    UserRepository userDao;
+    UserService userService;
 
     @PostMapping("/register")
     public String postRegister(HttpServletRequest request, HttpServletResponse response, @ModelAttribute User user){
@@ -39,8 +40,7 @@ public class RegisterController {
         }else{
 
             user.hashPassword();
-            userDao.save(user);
-            String effect = "ok";
+            String effect = userService.saveToDb(user);
 
             if(isSuccesOrSetError(request, effect)){
                 session.setAttribute("user", user);
