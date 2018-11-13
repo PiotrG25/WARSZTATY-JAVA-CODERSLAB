@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.beans.BCrypt;
 import pl.coderslab.beans.CheckValidity;
-import pl.coderslab.dao.UserDao;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired
-    UserDao userDao;
+    UserRepository userDao;
 
     @PostMapping("/login")
     public String postLogin(HttpServletRequest request, HttpServletResponse response){
@@ -29,11 +29,11 @@ public class LoginController {
 
         if(name == null || name.isEmpty() || password == null || password.isEmpty()){
             request.setAttribute("arguments", true);
-        }else if(!CheckValidity.isNameValid(name) || !CheckValidity.isPasswordValid(password)) {
+        }else if(!CheckValidity.isNameValid(name) || !CheckValidity.isPasswordValid(password)){
             request.setAttribute("error", true);
         }else{
 
-            User user = userDao.loadByName(name);
+            User user = userDao.findUserByName(name);
 
             if(user == null || !BCrypt.checkpw(password, user.getPassword())){
                 request.setAttribute("error", true);

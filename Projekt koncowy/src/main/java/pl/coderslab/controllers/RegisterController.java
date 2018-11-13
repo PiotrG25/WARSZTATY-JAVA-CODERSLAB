@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.beans.CheckValidity;
-import pl.coderslab.dao.UserDao;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 public class RegisterController {
 
     @Autowired
-    UserDao userDao;
+    UserRepository userDao;
 
     @PostMapping("/register")
     public String postRegister(HttpServletRequest request, HttpServletResponse response){
@@ -37,7 +37,9 @@ public class RegisterController {
         }else if(isErrorAndSetIt(request, name, email, password, password2)){
         }else{
             User user = new User(name, password, email);
-            String effect = userDao.saveToDb(user);
+            user.hashPassword();
+            userDao.save(user);
+            String effect = "ok";
 
             if(isSuccesOrSetError(request, effect)){
                 session.setAttribute("user", user);

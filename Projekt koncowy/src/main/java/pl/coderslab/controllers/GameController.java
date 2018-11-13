@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.coderslab.dao.GameDao;
-import pl.coderslab.entity.Game;
 import pl.coderslab.beans.RandomMachine;
+import pl.coderslab.entity.Game;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.GameRepository;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +27,7 @@ public class GameController {
     //app.js give up button rozkodowujący grę i przeslanie getem do main
     //todo zwiększyć czytelność RandomMachine
     //todo UserController
+    //todo UserCredential
     //umożliwić zmianę przeglądanego poziomu (osobny)JS plus ukryty formularz
     //I ustawiać tylko jedną listę w zależności od poziomu
     //zmiana hasła
@@ -45,7 +46,7 @@ public class GameController {
     //todo footer
 
     @Autowired
-    GameDao gameDao;
+    GameRepository gameRepository;
 
     @PostMapping("/game")
     public String postGame(HttpServletRequest request, HttpServletResponse response){
@@ -105,7 +106,7 @@ public class GameController {
         System.out.println(user.getId());
         Game game = new Game(levelInt, movesInt, timeLong, user);
 
-        gameDao.saveToDb(game);
+        gameRepository.save(game);
 
         return "redirect:/main";
     }

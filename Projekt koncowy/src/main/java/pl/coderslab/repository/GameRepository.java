@@ -24,4 +24,5 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
     @Query(value = "SELECT * FROM games WHERE user_id = ?1 AND level = ?2 ORDER BY time ASC LIMIT 10", nativeQuery = true)
     List<Game> load10BestTimeByUserIdOnLevel(long user_id, int level);
+
 }

@@ -9,6 +9,7 @@ import pl.coderslab.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    @Query(value = "SELECT * FROM users WHERE name = ?1 LIMIT 1", nativeQuery = true)
     User findUserByName(String name);
 
     @Query("select u.id from User u where u.name = ?1")
