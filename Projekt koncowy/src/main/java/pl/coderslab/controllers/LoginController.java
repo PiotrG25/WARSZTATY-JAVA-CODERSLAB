@@ -2,7 +2,9 @@ package pl.coderslab.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.beans.BCrypt;
@@ -21,11 +23,15 @@ public class LoginController {
     UserRepository userDao;
 
     @PostMapping("/login")
-    public String postLogin(HttpServletRequest request, HttpServletResponse response){
+    public String postLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute User user){
         HttpSession session = request.getSession();
 
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
+        if(session.getAttribute("user") != null){
+            return "redirect:/main";
+        }
+
+        String name = user.getName();
+        String password = user.getPassword();
 
         if(name == null || name.isEmpty() || password == null || password.isEmpty()){
             request.setAttribute("arguments", true);
@@ -33,7 +39,7 @@ public class LoginController {
             request.setAttribute("error", true);
         }else{
 
-            User user = userDao.findUserByName(name);
+            user = userDao.findUserByName(name);
 
             if(user == null || !BCrypt.checkpw(password, user.getPassword())){
                 request.setAttribute("error", true);
@@ -47,9 +53,10 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String getLogin(HttpServletRequest request, HttpServletResponse response){
+    public String getLogin(HttpServletRequest request, HttpServletResponse response, Model model){
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){
+            model.addAttribute("user", new User());
             return "login";
         }else{
             return "redirect:/main";
