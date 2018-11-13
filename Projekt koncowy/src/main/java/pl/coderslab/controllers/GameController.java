@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 public class GameController {
 
     //walidacja wszystkiego
-    //zmienic level na sesyjny
     //odswierzanie sesji przy wchodzeniu na inną stronę bez wylogowywania
     //todo GameController
     //zwiększyć czytelność kodu
@@ -55,35 +54,7 @@ public class GameController {
             return "redirect:/main";
         }
 
-        Cookie[] cookies = request.getCookies();
-        Cookie levelCookie = null;
-        for(Cookie c : cookies){
-            if(c.getName().equals("level")){
-                levelCookie = c;
-            }
-        }
-
-        if(levelCookie == null){
-            return "redirect:/main";
-        }
-        String level = levelCookie.getValue();
-        levelCookie.setMaxAge(0);
-        response.addCookie(levelCookie);
-
-        if(level == null || level.isEmpty()){
-            return "redirect:/main";
-        }
-
-        Pattern pattern = Pattern.compile("[0-9]+");
-        Matcher matcher = pattern.matcher(level);
-        if(!matcher.matches()){
-            return "redirect:/main";
-        }
-
-        int levelInt = Integer.parseInt(level);
-        if(levelInt < 2 || levelInt > 5){
-            return "redirect:/main";
-        }
+        Integer level = (Integer)session.getAttribute("level");
 
         String moves = request.getParameter("moves");
         String time = request.getParameter("time");
@@ -92,6 +63,7 @@ public class GameController {
             return "redirect:/main";
         }
 
+        Pattern pattern = Pattern.compile("[0-9]+");
         Matcher movesMatcher = pattern.matcher(moves);
         Matcher timeMatcher = pattern.matcher(time);
 
@@ -99,12 +71,12 @@ public class GameController {
             return "redirect:/main";
         }
 
-        int movesInt = Integer.parseInt(moves);
+        long movesLong = Long.parseLong(moves);
         long timeLong = Long.parseLong(time);
 
         User user = (User)session.getAttribute("user");
         System.out.println(user.getId());
-        Game game = new Game(levelInt, movesInt, timeLong, user);
+        Game game = new Game(level, movesLong, timeLong, user);
 
         gameRepository.save(game);
 
@@ -129,16 +101,12 @@ public class GameController {
         if(!matcher.matches()){
             return "redirect:/main";
         }
-
         int levelInt = Integer.parseInt(level);
         if(levelInt < 2 || levelInt > 5){
             return "redirect:/main";
         }
 
-        Cookie levelCookie = new Cookie("level", level);
-        levelCookie.setPath("/");
-        levelCookie.setMaxAge(60 * 15);
-        response.addCookie(levelCookie);
+        session.setAttribute("level", levelInt);
 
         int [][] tab = new RandomMachine(levelInt*levelInt).getTab();
         request.setAttribute("length", levelInt);
