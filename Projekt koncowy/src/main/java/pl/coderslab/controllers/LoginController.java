@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired
-    UserRepository userDao;
+    UserRepository userRepository;
 
     @PostMapping("/login")
     public String postLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute User user){
@@ -39,7 +39,7 @@ public class LoginController {
             request.setAttribute("error", true);
         }else{
 
-            user = userDao.findUserByName(name);
+            user = userRepository.findUserByName(name);
 
             if(user == null || !BCrypt.checkpw(password, user.getPassword())){
                 request.setAttribute("error", true);

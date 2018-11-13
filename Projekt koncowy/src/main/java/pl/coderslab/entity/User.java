@@ -21,7 +21,6 @@ public class User {
 
     @NotNull
     @Pattern(regexp = "^[a-zA-Z0-9]{8,20}$", message = "nazwa powinna zawierać 8-20 znaków, od a-z, A-Z lub 0-9")
-    @Column(unique = true)
     private String name;
 
     @NotNull
@@ -30,7 +29,6 @@ public class User {
 
     @NotNull
     @Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", message = "niewłaściwy email")
-    @Column(unique = true)
     private String email;
 
     public User(){}

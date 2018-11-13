@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     @Autowired
-    GameRepository gameDao;
+    GameRepository gameRepository;
 
     @PostMapping("/user")
     public String postUser(HttpServletRequest request, HttpServletResponse response){
@@ -36,16 +36,19 @@ public class UserController {
         }
         long userId = ((User)session.getAttribute("user")).getId();
 
-        int winCount = gameDao.countAllGamesByUserId(userId);
-        long movesCount = gameDao.countAllMovesByUserId(userId);
-        long timeCount = gameDao.countAllTimeByUserId(userId);
+        Integer winCount = gameRepository.countAllGamesByUserId(userId);
+        Long movesCount = gameRepository.countAllMovesByUserId(userId);
+        Long timeCount = gameRepository.countAllTimeByUserId(userId);
+
+        movesCount = movesCount == null ? 0 : movesCount;
+        timeCount = timeCount == null ? 0 : timeCount;
 
         request.setAttribute("winCount", winCount);
         request.setAttribute("movesCount", movesCount);
         request.setAttribute("timeCount", timeCount);
 
-        request.setAttribute("gamesByMoves", gameDao.load10BestMovesByUserIdOnLevel(userId, 2));
-        request.setAttribute("gamesByTime", gameDao.load10BestTimeByUserIdOnLevel(userId, 2));
+        request.setAttribute("gamesByMoves", gameRepository.load10BestMovesByUserIdOnLevel(userId, 2));
+        request.setAttribute("gamesByTime", gameRepository.load10BestTimeByUserIdOnLevel(userId, 2));
         return "user";
     }
 }

@@ -7,8 +7,10 @@ import pl.coderslab.repository.UserRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 @Service
+@Transactional
 public class UserService {
 
     @PersistenceContext

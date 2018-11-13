@@ -6,6 +6,15 @@
     <title>Game</title>
     <script src="../../js/jQuery3.3.1.js"></script>
     <script src="../../js/app.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
 

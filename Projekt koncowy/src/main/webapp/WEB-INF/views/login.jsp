@@ -5,6 +5,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Login</title>
+    <style>
+        .error{
+            display: block;
+            color: red;
+        }
+        .success{
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <%
@@ -14,9 +23,13 @@
 
     <form:form method="post" modelAttribute="user">
         <form:input path="name" placeholder="name"/><br/>
+        <form:errors path="name" cssClass="error"/>
+
         <form:password path="password" placeholder="password"/><br/>
+        <form:errors path="password" cssClass="error"/>
+
         <input type="submit" value="Zaloguj się"/><br/>
-        <c:if test="${arguments}"><span class="error">Brakuje kilku argumentów</span><br/></c:if>
+        <c:if test="${arguments}"><span class="error">Wszystkie pola wymagane</span><br/></c:if>
         <c:if test="${error}"><span class="error">Niewłaściwa nazwa użytkownika lub hasło</span><br/></c:if>
         <c:if test="${success}"><span class="success">Witam ${user.name}</span><br/></c:if>
     </form:form>
