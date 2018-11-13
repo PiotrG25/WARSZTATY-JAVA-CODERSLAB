@@ -8,6 +8,5 @@
 
     <c:import url="header.jsp"/>
 
-    <c:import url="footer.jsp"/>
 </body>
 </html>

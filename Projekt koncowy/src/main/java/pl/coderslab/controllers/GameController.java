@@ -18,11 +18,8 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //todo DTO User z podwujnym haslem
-    //walidacja wszystkiego
     //odswierzanie sesji przy wchodzeniu na inną stronę bez wylogowywania
     //todo GameController
-    //zwiększyć czytelność kodu
     //app.js give up button rozkodowujący grę i przeslanie getem do main
     //todo zwiększyć czytelność RandomMachine
     //todo UserController
@@ -39,9 +36,6 @@ public class GameController {
     //todo sprawdzić najpopularniejsze błędy na które podatne są formularze
     //todo JS login
     //todo JS register
-    //todo podzielić css
-    //todo naprawic css'a
-    //todo ostylować formularze
     //todo footer
 
     @Autowired

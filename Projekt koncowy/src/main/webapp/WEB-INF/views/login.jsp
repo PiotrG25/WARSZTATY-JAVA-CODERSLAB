@@ -31,6 +31,5 @@
         <c:if test="${success}"><span class="success">Witam ${user.name}</span><br/></c:if>
     </form:form>
 
-    <c:import url="footer.jsp"/>
 </body>
 </html>

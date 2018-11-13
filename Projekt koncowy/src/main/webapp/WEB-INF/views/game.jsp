@@ -7,7 +7,7 @@
     <script src="../../js/jQuery3.3.1.js"></script>
     <script src="../../js/app.js"></script>
     <style>
-        body{
+        #game, ul, h2{
             text-align: center;
         }
         button{
@@ -50,6 +50,5 @@
         </c:forEach>
     </table>
 
-    <c:import url="footer.jsp"/><br/>
 </body>
 </html>
