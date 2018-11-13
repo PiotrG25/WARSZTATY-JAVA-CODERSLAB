@@ -15,17 +15,17 @@
     <form:form method="post" modelAttribute="user">
 
         <form:input path="name" type="text" placeholder="name"/><br/>
-        <c:if test="${name}"><span class="error">nazwa powinna zawierać 8-20 znaków, od a-z, A-Z lub 0-9</span><br/></c:if>
+        <form:errors path="name" cssStyle="display: block;"/>
         <c:if test="${nameNotUnique}"><span class="error">ta nazwa jest już zajęta</span><br/></c:if>
 
         <form:password path="password" placeholder="password"/><br/>
-        <c:if test="${password}"><span class="error">Hasło powinno zawierać 8-20 znaków, małą literę, dużą literę i cyfrę</span><br/></c:if>
+        <form:errors path="password" cssStyle="display: block;"/>
 
         <input type="password" name="password2" placeholder="confirm password"/><br/>
         <c:if test="${differentPassword}"><span class="error">różne hasła</span><br/></c:if>
 
         <form:input path="email" type="email" placeholder="email"/><br/>
-        <c:if test="${email}"><span class="error">niewłaściwy email</span><br/></c:if>
+        <form:errors path="email" cssStyle="display: block;"/>
         <c:if test="${emailNotUnique}"><span class="error">ten email jest już zajęty</span><br/></c:if>
 
         <input type="submit" value="Zarejestruj się"/><br/>

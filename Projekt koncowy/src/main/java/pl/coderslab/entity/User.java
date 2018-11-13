@@ -1,8 +1,11 @@
 package pl.coderslab.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
 import pl.coderslab.beans.BCrypt;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +18,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Pattern(regexp = "^[a-zA-Z0-9]{8,20}$", message = "nazwa powinna zawierać 8-20 znaków, od a-z, A-Z lub 0-9")
+    @Column(unique = true)
     private String name;
+
+    @NotNull
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,20}$", message = "Hasło powinno zawierać 8-20 znaków, małą literę, dużą literę i cyfrę")
     private String password;
+
+    @NotNull
+    @Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", message = "niewłaściwy email")
+    @Column(unique = true)
     private String email;
 
     public User(){}

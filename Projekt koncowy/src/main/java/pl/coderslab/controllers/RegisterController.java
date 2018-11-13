@@ -3,6 +3,7 @@ package pl.coderslab.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,29 +15,35 @@ import pl.coderslab.services.UserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import javax.validation.Validator;
 
 @Controller
 public class RegisterController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    Validator validator;
 
     @PostMapping("/register")
-    public String postRegister(HttpServletRequest request, HttpServletResponse response, @ModelAttribute User user){
+    public String postRegister(HttpServletRequest request, HttpServletResponse response, @Valid User user, BindingResult result){
         HttpSession session = request.getSession();
         if(session.getAttribute("user") != null){
             return "redirect:/main";
         }
 
-        String name = user.getName();
+        if(result.hasErrors()){
+            return "register";
+        }
+
         String password = user.getPassword();
         String password2 = request.getParameter("password2");
-        String email = user.getEmail();
 
-        if(name == null || name.isEmpty() || password == null || password.isEmpty() ||
-        password2 == null || password2.isEmpty() || email == null || email.isEmpty()){
+        if(password2 == null || password2.isEmpty()){
             request.setAttribute("arguments",true);
-        }else if(isErrorAndSetIt(request, name, email, password, password2)){
+        }else if(!password.equals(password2)){
+            request.setAttribute("differentPassword", true);
         }else{
 
             user.hashPassword();
@@ -60,26 +67,6 @@ public class RegisterController {
         }
     }
 
-    private boolean isErrorAndSetIt(HttpServletRequest request, String name, String email, String password, String password2){
-        boolean isError = false;
-        if(!CheckValidity.isNameValid(name)){
-            request.setAttribute("name", true);
-            isError = true;
-        }
-        if(!CheckValidity.isEmailValid(email)){
-            request.setAttribute("email", true);
-            isError = true;
-        }
-        if(!CheckValidity.isPasswordValid(password)){
-            request.setAttribute("password", true);
-            isError = true;
-        }
-        if(!password.equals(password2)){
-            request.setAttribute("differentPassword", true);
-            isError = true;
-        }
-        return isError;
-    }
     private boolean isSuccesOrSetError(HttpServletRequest request, String effect){
         if(effect.equals("name")){
             request.setAttribute("nameNotUnique", true);

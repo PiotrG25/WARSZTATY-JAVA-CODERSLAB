@@ -9,7 +9,6 @@ import pl.coderslab.entity.Game;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.GameRepository;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,6 +18,7 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
+    //todo DTO User z podwujnym haslem
     //walidacja wszystkiego
     //odswierzanie sesji przy wchodzeniu na inną stronę bez wylogowywania
     //todo GameController
