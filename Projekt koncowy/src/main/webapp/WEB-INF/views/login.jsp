@@ -23,10 +23,7 @@
 
     <form:form method="post" modelAttribute="user">
         <form:input path="name" placeholder="name"/><br/>
-        <form:errors path="name" cssClass="error"/>
-
         <form:password path="password" placeholder="password"/><br/>
-        <form:errors path="password" cssClass="error"/>
 
         <input type="submit" value="Zaloguj się"/><br/>
         <c:if test="${arguments}"><span class="error">Wszystkie pola wymagane</span><br/></c:if>

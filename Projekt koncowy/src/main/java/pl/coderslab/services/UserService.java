@@ -5,16 +5,11 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Service
 @Transactional
 public class UserService {
-
-    @PersistenceContext
-    EntityManager entityManager;
 
     @Autowired
     UserRepository userRepository;
@@ -27,11 +22,8 @@ public class UserService {
             return "email";
         }
 
-        if(user.getId() == null){
-            entityManager.persist(user);
-        }else{
-            entityManager.merge(user);
-        }
+        userRepository.save(user);
+
         return "ok";
     }
 }
