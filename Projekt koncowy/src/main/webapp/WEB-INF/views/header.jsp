@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="../../css/style.css" type="text/css"/>
+    <%--<link rel="stylesheet" href="../../css/style.css" type="text/css"/>--%>
     <link rel="stylesheet" href="../../css/fontello-f5aae3d8/css/fontello.css" type="text/css"/>
 </head>
 <body>
@@ -27,6 +27,7 @@
         <c:if test="${!logged}">
             <c:if test="${inRegister}"><a id="loginLink" href="/login">Zaloguj się!</a></c:if>
             <c:if test="${inLogin}"><a id="registerLink" href="/register">Zarejestruj się!</a></c:if>
+            <div style="clear: both;"></div>
         </c:if>
     </header>
 </body>
