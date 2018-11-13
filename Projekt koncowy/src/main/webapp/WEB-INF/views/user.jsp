@@ -56,7 +56,9 @@
     </div>
 
     <div id="redZone">
-        form
+        <a href="/editEmail">Edytuj email</a><br/>
+        <a href="/editPassword">Edytuj hasło</a><br/>
+        <a href="/delete">Usuń konto</a><br/>
     </div>
 
 </body>

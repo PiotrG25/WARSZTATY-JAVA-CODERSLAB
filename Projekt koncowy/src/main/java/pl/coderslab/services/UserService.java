@@ -15,10 +15,12 @@ public class UserService {
     UserRepository userRepository;
 
     public String saveToDb(User user){
-        if(userRepository.returnIdWhenNameFound(user.getName()) != user.getId()){
+        Long tempId = userRepository.returnIdWhenNameFound(user.getName());
+        if(tempId != user.getId() && tempId != null){
             return "name";
         }
-        if(userRepository.returnIdWhenEmailFound(user.getEmail()) != user.getId()){
+        tempId = userRepository.returnIdWhenEmailFound(user.getEmail());
+        if(tempId != user.getId() && tempId != null){
             return "email";
         }
 
