@@ -54,7 +54,7 @@
     </div>
 
     <div id="enemyGame">
-        Gra przeciwnika
+        Gra przeciwnika:
         <div class="gameField">
             <c:forEach begin="1" var="i" end="${length}">
                 <c:forEach begin="1" var="j" end="${length}">

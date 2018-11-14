@@ -18,8 +18,6 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //odswierzanie sesji przy wchodzeniu na inną stronę bez wylogowywania
-    //todo GameController
     //app.js give up button rozkodowujący grę i przeslanie getem do main
     //todo zwiększyć czytelność RandomMachine
     //todo UserCredential

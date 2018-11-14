@@ -32,7 +32,6 @@ $(function(){
             for(var i = 0; i < len; i++){
                 changeEnemyButton(parseInt(tds.eq(i).text()))
             }
-            console.log("kliknietao", index);
         });
         $(element).on("click", function(){
             changeButton(index);
@@ -110,8 +109,8 @@ $(function(){
             if(enemyPushed[i] === false){
                 return false;
             }
-            return true;
         }
+        return true;
     }
 
     function incrementCounter(){
@@ -151,20 +150,19 @@ $(function(){
         toClick.click();
     }
     function monkeyRedirect(){
-        var a = $(
-            "<a href='/main' id='goToMain'></a>"
+        var form = $(
+            "<form action='/main'>" +
+                "<input type='submit' id='goToMain'/>" +
+            "</form>"
         );
-        $("body").append(a);
+        $("body").append(form);
 
         var toClick = $("#goToMain");
         toClick.click();
     }
 
     function giveUp(){
-        checkWinCondition = function(){};
-        pushed.forEach(function(index, element){
-
-        })
+        monkeyRedirect();
     }
 });
 
