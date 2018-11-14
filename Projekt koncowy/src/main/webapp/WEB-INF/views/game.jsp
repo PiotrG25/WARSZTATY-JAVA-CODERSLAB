@@ -33,6 +33,7 @@
     <ul>
         <li>Zielony oznacza wciśnięty</li>
         <li>jeden przycisk może wpływać na kilka przycisków</li>
+        <li>Po prawej masz małpę która sprubuje cię prześcignąć</li>
         <li>Powodzenia! :)</li>
 
         <div id="counter">Kliknięcia: 0</div>
