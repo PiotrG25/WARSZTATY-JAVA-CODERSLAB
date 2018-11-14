@@ -18,7 +18,7 @@
     <c:import url="header.jsp"/>
 
     <form method="post">
-        <input type="email" name="newEmail" placeholder="nowy email"/>
+        <input type="email" name="newEmail" placeholder="nowy email" value="${newEmail}"/>
         <input type="password" name="confirmPassword" placeholder="potwierdz haslo"/>
         <input type="submit" value="Zapisz"/>
 

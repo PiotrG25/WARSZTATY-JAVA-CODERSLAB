@@ -36,6 +36,8 @@ public class UserController {
         String password = user.getPassword();
         String confirmPassword = request.getParameter("confirmPassword");
 
+        request.setAttribute("newEmail", newEmail);
+
         if(newEmail == null || newEmail.isEmpty() || confirmPassword == null || confirmPassword.isEmpty()){
             request.setAttribute("arguments", true);
         }else if(!CheckValidity.isEmailValid(newEmail)){
@@ -56,7 +58,6 @@ public class UserController {
         }
         return "editEmail";
     }
-
     @GetMapping("/editEmail")
     public String getEditEmail(HttpServletRequest request){
         HttpSession session = request.getSession();

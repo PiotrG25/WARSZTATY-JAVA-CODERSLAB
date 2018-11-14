@@ -22,12 +22,10 @@ public class GameController {
     //todo GameController
     //app.js give up button rozkodowujący grę i przeslanie getem do main
     //todo zwiększyć czytelność RandomMachine
-    //todo UserController
     //todo UserCredential
     //umożliwić zmianę przeglądanego poziomu (osobny)JS plus ukryty formularz
     //I ustawiać tylko jedną listę w zależności od poziomu
     //zmiana hasła
-    //zmiana maila
     //usunięcie konta active/inactive
     //todo statystyki user
     //bestByTime
