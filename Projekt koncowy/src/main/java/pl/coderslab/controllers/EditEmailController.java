@@ -23,8 +23,7 @@ public class EditEmailController {
     UserService userService;
 
     @PostMapping("/editEmail")
-    public String postEditEmail(
-            @ModelAttribute @Valid UserEmailEditDto userEmailEditDto, BindingResult result, HttpServletRequest request)
+    public String postEditEmail(@ModelAttribute @Valid UserEmailEditDto userEmailEditDto, BindingResult result, HttpServletRequest request)
     {
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){

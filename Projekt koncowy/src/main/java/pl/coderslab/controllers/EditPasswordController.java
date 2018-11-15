@@ -33,13 +33,14 @@ public class EditPasswordController {
 
         if(!userEditPasswordDto.getNewPassword().equals(userEditPasswordDto.getConfirmNewPassword())){
             model.addAttribute("differentPassword", true);
-        }else{
-            User user = (User) session.getAttribute("user");
-            user.setPassword(userEditPasswordDto.getNewPassword());
-            user.hashPassword();
-            userService.saveToDb(user);
+            return "editPassword";
         }
-        return "redirect:/user";
+        User user = (User) session.getAttribute("user");
+        user.setPassword(userEditPasswordDto.getNewPassword());
+        user.hashPassword();
+        userService.saveToDb(user);
+
+        return "redirect:/main";
     }
 
     @GetMapping("/editPassword")

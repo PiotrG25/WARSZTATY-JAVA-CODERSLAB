@@ -12,6 +12,8 @@
 </head>
 <body>
 
+    <c:import url="header.jsp"/>
+
     <form:form method="post" modelAttribute="userEditPasswordDto">
 
         <form:password path="newPassword" placeholder="new password"/>

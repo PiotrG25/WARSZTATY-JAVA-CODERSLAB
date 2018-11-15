@@ -20,7 +20,6 @@ public class GameController {
 
     //umożliwić zmianę przeglądanego poziomu (osobny)JS plus ukryty formularz
     //I ustawiać tylko jedną listę w zależności od poziomu
-    //usunięcie konta active/inactive
     //todo statystyki user
     //bestByTime
     //bestByMoves

@@ -12,6 +12,8 @@
 </head>
 <body>
 
+    <c:import url="header.jsp"/>
+
     <form:form method="post" modelAttribute="userDeleteDto">
 
         <form:password path="password" placeholder="wpisz haslo by usunac konto"/>
