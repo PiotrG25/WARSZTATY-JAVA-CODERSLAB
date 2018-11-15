@@ -19,6 +19,7 @@ public class User {
     private String name;
     private String password;
     private String email;
+    private Integer enabled;
 
     public User(){}
 
@@ -26,6 +27,7 @@ public class User {
         this.name = name;
         this.password = password;
         this.email = email;
+        this.enabled = 1;
     }
 
     @OneToMany(mappedBy = "user")
@@ -61,5 +63,12 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Boolean getEnabled(){
+        return enabled == 1;
+    }
+    public void setEnabled(Boolean enabled){
+        this.enabled = enabled ? 1 : 0;
     }
 }
