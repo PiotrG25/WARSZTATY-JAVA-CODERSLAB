@@ -23,8 +23,9 @@ public class EditEmailController {
     UserService userService;
 
     @PostMapping("/editEmail")
-    public String postEditEmail(@ModelAttribute(value = "userEmailEditDto") @Valid UserEmailEditDto userEmailEditDto, BindingResult result,
-                                HttpServletRequest request){
+    public String postEditEmail(
+            @ModelAttribute @Valid UserEmailEditDto userEmailEditDto, BindingResult result, HttpServletRequest request)
+    {
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){
             return "redirect:/main";
@@ -41,20 +42,21 @@ public class EditEmailController {
 
         if(!BCrypt.checkpw(confirmPassword, password)){
             request.setAttribute("password", true);
-        }else{
-            String oldEmail = user.getEmail();
-            user.setEmail(newEmail);
-            String effect = userService.saveToDb(user);
-
-            if(effect.equals("email")){
-                request.setAttribute("email", true);
-                user.setEmail(oldEmail);
-            }else{
-                request.setAttribute("success", true);
-            }
+            return "editEmail";
         }
-        return "editEmail";
+
+        String oldEmail = user.getEmail();
+        user.setEmail(newEmail);
+        String effect = userService.saveToDb(user);
+
+        if(effect.equals("email")){
+            request.setAttribute("email", true);
+            user.setEmail(oldEmail);
+            return "editEmail";
+        }
+        return "redirect:/main";
     }
+
     @GetMapping("/editEmail")
     public String getEditEmail(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();

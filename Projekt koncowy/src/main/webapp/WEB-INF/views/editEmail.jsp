@@ -25,6 +25,7 @@
         <c:if test="${email}"><span class="error">Ten email jest już zajęty</span></c:if>
 
         <form:password path="password" placeholder="potwierdz haslo"/>
+        <form:errors path="password" cssClass="error"/>
         <c:if test="${password}"><span class="error">Nie właściwe hasło</span></c:if>
 
         <input type="submit" value="Zapisz"/>
