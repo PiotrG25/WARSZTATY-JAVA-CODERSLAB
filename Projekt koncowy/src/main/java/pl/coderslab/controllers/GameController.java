@@ -18,9 +18,6 @@ import java.util.regex.Pattern;
 @Controller
 public class GameController {
 
-    //app.js give up button rozkodowujący grę i przeslanie getem do main
-    //todo zwiększyć czytelność RandomMachine
-    //todo UserCredential
     //umożliwić zmianę przeglądanego poziomu (osobny)JS plus ukryty formularz
     //I ustawiać tylko jedną listę w zależności od poziomu
     //zmiana hasła

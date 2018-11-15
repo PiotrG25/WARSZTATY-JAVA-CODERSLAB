@@ -24,49 +24,6 @@ public class UserController {
     @Autowired
     GameRepository gameRepository;
 
-    @PostMapping("/editEmail")
-    public String postEditEmail(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        if(session.getAttribute("user") == null){
-            return "redirect:/main";
-        }
-
-        User user = (User)session.getAttribute("user");
-        String newEmail = request.getParameter("newEmail");
-        String password = user.getPassword();
-        String confirmPassword = request.getParameter("confirmPassword");
-
-        request.setAttribute("newEmail", newEmail);
-
-        if(newEmail == null || newEmail.isEmpty() || confirmPassword == null || confirmPassword.isEmpty()){
-            request.setAttribute("arguments", true);
-        }else if(!CheckValidity.isEmailValid(newEmail)){
-            request.setAttribute("emailPattern", true);
-        }else if(!BCrypt.checkpw(confirmPassword, password)){
-            request.setAttribute("password", true);
-        }else{
-            String oldEmail = user.getEmail();
-            user.setEmail(newEmail);
-            String effect = userService.saveToDb(user);
-
-            if(effect.equals("email")){
-                request.setAttribute("email", true);
-                user.setEmail(oldEmail);
-            }else{
-                request.setAttribute("success", true);
-            }
-        }
-        return "editEmail";
-    }
-    @GetMapping("/editEmail")
-    public String getEditEmail(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        if(session.getAttribute("user") == null){
-            return "redirect:/main";
-        }
-        return "editEmail";
-    }
-
     @PostMapping("/user")
     public String postUser(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();

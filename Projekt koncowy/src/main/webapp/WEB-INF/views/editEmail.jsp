@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,17 +18,18 @@
 
     <c:import url="header.jsp"/>
 
-    <form method="post">
-        <input type="email" name="newEmail" placeholder="nowy email" value="${newEmail}"/>
-        <input type="password" name="confirmPassword" placeholder="potwierdz haslo"/>
-        <input type="submit" value="Zapisz"/>
+    <form:form method="post" modelAttribute="userEmailEditDto">
 
-        <c:if test="${arguments}"><span class="error">Wszystkie pola wymagane</span></c:if>
-        <c:if test="${emailPattern}"><span class="error">Nie właściwy email</span></c:if>
-        <c:if test="${password}"><span class="error">Nie właściwe hasło</span></c:if>
+        <form:input path="email" placeholder="nowy email"/>
+        <form:errors path="email" cssClass="error"/>
         <c:if test="${email}"><span class="error">Ten email jest już zajęty</span></c:if>
 
+        <form:password path="password" placeholder="potwierdz haslo"/>
+        <c:if test="${password}"><span class="error">Nie właściwe hasło</span></c:if>
+
+        <input type="submit" value="Zapisz"/>
+
         <c:if test="${success}"><span class="success">Zmieniono email</span></c:if>
-    </form>
+    </form:form>
 </body>
 </html>
