@@ -10,6 +10,7 @@ import pl.coderslab.beans.BCrypt;
 import pl.coderslab.beans.CheckValidity;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.GameRepository;
+import pl.coderslab.services.GameService;
 import pl.coderslab.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ public class UserController {
     @Autowired
     UserService userService;
     @Autowired
-    GameRepository gameRepository;
+    GameService gameService;
 
     @PostMapping("/user")
     public String postUser(HttpServletRequest request, HttpServletResponse response){
@@ -43,9 +44,9 @@ public class UserController {
         }
         long userId = ((User)session.getAttribute("user")).getId();
 
-        Integer winCount = gameRepository.countAllGamesByUserId(userId);
-        Long movesCount = gameRepository.countAllMovesByUserId(userId);
-        Long timeCount = gameRepository.countAllTimeByUserId(userId);
+        Integer winCount = gameService.countAllGamesByUserId(userId);
+        Long movesCount = gameService.countAllMovesByUserId(userId);
+        Long timeCount = gameService.countAllTimeByUserId(userId);
 
         movesCount = movesCount == null ? 0 : movesCount;
         timeCount = timeCount == null ? 0 : timeCount;
@@ -54,8 +55,14 @@ public class UserController {
         request.setAttribute("movesCount", movesCount);
         request.setAttribute("timeCount", timeCount);
 
-        request.setAttribute("gamesByMoves", gameRepository.load10BestMovesByUserIdOnLevel(userId, 2));
-        request.setAttribute("gamesByTime", gameRepository.load10BestTimeByUserIdOnLevel(userId, 2));
+        request.setAttribute("gamesByMoves2", gameService.load10BestMovesByUserIdOnLevel(userId, 2));
+        request.setAttribute("gamesByTime2", gameService.load10BestTimeByUserIdOnLevel(userId, 2));
+        request.setAttribute("gamesByMoves3", gameService.load10BestMovesByUserIdOnLevel(userId, 3));
+        request.setAttribute("gamesByTime3", gameService.load10BestTimeByUserIdOnLevel(userId, 3));
+        request.setAttribute("gamesByMoves4", gameService.load10BestMovesByUserIdOnLevel(userId, 4));
+        request.setAttribute("gamesByTime4", gameService.load10BestTimeByUserIdOnLevel(userId, 4));
+        request.setAttribute("gamesByMoves5", gameService.load10BestMovesByUserIdOnLevel(userId, 5));
+        request.setAttribute("gamesByTime5", gameService.load10BestTimeByUserIdOnLevel(userId, 5));
         return "user";
     }
 }

@@ -8,5 +8,9 @@
 
     <c:import url="header.jsp"/>
 
+
+    <h2>Link do upośledzonej wersji</h2>
+    <h1><a>https://mighty-ravine-44060.herokuapp.com/game</a></h1>
+
 </body>
 </html>

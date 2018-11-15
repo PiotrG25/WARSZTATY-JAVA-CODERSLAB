@@ -5,6 +5,17 @@
 <head>
     <title>${user.name}</title>
 
+    <style>
+        .tabDiv{
+            display: inline-block;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table, td, tr{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <c:import url="header.jsp"/>
@@ -17,17 +28,23 @@
         <li>Łączny czas gry: ${timeCount}</li>
     </ul>
 
-    <h3 id="table">tablica 2x2</h3>
+    <div id="redZone">
+        <a href="/editEmail">Edytuj email</a><br/>
+        <a href="/editPassword">Edytuj hasło</a><br/>
+        <a href="/deleteUser">Usuń konto</a><br/>
+    </div>
+
+
 
     <div class="tabDiv">
-        <h4>Najlepsze wg ruchów</h4>
         <table>
+            <tr><td colspan="3"><h4>Najlepsze wg ruchów</h4></td></tr>
             <tr>
-                <td></td>
+                <td>Tab: 2x2</td>
                 <td>ruchy</td>
                 <td>czas</td>
             </tr>
-            <c:forEach items="${gamesByMoves}" var="game" varStatus="i">
+            <c:forEach items="${gamesByMoves2}" var="game" varStatus="i">
                 <tr>
                     <td>${i.count}</td>
                     <td>${game.moves}</td>
@@ -38,14 +55,14 @@
     </div>
 
     <div class="tabDiv">
-        <h4>Najlepsze wg czasu</h4>
         <table>
+            <tr><td colspan="3"><h4>Najlepsze wg czasu</h4></td></tr>
             <tr>
-                <td></td>
+                <td>tab: 2x2</td>
                 <td>ruchy</td>
                 <td>czas</td>
             </tr>
-            <c:forEach items="${gamesByTime}" var="game" varStatus="i">
+            <c:forEach items="${gamesByTime2}" var="game" varStatus="i">
             <tr>
                     <td>${i.count}</td>
                     <td>${game.moves}</td>
@@ -55,10 +72,115 @@
         </table>
     </div>
 
-    <div id="redZone">
-        <a href="/editEmail">Edytuj email</a><br/>
-        <a href="/editPassword">Edytuj hasło</a><br/>
-        <a href="/deleteUser">Usuń konto</a><br/>
+
+    <div class="tabDiv">
+        <table>
+            <tr><td colspan="3"><h4>Najlepsze wg ruchów</h4></td></tr>
+            <tr>
+                <td>Tab: 3x3</td>
+                <td>ruchy</td>
+                <td>czas</td>
+            </tr>
+            <c:forEach items="${gamesByMoves3}" var="game" varStatus="i">
+                <tr>
+                    <td>${i.count}</td>
+                    <td>${game.moves}</td>
+                    <td>${game.time}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+    <div class="tabDiv">
+        <table>
+            <tr><td colspan="3"><h4>Najlepsze wg czasu</h4></td></tr>
+            <tr>
+                <td>tab: 3x3</td>
+                <td>ruchy</td>
+                <td>czas</td>
+            </tr>
+            <c:forEach items="${gamesByTime3}" var="game" varStatus="i">
+                <tr>
+                    <td>${i.count}</td>
+                    <td>${game.moves}</td>
+                    <td>${game.time}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+
+    <div class="tabDiv">
+        <table>
+            <tr><td colspan="3"><h4>Najlepsze wg ruchów</h4></td></tr>
+            <tr>
+                <td>Tab: 4x4</td>
+                <td>ruchy</td>
+                <td>czas</td>
+            </tr>
+            <c:forEach items="${gamesByMoves4}" var="game" varStatus="i">
+                <tr>
+                    <td>${i.count}</td>
+                    <td>${game.moves}</td>
+                    <td>${game.time}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+    <div class="tabDiv">
+        <table>
+            <tr><td colspan="3"><h4>Najlepsze wg czasu</h4></td></tr>
+            <tr>
+                <td>tab: 4x4</td>
+                <td>ruchy</td>
+                <td>czas</td>
+            </tr>
+            <c:forEach items="${gamesByTime4}" var="game" varStatus="i">
+                <tr>
+                    <td>${i.count}</td>
+                    <td>${game.moves}</td>
+                    <td>${game.time}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+
+    <div class="tabDiv">
+        <table>
+            <tr><td colspan="3"><h4>Najlepsze wg ruchów</h4></td></tr>
+            <tr>
+                <td>Tab: 5x5</td>
+                <td>ruchy</td>
+                <td>czas</td>
+            </tr>
+            <c:forEach items="${gamesByMoves5}" var="game" varStatus="i">
+                <tr>
+                    <td>${i.count}</td>
+                    <td>${game.moves}</td>
+                    <td>${game.time}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+    <div class="tabDiv">
+        <table>
+            <tr><td colspan="3"><h4>Najlepsze wg czasu</h4></td></tr>
+            <tr>
+                <td>tab: 5x5</td>
+                <td>ruchy</td>
+                <td>czas</td>
+            </tr>
+            <c:forEach items="${gamesByTime5}" var="game" varStatus="i">
+                <tr>
+                    <td>${i.count}</td>
+                    <td>${game.moves}</td>
+                    <td>${game.time}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </div>
 
 </body>
