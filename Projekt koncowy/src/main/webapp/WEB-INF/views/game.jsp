@@ -7,10 +7,10 @@
     <script src="../../js/jQuery3.3.1.js"></script>
     <script src="../../js/app.js"></script>
     <style>
-        #game, #enemyGame, ul, h2{
+        #game, #enemyGame, ul, h2, body{
             text-align: center;
         }
-        #game, #enemyGame, .gameField{
+        #game, #enemyGame{
             display: inline-block;
         }
         button, .pseudoButton{
@@ -18,10 +18,6 @@
             height: 50px;
             display: inline-block;
             border: 1px solid black;
-        }
-        #giveUp{
-            width: 105px;
-            background-color: yellow;
         }
     </style>
 </head>
@@ -50,7 +46,6 @@
                 <br/>
             </c:forEach>
         </div>
-        <button id="giveUp">Poddaje się</button>
     </div>
 
     <div id="enemyGame">

@@ -24,7 +24,7 @@ public class GameService {
     public Long countAllTimeByUserId(Long userId){
         return gameRepository.countAllTimeByUserId(userId);
     }
-    
+
     public List<Game> load10BestMovesByUserIdOnLevel(Long userId, Integer level){
         return gameRepository.load10BestMovesByUserIdOnLevel(userId, level);
     }
