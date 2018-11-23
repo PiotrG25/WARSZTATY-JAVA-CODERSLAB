@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="813c283e-59f1-4af8-83e4-2ba35131b5dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Projekt końcowy/src/main/java/spring/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Projekt końcowy/src/main/java/spring/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/WEB-INF/views/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Projekt końcowy/src/main/webapp/WEB-INF/views/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WARSZTAT_3/WARSZTAT_3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WARSZTAT_6/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WARSZTAT_6/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,6 +54,15 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="22688" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1294296711">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -222,8 +230,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,16 +351,17 @@
       <workItem from="1540829863318" duration="782000" />
       <workItem from="1541411469527" duration="614000" />
       <workItem from="1541420517827" duration="529000" />
+      <workItem from="1542976181844" duration="665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84309000" />
+    <option name="totallyTimeSpent" value="84974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13615733" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1376702" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
