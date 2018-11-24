@@ -23,7 +23,7 @@ public class Comment {
     @NotBlank @Pattern(regexp = ".{0,60}")
     private String description;
 
+    private Long article_id;
     private Long user_id;
-
     private LocalDateTime date;
 }
