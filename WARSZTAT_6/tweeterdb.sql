@@ -26,6 +26,7 @@ CREATE TABLE `articles` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `description` varchar(140) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
+  `date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
@@ -53,6 +54,7 @@ CREATE TABLE `comments` (
   `description` varchar(60) DEFAULT NULL,
   `article_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
+  `date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `user_id` (`user_id`),
@@ -82,6 +84,7 @@ CREATE TABLE `messages` (
   `description` varchar(255) DEFAULT NULL,
   `fromUser_id` bigint(20) DEFAULT NULL,
   `toUser_id` bigint(20) DEFAULT NULL,
+  `date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fromUser_id` (`fromUser_id`),
   KEY `toUser_id` (`toUser_id`),
@@ -134,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-23 21:58:37
+-- Dump completed on 2018-11-24 17:14:26
