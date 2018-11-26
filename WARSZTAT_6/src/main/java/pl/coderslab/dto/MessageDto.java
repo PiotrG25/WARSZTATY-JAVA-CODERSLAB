@@ -1,37 +1,21 @@
-package pl.coderslab.entity;
+package pl.coderslab.dto;
 
-import javax.persistence.*;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "messages")
-public class Message {
-    /*Wiadomości: Każdy użytkownik może wysłać innemu użytkownikowi wiadomość*/
+public class MessageDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @NotNull @NotBlank @Pattern(regexp = ".{0,60}")
     private String description;
+
     private Long fromUser_id;
     private Long toUser_id;
     private LocalDateTime date;
 
-
-    public Message(){}
-
-    public Message(String description, Long fromUser_id, Long toUser_id, LocalDateTime date) {
-        this.description = description;
-        this.fromUser_id = fromUser_id;
-        this.toUser_id = toUser_id;
-        this.date = date;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
+    
     public String getDescription() {
         return description;
     }
