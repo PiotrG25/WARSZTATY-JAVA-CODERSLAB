@@ -15,7 +15,7 @@ public class MessageDto {
     private Long toUser_id;
     private LocalDateTime date;
 
-    
+
     public String getDescription() {
         return description;
     }

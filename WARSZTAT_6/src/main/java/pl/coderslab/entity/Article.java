@@ -13,15 +13,19 @@ public class Article {
     private Long id;
 
     private String description;
-    private Long user_id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     private LocalDateTime date;
 
 
     public Article(){}
 
-    public Article(String description, Long user_id, LocalDateTime date) {
+    public Article(String description, User user, LocalDateTime date) {
         this.description = description;
-        this.user_id = user_id;
+        this.user = user;
         this.date = date;
     }
 
@@ -38,12 +42,12 @@ public class Article {
         this.description = description;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDateTime getDate() {

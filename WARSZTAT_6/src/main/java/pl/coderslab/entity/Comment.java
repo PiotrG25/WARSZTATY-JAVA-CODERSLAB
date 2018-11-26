@@ -14,17 +14,24 @@ public class Comment {
     private Long id;
 
     private String description;
-    private Long article_id;
-    private Long user_id;
+
+    @ManyToOne
+    @JoinColumn(name = "article_id")
+    private Article article;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     private LocalDateTime date;
 
 
     public Comment(){}
 
-    public Comment(String description, Long article_id, Long user_id, LocalDateTime date) {
+    public Comment(String description, Article article, User user, LocalDateTime date) {
         this.description = description;
-        this.article_id = article_id;
-        this.user_id = user_id;
+        this.article = article;
+        this.user = user;
         this.date = date;
     }
 
@@ -41,20 +48,20 @@ public class Comment {
         this.description = description;
     }
 
-    public Long getArticle_id() {
-        return article_id;
+    public Article getArticle() {
+        return article;
     }
 
-    public void setArticle_id(Long article_id) {
-        this.article_id = article_id;
+    public void setArticle(Article article) {
+        this.article = article;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDateTime getDate() {

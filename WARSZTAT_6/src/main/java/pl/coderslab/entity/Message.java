@@ -13,17 +13,24 @@ public class Message {
     private Long id;
 
     private String description;
-    private Long fromUser_id;
-    private Long toUser_id;
+
+    @ManyToOne
+    @JoinColumn(name = "fromUser_id")
+    private User fromUser;
+
+    @ManyToOne
+    @JoinColumn(name = "toUser_id")
+    private User toUser;
+
     private LocalDateTime date;
 
 
     public Message(){}
 
-    public Message(String description, Long fromUser_id, Long toUser_id, LocalDateTime date) {
+    public Message(String description, User fromUser, User toUser, LocalDateTime date) {
         this.description = description;
-        this.fromUser_id = fromUser_id;
-        this.toUser_id = toUser_id;
+        this.fromUser = fromUser;
+        this.toUser = toUser;
         this.date = date;
     }
 
@@ -40,20 +47,20 @@ public class Message {
         this.description = description;
     }
 
-    public Long getFromUser_id() {
-        return fromUser_id;
+    public User getFromUser() {
+        return fromUser;
     }
 
-    public void setFromUser_id(Long fromUser_id) {
-        this.fromUser_id = fromUser_id;
+    public void setFromUser(User fromUser) {
+        this.fromUser = fromUser;
     }
 
-    public Long getToUser_id() {
-        return toUser_id;
+    public User getToUser() {
+        return toUser;
     }
 
-    public void setToUser_id(Long toUser_id) {
-        this.toUser_id = toUser_id;
+    public void setToUser(User toUser) {
+        this.toUser = toUser;
     }
 
     public LocalDateTime getDate() {
