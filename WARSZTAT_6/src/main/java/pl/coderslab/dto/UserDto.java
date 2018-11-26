@@ -12,13 +12,11 @@ public class UserDto {
     @NotNull @NotBlank
     private String name;
 
-    @NotNull
-    @NotBlank
+    @NotNull @NotBlank
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,20}$")
     private String password;
 
-    @NotNull @NotEmpty
-    @Email
+    @NotNull @NotEmpty @Email
     private String email;
 
 

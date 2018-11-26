@@ -1,10 +1,6 @@
 package pl.coderslab.entity;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,10 +13,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @NotBlank @Pattern(regexp = ".{0,60}")
     private String description;
-
     private Long article_id;
     private Long user_id;
     private LocalDateTime date;
