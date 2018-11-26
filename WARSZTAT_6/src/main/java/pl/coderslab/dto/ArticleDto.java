@@ -10,6 +10,7 @@ public class ArticleDto {
 
     @NotNull @NotBlank @Pattern(regexp = ".{0,140}")
     private String description;
+
     private Long user_id;
     private LocalDateTime date;
 
