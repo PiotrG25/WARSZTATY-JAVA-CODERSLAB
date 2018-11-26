@@ -1,5 +1,11 @@
 package pl.coderslab.controllers;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import pl.coderslab.dto.UserDto;
+
+@Controller
 public class RegisterController {
     /*Strona ma pobierać email i hasło.
 
@@ -10,4 +16,9 @@ public class RegisterController {
     (ta sama strona) i wyświetlamy komunikat o zajętym adresie email.*/
 
 
+    @GetMapping("/register")
+    public String getRegister(Model model){
+        model.addAttribute("userDto", new UserDto());
+        return "register";
+    }
 }
